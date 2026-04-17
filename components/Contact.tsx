@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Code2, Briefcase } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
@@ -14,14 +14,14 @@ export default function Contact() {
     {
       name: "GitHub",
       url: "https://github.com/aniketvishwakarma-11",
-      icon: Code2,
-      color: "hover:text-cyan-400",
+      icon: Github,
+      color: "hover:text-gray-300",
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/aniket-vishwakarma-bb1b922b5",
-      icon: Briefcase,
-      color: "hover:text-blue-400",
+      icon: Linkedin,
+      color: "hover:text-blue-500",
     },
   ];
 
