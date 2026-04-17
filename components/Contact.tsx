@@ -49,7 +49,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-black/50 border border-cyan-500/30 rounded-lg p-12 text-center hover:border-cyan-500/60 transition-all"
+          className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 sm:p-12 text-center hover:border-cyan-500/60 transition-all"
         >
           {/* Email */}
           <motion.div
@@ -57,19 +57,19 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
-            <p className="text-gray-400 text-sm mb-2">Drop me an email</p>
+            <p className="text-gray-400 text-xs sm:text-sm mb-2">Drop me an email</p>
             <a
               href="mailto:aniketvis675@gmail.com"
-              className="text-3xl font-bold gradient-text hover:opacity-80 transition-opacity"
+              className="text-lg sm:text-2xl md:text-3xl font-bold gradient-text hover:opacity-80 transition-opacity break-words"
             >
               aniketvis675@gmail.com
             </a>
           </motion.div>
 
           {/* Divider */}
-          <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-12"></div>
+          <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8 sm:mb-12"></div>
 
           {/* Social Links */}
           <motion.div
@@ -77,7 +77,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex justify-center gap-8"
+            className="flex justify-center gap-4 sm:gap-8 flex-wrap"
           >
             {socialLinks.map((link, index) => {
               const Icon = link.icon;
@@ -89,7 +89,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-full ${link.color} transition-colors`}
+                  className={`p-3 sm:p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-full ${link.color} transition-colors`}
                   aria-label={link.name}
                 >
                   <Icon size={24} />

@@ -33,7 +33,7 @@ export const projects: Project[] = [
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Python", "Scikit-learn"],
     deployment: "https://student-placement-prediction-ten.vercel.app/",
     stats: {
-      activeUsers: "187",
+      activeUsers: "187+",
       newUsers: "186",
       totalViews: "4.4k",
       engagementTime: "6m 5s",
