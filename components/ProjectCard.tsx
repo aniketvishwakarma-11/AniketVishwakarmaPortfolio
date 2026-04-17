@@ -16,10 +16,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group h-full"
+      className="group h-full relative"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="relative bg-black/50 border border-cyan-500/30 rounded-lg p-6 h-full flex flex-col hover:border-cyan-500/60 transition-all hover:shadow-lg hover:shadow-cyan-500/20">
+      <div className="relative bg-black/50 border border-cyan-500/30 rounded-lg p-6 h-full flex flex-col group-hover:border-cyan-500/60 group-hover:shadow-lg group-hover:shadow-cyan-500/20 transition-all">
         {/* Project Header */}
         <div className="mb-4">
           <p className="text-cyan-400 text-sm font-semibold mb-1">{project.type}</p>
@@ -95,24 +95,20 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
         {/* Link Button */}
         {project.deployment === "#" ? (
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-500/50 text-gray-300 rounded-lg font-semibold opacity-60 cursor-not-allowed">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-500/50 text-gray-300 rounded text-sm font-semibold opacity-60 cursor-not-allowed w-fit">
             Coming Soon ⏳
           </div>
         ) : (
-          <motion.div
+          <motion.a
+            href={project.deployment}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-fit"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all relative z-10 cursor-pointer w-fit"
           >
-            <a
-              href={project.deployment}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
-            >
-              View Project <ExternalLink size={18} />
-            </a>
-          </motion.div>
+            View Project <ExternalLink size={16} />
+          </motion.a>
         )}
       </div>
     </motion.div>
