@@ -20,17 +20,45 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Student Placement Prediction System",
-    type: "Full-Stack ML Application",
+    type: "Full-Stack ML & AI Application",
     description:
-      "ML powered platform that predicts placement probability using academic, aptitude and interview metrics. Includes analytics dashboard, probability trend graphs and downloadable PDF reports.",
+      "Advanced placement prediction platform using ML and AI that predicts student placement probability with AI-powered analysis. Features resume ATS scoring, intelligent chatbot counselor, personalized recommendations, trend graphs, and role-based dashboards. Includes smart AI orchestration with automatic fallback between Gemini AI and Cloudflare Workers AI.",
     features: [
-      "ML-powered prediction engine",
-      "Analytics dashboard",
-      "Trend visualization",
-      "PDF report generation",
-      "Data analysis capabilities",
+      "Dual prediction modes: Standard & Resume-Based with ML models",
+      "AI-powered result analysis with Gemini AI and Cloudflare fallback",
+      "Resume upload with ATS score calculation (0-100 scale)",
+      "Section-wise scoring: Skills, Experience, Projects, Education",
+      "Contextual AI chat interface for placement counseling",
+      "Placement probability trend graphs with date/time tracking",
+      "Downloadable PDF reports with AI insights and recommendations",
+      "Role-based dashboards: Admin, Mentor, TPO, Student",
+      "Firebase authentication with HTTP-only cookie security",
+      "Video recommendations by score level (Beginner/Intermediate/Advanced)",
+      "Keywords analysis: Found and missing high-value ATS keywords",
+      "30-day actionable improvement suggestions",
+      "Student progress tracking and mentor feedback system",
+      "Bulk mock result uploads by TPO",
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Python", "Scikit-learn"],
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Recharts",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Firebase Authentication",
+      "Google Gemini AI 2.5",
+      "Cloudflare Workers AI",
+      "Affinda Resume Parser",
+      "Axios",
+      "Multer",
+    ],
     deployment: "https://student-placement-prediction-ten.vercel.app/",
     stats: {
       activeUsers: "187+",
@@ -43,6 +71,38 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: "EcoVision Bharat - Swachhta & LiFE Waste Management Platform",
+    type: "Full-Stack Civic Tech Platform",
+    description:
+      "AI-powered waste management platform enabling citizens to report waste with photos and location, officers to verify and assign work, and sanitation workers to track cleanup progress. Features YOLO-based ML inference for waste severity estimation and gamified scoring system. Won Clean and Green Technology prize at GNA 4.0 Hackathon (GNA University, Phagwara, Punjab).",
+    features: [
+      "Citizen waste reporting with image upload and GPS geolocation",
+      "AI-powered waste severity analysis using YOLOv8",
+      "Officer verification and worker assignment workflow",
+      "Real-time notifications and status tracking",
+      "Sanitation worker mobile workflow with before/after proof",
+      "Gamified scoring system with rankings and leaderboards",
+      "Role-based access control (Citizen, Officer, Worker, Admin)",
+      "Reverse geocoding with manual address fallback",
+    ],
+    techStack: [
+      "React 19",
+      "Vite",
+      "Express.js",
+      "Node.js",
+      "FastAPI",
+      "Python",
+      "YOLOv8",
+      "Supabase",
+      "PostgreSQL",
+      "Cloudinary",
+      "OpenStreetMap",
+      "TailwindCSS",
+    ],
+    deployment: "#",
+  },
+  {
+    id: 3,
     title: "Karma Connect",
     type: "Full-Stack Social Networking Platform",
     description:
@@ -58,7 +118,7 @@ export const projects: Project[] = [
     deployment: "https://karmaconnect-five.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Vishwakarma Video Call",
     type: "Real-Time Video Conferencing Application",
     description:
@@ -75,7 +135,7 @@ export const projects: Project[] = [
     deployment: "https://vishwakarma-video-call.onrender.com/",
   },
   {
-    id: 4,
+    id: 5,
     title: "HomeFix",
     type: "Service Booking Platform",
     description:
@@ -91,7 +151,7 @@ export const projects: Project[] = [
     deployment: "https://home-eaze.onrender.com/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Stock Monitoring Dashboard",
     type: "Financial Analytics Dashboard",
     description:
@@ -108,7 +168,7 @@ export const projects: Project[] = [
     deployment: "#",
   },
   {
-    id: 6,
+    id: 7,
     title: "HomeVista",
     type: "Accommodation Listing Platform",
     description:

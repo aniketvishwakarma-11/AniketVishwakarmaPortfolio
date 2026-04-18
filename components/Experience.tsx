@@ -17,6 +17,12 @@ export default function Experience() {
       description: "Pursuing Bachelor of Engineering with active participation in hackathons and tech communities. Developed 6+ full-stack projects.",
       achievements: ["Built 6+ projects", "Active hackathon participant", "Multiple awards in competitions"],
     },
+    {
+      year: "April 4-5, 2026",
+      title: "GNA 4.0 Hackathon - Clean & Green Technology Winner",
+      description: "Won the Clean and Green Technology prize at GNA 4.0 Hackathon organized by GNA University, Phagwara, Punjab for EcoVision Bharat - a full-stack civic tech platform for waste management with AI-powered severity analysis.",
+      achievements: ["🏆 Clean & Green Technology Prize", "Built AI-powered waste management platform", "Full-stack implementation with ML integration", "Real-time notifications and gamified scoring"],
+    },
   ];
 
   return (
@@ -48,50 +54,32 @@ export default function Experience() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className={`flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
-                {/* Left Side */}
-                <div className="flex-1 text-right md:pr-8">
-                  {index % 2 === 0 && (
-                    <div className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-colors">
-                      <p className="text-cyan-400 text-sm font-semibold mb-2">{item.year}</p>
-                      <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray-300 mb-4">{item.description}</p>
-                      <ul className="space-y-2">
-                        {item.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-400 text-sm flex items-center justify-end gap-2">
-                            {achievement}
-                            <CheckCircle size={16} className="text-cyan-400" />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                {/* Content Section */}
+                <div className={`flex-1 ${index % 2 === 0 ? "text-right md:pr-8" : "text-left md:pl-8"}`}>
+                  <div className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-colors">
+                    <p className="text-cyan-400 text-sm font-semibold mb-2">{item.year}</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-gray-300 mb-4">{item.description}</p>
+                    <ul className="space-y-2">
+                      {item.achievements.map((achievement, i) => (
+                        <li key={i} className={`text-gray-400 text-sm flex items-center gap-2 ${index % 2 === 0 ? "flex-row-reverse" : ""}`}>
+                          <CheckCircle size={16} className="text-cyan-400" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
                 {/* Center Dot */}
-                <div className="flex justify-center md:flex-col">
+                <div className="flex justify-center md:flex-col flex-shrink-0">
                   <div className="w-4 h-4 bg-cyan-500 rounded-full border-4 border-black relative z-10 mt-2 md:mt-0"></div>
                 </div>
 
-                {/* Right Side */}
-                <div className="flex-1 md:pl-8">
-                  {index % 2 !== 0 && (
-                    <div className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-colors">
-                      <p className="text-cyan-400 text-sm font-semibold mb-2">{item.year}</p>
-                      <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray-300 mb-4">{item.description}</p>
-                      <ul className="space-y-2">
-                        {item.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-400 text-sm flex items-center gap-2">
-                            <CheckCircle size={16} className="text-cyan-400" />
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                {/* Empty Space (for layout balance) */}
+                <div className="flex-1"></div>
               </motion.div>
             ))}
           </div>

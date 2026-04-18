@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ChevronDown } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
@@ -10,6 +11,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const [expandedFeatures, setExpandedFeatures] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -30,20 +33,46 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <p className="text-gray-300 mb-6 flex-grow">{project.description}</p>
 
         {/* Features */}
-        <div className="mb-6">
+        <motion.div
+          className="mb-6"
+          animate={{ height: "auto" }}
+          transition={{ duration: 0.3 }}
+        >
           <p className="text-sm text-gray-400 font-semibold mb-3">Key Features:</p>
           <ul className="space-y-1">
-            {project.features.slice(0, 3).map((feature, i) => (
-              <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
+            {project.features.slice(0, expandedFeatures ? project.features.length : 3).map((feature, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: i * 0.05 }}
+                className="text-sm text-gray-400 flex items-start gap-2"
+              >
                 <span className="text-cyan-400">✓</span>
                 {feature}
-              </li>
+              </motion.li>
             ))}
-            {project.features.length > 3 && (
-              <li className="text-sm text-gray-500 italic">+{project.features.length - 3} more...</li>
-            )}
           </ul>
-        </div>
+          {project.features.length > 3 && (
+            <motion.button
+              onClick={() => setExpandedFeatures(!expandedFeatures)}
+              className="text-sm text-cyan-400 hover:text-cyan-300 italic font-semibold mt-3 flex items-center gap-1 transition-colors"
+              whileHover={{ x: 5 }}
+            >
+              {expandedFeatures ? (
+                <>
+                  Show Less
+                  <ChevronDown size={16} className="transform rotate-180" />
+                </>
+              ) : (
+                <>
+                  +{project.features.length - 3} more
+                  <ChevronDown size={16} />
+                </>
+              )}
+            </motion.button>
+          )}
+        </motion.div>
 
         {/* Tech Stack */}
         <div className="mb-6">
