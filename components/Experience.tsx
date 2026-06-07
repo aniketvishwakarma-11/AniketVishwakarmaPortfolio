@@ -24,13 +24,13 @@ export default function Experience() {
       achievements: ["🏆 Clean & Green Technology Prize", "Built AI-powered waste management platform", "Full-stack implementation with ML integration", "Real-time notifications and gamified scoring"],
     },
     {
-      year: "May 2026 - Present",
-      title: "Software Development Engineer Intern @ Chitralai",
-      description: "Engineered full-stack features across frontend and backend from scratch for an AI-powered event photo discovery platform serving thousands of users across India.",
+      year: "May 2026 – Present",
+      title: "Software Development Engineer Intern",
+      description: "Chitralai, Mumbai, India (AI-powered event photo discovery platform)",
       achievements: [
-        "Built React/Next.js UI and Node.js/Express REST APIs",
-        "Remediated 10+ critical security vulnerabilities (auth, IDOR, XSS, S3)",
-        "Implemented role-based access control & server-side identity verification",
+        "Engineered full-stack features across frontend and backend from scratch — building React/Next.js UI components and Node.js/Express REST APIs — directly improving the platform's core photo discovery and event management workflows serving thousands of users across India.",
+        "Identified and remediated 10+ critical security vulnerabilities across the production codebase, including broken authentication (missing JWT enforcement on private routes), IDOR flaws, unrestricted AWS S3 access, stored XSS in blog rendering, and OTP brute-force vectors — significantly hardening the platform against real-world attacks.",
+        "Implemented role-based access control and ownership verification across core APIs (users, events, media, payments) by enforcing JWT middleware and server-side identity derivation, eliminating unauthorized data access risks and aligning the system with industry-standard security practices.",
       ],
     },
   ];
