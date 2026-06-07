@@ -23,6 +23,16 @@ export default function Experience() {
       description: "Won the Clean and Green Technology prize at GNA 4.0 Hackathon organized by GNA University, Phagwara, Punjab for EcoVision Bharat - a full-stack civic tech platform for waste management with AI-powered severity analysis.",
       achievements: ["🏆 Clean & Green Technology Prize", "Built AI-powered waste management platform", "Full-stack implementation with ML integration", "Real-time notifications and gamified scoring"],
     },
+    {
+      year: "May 2026 - Present",
+      title: "Software Development Engineer Intern @ Chitralai",
+      description: "Engineered full-stack features across frontend and backend from scratch for an AI-powered event photo discovery platform serving thousands of users across India.",
+      achievements: [
+        "Built React/Next.js UI and Node.js/Express REST APIs",
+        "Remediated 10+ critical security vulnerabilities (auth, IDOR, XSS, S3)",
+        "Implemented role-based access control & server-side identity verification",
+      ],
+    },
   ];
 
   return (
