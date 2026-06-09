@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function About() {
   const stats = [
     { number: "6+", label: "Projects Built", icon: "🚀" },
-    { number: "187+", label: "Active Users On Projects", icon: "👥" },
+    { number: "200+", label: "Active Users On Projects", icon: "👥" },
     { number: "4.4k+", label: "Total Views On Projects", icon: "👁️" },
     { number: "6.7k+", label: "User Events On Projects", icon: "⚡" },
   ];
@@ -53,16 +53,13 @@ export default function About() {
           className="mb-16"
         >
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            I'm a passionate <span className="text-cyan-400 font-semibold">3rd-year engineering student</span> at{" "}
-            <span className="text-cyan-400 font-semibold">PVPPCOE</span>, specializing in building secure, scalable, and real-time web
-            applications. Starting my development journey in 2024, I've quickly built 6+ full-stack projects with a focus on clean architecture and best practices.
+            As a driven <span className="text-cyan-400 font-semibold">final-year engineering student</span> at{" "}
+            <span className="text-cyan-400 font-semibold">PVPPCOE</span>, I design and build secure, scalable, and real-time digital systems. Since launching my development journey in 2024, I have focused on shipping high-performance full-stack applications with robust architecture and security-first implementations.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            My expertise includes the
-            <span className="text-cyan-400 font-semibold"> MERN stack</span>,{" "}
-            <span className="text-cyan-400 font-semibold">WebRTC</span>, and{" "}
-            <span className="text-cyan-400 font-semibold">AI/ML</span> technologies to solve real-world problems. I'm an active
-            hackathon participant with multiple awards and a strong passion for continuous learning and innovation.
+            Specializing in the <span className="text-cyan-400 font-semibold">MERN stack</span>, real-time communications via{" "}
+            <span className="text-cyan-400 font-semibold">WebRTC</span>, and intelligent integrations using{" "}
+            <span className="text-cyan-400 font-semibold">AI/ML</span>, I solve complex real-world challenges. I thrive in high-pressure environments like competitive hackathons, where I've won multiple awards, and am constantly pushing boundaries to engineer production-grade systems.
           </p>
         </motion.div>
 

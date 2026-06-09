@@ -6,18 +6,6 @@ import { CheckCircle } from "lucide-react";
 export default function Experience() {
   const timeline = [
     {
-      year: "2024",
-      title: "Started Development Journey",
-      description: "Began learning web development with a focus on building practical full-stack applications using MERN stack.",
-      achievements: ["First project built", "Learned MERN stack", "Explored WebRTC & real-time systems"],
-    },
-    {
-      year: "2024-2025",
-      title: "PVPPCOE Engineering (3rd Year)",
-      description: "Pursuing Bachelor of Engineering with active participation in hackathons and tech communities. Developed 6+ full-stack projects.",
-      achievements: ["Built 6+ projects", "Active hackathon participant", "Multiple awards in competitions"],
-    },
-    {
       year: "April 4-5, 2026",
       title: "GNA 4.0 Hackathon - Clean & Green Technology Winner",
       description: "Won the Clean and Green Technology prize at GNA 4.0 Hackathon organized by GNA University, Phagwara, Punjab for EcoVision Bharat - a full-stack civic tech platform for waste management with AI-powered severity analysis.",
@@ -26,13 +14,15 @@ export default function Experience() {
     {
       year: "May 2026 – Present",
       title: "Software Development Engineer Intern",
-      description: "Chitralai, Mumbai, India (AI-powered event photo discovery platform)",
+      company: "Chitralai",
+      location: "Mumbai, India (Remote/Hybrid)",
+      description: "Chitralai is an AI-powered event photo discovery platform leveraging cutting-edge AI and facial recognition technology to transform how people discover and share their moments from events.",
       achievements: [
-        "Engineered full-stack features across frontend and backend from scratch — building React/Next.js UI components and Node.js/Express REST APIs — directly improving the platform's core photo discovery and event management workflows serving thousands of users across India.",
-        "Identified and remediated 10+ critical security vulnerabilities across the production codebase, including broken authentication (missing JWT enforcement on private routes), IDOR flaws, unrestricted AWS S3 access, stored XSS in blog rendering, and OTP brute-force vectors — significantly hardening the platform against real-world attacks.",
-        "Implemented role-based access control and ownership verification across core APIs (users, events, media, payments) by enforcing JWT middleware and server-side identity derivation, eliminating unauthorized data access risks and aligning the system with industry-standard security practices.",
-      ],
-    },
+        "Engineered full-stack features across frontend and backend from scratch — building React/Next.js UI components and Node.js/Express REST APIs — directly improving core photo discovery and event management workflows.",
+        "Identified and remediated 10+ critical security vulnerabilities across the production codebase (broken authentication, IDOR, unrestricted S3 access, stored XSS, OTP brute-force), significantly hardening the platform.",
+        "Implemented role-based access control and ownership verification across core APIs (users, events, media, payments) by enforcing JWT middleware and server-side identity derivation."
+      ]
+    }
   ];
 
   return (
@@ -67,16 +57,30 @@ export default function Experience() {
                 className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
                 {/* Content Section */}
-                <div className={`flex-1 ${index % 2 === 0 ? "text-right md:pr-8" : "text-left md:pl-8"}`}>
+                <div className={`flex-1 w-full ${index % 2 === 0 ? "text-right md:pr-8" : "text-left md:pl-8"}`}>
                   <div className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-colors">
                     <p className="text-cyan-400 text-sm font-semibold mb-2">{item.year}</p>
-                    <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {item.title}
+                      {item.company && (
+                        <span className="text-cyan-400 block md:inline md:ml-2 text-xl font-semibold">
+                          @ {item.company}
+                        </span>
+                      )}
+                    </h3>
+                    {item.location && (
+                      <p className="text-gray-400 text-xs mb-3 italic">{item.location}</p>
+                    )}
                     <p className="text-gray-300 mb-4">{item.description}</p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {item.achievements.map((achievement, i) => (
-                        <li key={i} className={`text-gray-400 text-sm flex items-center gap-2 ${index % 2 === 0 ? "flex-row-reverse" : ""}`}>
-                          <CheckCircle size={16} className="text-cyan-400" />
-                          {achievement}
+                        <li
+                          key={i}
+                          className={`text-gray-400 text-sm flex items-start gap-2 ${index % 2 === 0 ? "flex-row-reverse text-right" : "text-left"
+                            }`}
+                        >
+                          <CheckCircle size={16} className="text-cyan-400 shrink-0 mt-0.5" />
+                          <span className="flex-1">{achievement}</span>
                         </li>
                       ))}
                     </ul>

@@ -16,7 +16,7 @@ export default function Skills() {
     },
     {
       title: "Databases & APIs",
-      skills: ["MongoDB", "JWT", "Stock APIs", "REST APIs", "Cloudinary"],
+      skills: ["MongoDB", "DynamoDB", "JWT", "Stock APIs", "REST APIs", "Cloudinary"],
       icon: "📊",
     },
     {
@@ -30,9 +30,9 @@ export default function Skills() {
       icon: "🤖",
     },
     {
-      title: "Deployment",
-      skills: ["Vercel", "Render", "Next.js Optimization", "Performance Tuning"],
-      icon: "🚀",
+      title: "Cloud & Deployment",
+      skills: ["AWS", "Amazon S3", "AWS IAM", "Vercel", "Render", "Performance Tuning"],
+      icon: "☁️",
     },
   ];
 
