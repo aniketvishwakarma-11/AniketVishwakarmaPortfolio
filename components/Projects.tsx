@@ -30,27 +30,42 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA Banner Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="relative mt-24 max-w-4xl mx-auto overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/40 backdrop-blur-md hover:border-cyan-500/50 transition-all group"
         >
-          <p className="text-gray-300 text-lg mb-6">Interested in working together?</p>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all cursor-pointer"
-          >
-            Get In Touch
-          </motion.a>
+          {/* Decorative Background Glows */}
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/15 transition-all duration-500"></div>
+          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/15 transition-all duration-500"></div>
+
+          <div className="relative z-10 px-8 py-10 sm:px-12 sm:py-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                Interested in working together?
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base max-w-xl">
+                Let's collaborate to build scalable full-stack applications, secure systems, or bring AI-driven solutions to life.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(6, 182, 212, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold transition-all cursor-pointer whitespace-nowrap"
+              >
+                Get In Touch
+              </motion.a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
