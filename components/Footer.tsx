@@ -36,7 +36,7 @@ export default function Footer() {
           >
             <h3 className="text-2xl font-bold gradient-text mb-4">AV</h3>
             <p className="text-gray-400 text-sm">
-              Aniket Vishwakarma | Full-Stack Developer & ML Engineer
+              Aniket Vishwakarma | Software Development Engineer Intern @ Chitralai | Full-Stack Developer
             </p>
           </motion.div>
 

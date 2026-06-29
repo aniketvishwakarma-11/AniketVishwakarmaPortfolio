@@ -13,13 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
-  description: "Full-stack developer with 2+ years of experience in MERN stack, WebRTC, and AI/ML. Specialized in building scalable and secure web applications.",
+  title: "Aniket Vishwakarma | Software Development Engineer Intern @ Chitralai",
+  description: "Software Development Engineer Intern building secure, scalable full-stack applications using React, Next.js, Node.js, AWS, and modern web technologies.",
   keywords: [
-    "Full-Stack Developer",
+    "Software Development Engineer Intern",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "AWS Developer",
     "MERN Stack",
-    "Next.js",
-    "React",
     "WebRTC",
     "Machine Learning",
     "Portfolio",
@@ -30,13 +33,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://aniketvishwakarmaportfolio.vercel.app",
     siteName: "Aniket Vishwakarma",
-    title: "Aniket Vishwakarma | Full-Stack Developer",
-    description: "Full-stack developer with 2+ years of experience in MERN stack, WebRTC, and AI/ML.",
+    title: "Aniket Vishwakarma | Software Development Engineer Intern",
+    description: "Software Development Engineer Intern building secure, scalable full-stack applications using React, Next.js, Node.js, AWS, and modern web technologies.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aniket Vishwakarma | Full-Stack Developer",
-    description: "Full-stack developer with 2+ years of experience in MERN stack, WebRTC, and AI/ML.",
+    title: "Aniket Vishwakarma | Software Development Engineer Intern",
+    description: "Software Development Engineer Intern building secure, scalable full-stack applications using React, Next.js, Node.js, AWS, and modern web technologies.",
   },
 };
 

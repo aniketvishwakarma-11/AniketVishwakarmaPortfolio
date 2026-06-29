@@ -38,6 +38,8 @@ export default function Hero() {
                 sequence={[
                   "Aniket Vishwakarma",
                   1000,
+                  "SDE Intern @ Chitralai",
+                  1000,
                   "Full-Stack Developer",
                   1000,
                   "ML Engineer",
@@ -50,8 +52,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Building secure, scalable, and real-time web applications with MERN stack, WebRTC, and
-            AI/ML. 2+ years of hands-on development experience.
+            Software Development Engineer Intern at Chitralai building secure, scalable full-stack applications using React, Next.js, Node.js, AWS, and modern web technologies.
           </p>
 
           {/* CTA Buttons */}

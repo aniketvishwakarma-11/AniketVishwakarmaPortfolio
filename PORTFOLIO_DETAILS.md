@@ -10,13 +10,13 @@
 ---
 
 ## 🎓 Education & Background
-- **Status**: 3rd Year Engineering Student
-- **Institution**: PYCPOE (Pune College of Engineering), Mumbai University
+- **Status**: Software Development Engineer Intern at Chitralai | 3rd Year Information Technology Student
+- **Institution**: PVPPCOE, Mumbai University
 - **Graduation Year**: 2027
-- **Field**: Bachelor of Engineering
+- **Field**: Bachelor of Engineering (Information Technology)
 - **Key Activities**: 
   - Active hackathon participant with multiple awards
-  - Focus on clean architecture and best practices
+  - Focus on clean architecture, application security, and full-stack development
 
 ---
 
@@ -422,8 +422,8 @@ npm install framer-motion lucide-react react-type-animation
 ---
 
 ## ✅ Content Summary
-- **Professional Background**: 3rd year engineering student, 2+ years experience
-- **Core Strengths**: MERN, WebRTC, AI/ML, Real-time apps
+- **Professional Background**: Software Development Engineer Intern at Chitralai, 3rd year Information Technology student
+- **Core Strengths**: MERN, React, Next.js, Node.js, AWS Cloud, App Security, WebRTC, REST APIs
 - **Portfolio Projects**: 6 full-stack applications showcasing different tech
 - **Design**: Modern, animated, gradient-heavy cyberpunk aesthetic
 - **Deployment**: Multi-platform (Vercel for Next.js, Render for Node.js)
