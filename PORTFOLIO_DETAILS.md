@@ -10,7 +10,7 @@
 ---
 
 ## 🎓 Education & Background
-- **Status**: Software Development Engineer Intern at Chitralai | 3rd Year Information Technology Student
+- **Status**: Software Development Engineer Intern at Chitralai | Final Year Information Technology Student
 - **Institution**: PVPPCOE, Mumbai University
 - **Graduation Year**: 2027
 - **Field**: Bachelor of Engineering (Information Technology)
@@ -422,7 +422,7 @@ npm install framer-motion lucide-react react-type-animation
 ---
 
 ## ✅ Content Summary
-- **Professional Background**: Software Development Engineer Intern at Chitralai, 3rd year Information Technology student
+- **Professional Background**: Software Development Engineer Intern at Chitralai, final year Information Technology student
 - **Core Strengths**: MERN, React, Next.js, Node.js, AWS Cloud, App Security, WebRTC, REST APIs
 - **Portfolio Projects**: 6 full-stack applications showcasing different tech
 - **Design**: Modern, animated, gradient-heavy cyberpunk aesthetic

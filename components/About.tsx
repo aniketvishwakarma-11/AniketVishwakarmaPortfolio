@@ -53,39 +53,14 @@ export default function About() {
           className="mb-16"
         >
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            I'm a passionate <span className="text-cyan-400 font-semibold">third-year Information Technology student</span> at <span className="text-cyan-400 font-semibold">PVPPCOE</span> and currently working as a <span className="text-cyan-400 font-semibold">Software Development Engineer Intern</span> at <span className="text-cyan-400 font-semibold">Chitralai</span>. I enjoy building scalable, secure, and high-performance web applications that solve real-world problems.
+            I'm a passionate <span className="text-cyan-400 font-semibold">final-year Information Technology student</span> at <span className="text-cyan-400 font-semibold">PVPPCOE</span> and currently working as a <span className="text-cyan-400 font-semibold">Software Development Engineer Intern</span> at <span className="text-cyan-400 font-semibold">Chitralai</span>. I specialize in designing and shipping high-performance, secure digital systems that solve real-world complexities.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            During my internship, I've worked on production-grade full-stack features, REST APIs, authentication systems, cloud infrastructure, and application security. I've also identified and resolved critical security vulnerabilities while contributing to software used by thousands of users.
+            My journey is fueled by a deep curiosity for full-stack architecture, cloud computing, and cybersecurity. During my internship at Chitralai, I've had the opportunity to build production-grade features, harden APIs, and optimize cloud services for platforms used by thousands of users.
           </p>
           <p className="text-lg text-gray-300 leading-relaxed">
-            Outside of work, I enjoy participating in hackathons, building AI-powered products, exploring new technologies, and continuously improving my software engineering skills.
+            Whether it's building real-time applications with WebRTC, deploying AI-driven pipelines, or competing in hackathons, I thrive on turning complex logic into seamless, scalable user experiences.
           </p>
-        </motion.div>
-
-        {/* Key Highlights */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mb-16 bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-8 max-w-2xl mx-auto"
-        >
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Professional Highlights</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
-            {[
-              "Software Development Engineer Intern",
-              "Production Full Stack Development",
-              "Application Security",
-              "AWS Cloud",
-              "REST APIs",
-            ].map((highlight, index) => (
-              <div key={index} className="flex items-center gap-3 text-gray-300">
-                <span className="text-cyan-400 font-semibold">✔</span>
-                <span>{highlight}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Stats */}

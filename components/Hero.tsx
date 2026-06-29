@@ -38,7 +38,7 @@ export default function Hero() {
                 sequence={[
                   "Aniket Vishwakarma",
                   1000,
-                  "SDE Intern @ Chitralai",
+                  "SDE Intern",
                   1000,
                   "Full-Stack Developer",
                   1000,
@@ -52,7 +52,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Software Development Engineer Intern at Chitralai building secure, scalable full-stack applications using React, Next.js, Node.js, AWS, and modern web technologies.
+            Software Development Engineer Intern building secure, high-performance web applications and AI-driven platforms. Passionate about crafting scalable systems, API security, and solving complex web-scale problems.
           </p>
 
           {/* CTA Buttons */}
