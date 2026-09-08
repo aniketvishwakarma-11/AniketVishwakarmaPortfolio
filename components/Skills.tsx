@@ -376,6 +376,16 @@ export default function Skills() {
           subtitle="Tap any technology on mobile (or hover on desktop) to see where I applied it across production apps and internships."
         />
 
+        {/* Small interactive note */}
+        <div className="flex items-center justify-center -mt-8 mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs text-slate-300 backdrop-blur-sm shadow-sm">
+            <Sparkles size={13} className="text-cyan-400 shrink-0 animate-pulse" />
+            <span>
+              <strong className="text-cyan-300 font-semibold">Note:</strong> Click, tap or hover on any skill to reveal where I used it in real projects.
+            </span>
+          </div>
+        </div>
+
         {/* 6 Category Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8 items-start">
           {skillCategories.map((category, catIndex) => {
@@ -405,14 +415,19 @@ export default function Skills() {
               >
                 <div>
                   {/* Category Header */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <div
-                      className="w-1 h-5 rounded-full"
-                      style={{ background: category.accentHex }}
-                    />
-                    <h3 className={`font-semibold text-sm ${category.color}`}>
-                      {category.title}
-                    </h3>
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className="w-1 h-5 rounded-full"
+                        style={{ background: category.accentHex }}
+                      />
+                      <h3 className={`font-semibold text-sm ${category.color}`}>
+                        {category.title}
+                      </h3>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-400/80 bg-white/[0.04] px-2 py-0.5 rounded-full border border-white/5">
+                      Tap / Click to view
+                    </span>
                   </div>
 
                   {/* Skills Chips */}
