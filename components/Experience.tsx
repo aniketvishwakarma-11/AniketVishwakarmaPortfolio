@@ -1,95 +1,161 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle2, Briefcase, GraduationCap, Trophy, Rocket } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+
+const timeline = [
+  {
+    year: "2024",
+    period: "Year 1",
+    title: "Started the Development Journey",
+    org: "Self-taught",
+    icon: <Rocket size={16} />,
+    iconColor: "text-cyan-400",
+    borderColor: "border-cyan-500/30",
+    badgeStyle: { background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.3)", color: "#22d3ee" },
+    description:
+      "Dove into full-stack development with a focus on building real, working products. Mastered the MERN stack and explored WebRTC for real-time communication.",
+    achievements: [
+      "Built first full-stack project",
+      "Mastered MERN stack from scratch",
+      "Explored WebRTC & real-time systems",
+    ],
+  },
+  {
+    year: "2024–2025",
+    period: "Year 2",
+    title: "PVPPCOE Engineering — 3rd Year",
+    org: "Mumbai University",
+    icon: <GraduationCap size={16} />,
+    iconColor: "text-violet-400",
+    borderColor: "border-violet-500/30",
+    badgeStyle: { background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.3)", color: "#a78bfa" },
+    description:
+      "Pursuing B.E. while actively shipping production-grade projects and competing in hackathons. Built 7+ full-stack apps used by real users.",
+    achievements: [
+      "7+ full-stack projects shipped",
+      "187+ active users across deployments",
+      "Active hackathon competitor",
+    ],
+  },
+  {
+    year: "April 2026",
+    period: "Milestone",
+    title: "Domain Winner — GNA 4.0 Hackathon 🏆",
+    org: "GNA University, Punjab",
+    icon: <Trophy size={16} />,
+    iconColor: "text-amber-400",
+    borderColor: "border-amber-500/30",
+    badgeStyle: { background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.4)", color: "#fbbf24" },
+    description:
+      "Domain Winner in Clean & Green Technology at GNA 4.0 Hackathon for EcoVision Bharat — an AI-powered waste management civic platform with YOLOv8 ML inference, real-time notifications, and gamified scoring.",
+    achievements: [
+      "🏆 Domain Winner — Clean & Green Technology",
+      "AI-powered civic tech platform with YOLOv8",
+      "Full-stack ML & real-time notification pipeline",
+      "Municipal officer verification & worker dispatch",
+    ],
+  },
+  {
+    year: "May 2026 – Present",
+    period: "Current",
+    title: "Software Development Engineer Intern",
+    org: "Chitralai · Mumbai, India",
+    icon: <Briefcase size={16} />,
+    iconColor: "text-emerald-400",
+    borderColor: "border-emerald-500/30",
+    badgeStyle: { background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.4)", color: "#34d399" },
+    isCurrent: true,
+    description:
+      "Full-stack engineering at Chitralai — an AI-powered event photo discovery platform serving thousands of users across India.",
+    achievements: [
+      "Engineered full-stack features (React/Next.js + Node.js/Express)",
+      "Identified & remediated 10+ critical security vulnerabilities",
+      "Implemented JWT-based RBAC across all core APIs",
+      "Hardened platform against IDOR, XSS, and OTP brute-force",
+    ],
+  },
+];
 
 export default function Experience() {
-  const timeline = [
-    {
-      year: "2024",
-      title: "Started Development Journey",
-      description: "Began learning web development with a focus on building practical full-stack applications using MERN stack.",
-      achievements: ["First project built", "Learned MERN stack", "Explored WebRTC & real-time systems"],
-    },
-    {
-      year: "2024-2025",
-      title: "PVPPCOE Engineering (3rd Year)",
-      description: "Pursuing Bachelor of Engineering with active participation in hackathons and tech communities. Developed 6+ full-stack projects.",
-      achievements: ["Built 6+ projects", "Active hackathon participant", "Multiple awards in competitions"],
-    },
-    {
-      year: "April 4-5, 2026",
-      title: "GNA 4.0 Hackathon - Clean & Green Technology Winner",
-      description: "Won the Clean and Green Technology prize at GNA 4.0 Hackathon organized by GNA University, Phagwara, Punjab for EcoVision Bharat - a full-stack civic tech platform for waste management with AI-powered severity analysis.",
-      achievements: ["🏆 Clean & Green Technology Prize", "Built AI-powered waste management platform", "Full-stack implementation with ML integration", "Real-time notifications and gamified scoring"],
-    },
-    {
-      year: "May 2026 – Present",
-      title: "Software Development Engineer Intern",
-      description: "Chitralai, Mumbai, India (AI-powered event photo discovery platform)",
-      achievements: [
-        "Engineered full-stack features across frontend and backend from scratch — building React/Next.js UI components and Node.js/Express REST APIs — directly improving the platform's core photo discovery and event management workflows serving thousands of users across India.",
-        "Identified and remediated 10+ critical security vulnerabilities across the production codebase, including broken authentication (missing JWT enforcement on private routes), IDOR flaws, unrestricted AWS S3 access, stored XSS in blog rendering, and OTP brute-force vectors — significantly hardening the platform against real-world attacks.",
-        "Implemented role-based access control and ownership verification across core APIs (users, events, media, payments) by enforcing JWT middleware and server-side identity derivation, eliminating unauthorized data access risks and aligning the system with industry-standard security practices.",
-      ],
-    },
-  ];
-
   return (
-    <section id="experience" className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold gradient-text mb-4">Experience & Timeline</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto"></div>
-        </motion.div>
+    <section id="experience" className="relative py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <SectionHeading
+          number="02"
+          label="EXPERIENCE"
+          title="My Journey &"
+          subtitle="From self-taught developer to hackathon winner and production engineer."
+        />
 
         {/* Timeline */}
         <div className="relative">
-          {/* Vertical Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-500 to-blue-500"></div>
+          {/* Vertical line */}
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px"
+            style={{ background: "linear-gradient(to bottom, #06b6d4, #7c3aed, rgba(124,58,237,0.1))" }} />
 
-          {/* Timeline Items */}
-          <div className="space-y-12">
+          <div className="space-y-8">
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+                className="relative flex gap-6 sm:gap-8"
               >
-                {/* Content Section */}
-                <div className={`flex-1 ${index % 2 === 0 ? "text-right md:pr-8" : "text-left md:pl-8"}`}>
-                  <div className="bg-black/50 border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-500/60 transition-colors">
-                    <p className="text-cyan-400 text-sm font-semibold mb-2">{item.year}</p>
-                    <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-gray-300 mb-4">{item.description}</p>
+                {/* Timeline dot */}
+                <div className="relative flex-shrink-0 flex flex-col items-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 + 0.2, type: "spring" }}
+                    viewport={{ once: true }}
+                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center glass-card ${item.iconColor} flex-shrink-0`}
+                    style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.3)")}` }}
+                  >
+                    <span className={item.iconColor}>{item.icon}</span>
+                  </motion.div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pb-2">
+                  {/* Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded-full"
+                        style={item.badgeStyle}>
+                        {item.year}
+                      </span>
+                      {item.isCurrent && (
+                        <span className="flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-medium"
+                          style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.4)", color: "#34d399" }}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          CURRENT
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="glass-card rounded-xl p-5 sm:p-6" style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.15)")}` }}>
+                    <h3 className="text-lg font-bold text-slate-100 mb-1">{item.title}</h3>
+                    <p className="text-sm text-slate-500 font-mono mb-3">{item.org}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed mb-4">{item.description}</p>
+
                     <ul className="space-y-2">
                       {item.achievements.map((achievement, i) => (
-                        <li key={i} className={`text-gray-400 text-sm flex items-center gap-2 ${index % 2 === 0 ? "flex-row-reverse" : ""}`}>
-                          <CheckCircle size={16} className="text-cyan-400" />
-                          {achievement}
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-sm text-slate-400"
+                        >
+                          <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${item.iconColor}`} />
+                          <span>{achievement}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-
-                {/* Center Dot */}
-                <div className="flex justify-center md:flex-col flex-shrink-0">
-                  <div className="w-4 h-4 bg-cyan-500 rounded-full border-4 border-black relative z-10 mt-2 md:mt-0"></div>
-                </div>
-
-                {/* Empty Space (for layout balance) */}
-                <div className="flex-1"></div>
               </motion.div>
             ))}
           </div>

@@ -1,144 +1,173 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, ChevronDown } from "lucide-react";
+import { ExternalLink, Info, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
   project: Project;
   index: number;
+  onOpenDetails: (project: Project) => void;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const [expandedFeatures, setExpandedFeatures] = useState(false);
+export default function ProjectCard({
+  project,
+  index,
+  onOpenDetails,
+}: ProjectCardProps) {
+  const topTech = project.techStack.slice(0, 4);
+  const remainingTechCount = project.techStack.length - 4;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
       viewport={{ once: true }}
-      className="group h-full relative"
+      className="group relative h-full flex flex-col"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="relative bg-black/50 border border-cyan-500/30 rounded-lg p-6 h-full flex flex-col group-hover:border-cyan-500/60 group-hover:shadow-lg group-hover:shadow-cyan-500/20 transition-all">
-        {/* Project Header */}
-        <div className="mb-4">
-          <p className="text-cyan-400 text-sm font-semibold mb-1">{project.type}</p>
-          <h3 className="text-2xl font-bold text-white group-hover:gradient-text transition-all">{project.title}</h3>
-        </div>
+      {/* Glow on hover */}
+      <div
+        className="absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md pointer-events-none"
+        style={{
+          background: `linear-gradient(135deg, ${project.accentColor}25, transparent)`,
+        }}
+      />
 
-        {/* Description */}
-        <p className="text-gray-300 mb-6 flex-grow">{project.description}</p>
+      <div
+        onClick={() => onOpenDetails(project)}
+        className="relative glass-card rounded-2xl flex flex-col justify-between h-full overflow-hidden transition-all duration-200 group-hover:translate-y-[-2px] cursor-pointer"
+        style={{ border: `1px solid ${project.accentBorder}` }}
+      >
+        {/* Top accent bar */}
+        <div
+          className="h-1 w-full flex-shrink-0"
+          style={{
+            background: `linear-gradient(90deg, ${project.accentColor}, #7c3aed)`,
+          }}
+        />
 
-        {/* Features */}
-        <motion.div
-          className="mb-6"
-          animate={{ height: "auto" }}
-          transition={{ duration: 0.3 }}
-        >
-          <p className="text-sm text-gray-400 font-semibold mb-3">Key Features:</p>
-          <ul className="space-y-1">
-            {project.features.slice(0, expandedFeatures ? project.features.length : 3).map((feature, i) => (
-              <motion.li
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, delay: i * 0.05 }}
-                className="text-sm text-gray-400 flex items-start gap-2"
-              >
-                <span className="text-cyan-400">✓</span>
-                {feature}
-              </motion.li>
-            ))}
-          </ul>
-          {project.features.length > 3 && (
-            <motion.button
-              onClick={() => setExpandedFeatures(!expandedFeatures)}
-              className="text-sm text-cyan-400 hover:text-cyan-300 italic font-semibold mt-3 flex items-center gap-1 transition-colors"
-              whileHover={{ x: 5 }}
-            >
-              {expandedFeatures ? (
-                <>
-                  Show Less
-                  <ChevronDown size={16} className="transform rotate-180" />
-                </>
-              ) : (
-                <>
-                  +{project.features.length - 3} more
-                  <ChevronDown size={16} />
-                </>
-              )}
-            </motion.button>
-          )}
-        </motion.div>
-
-        {/* Tech Stack */}
-        <div className="mb-6">
-          <p className="text-sm text-gray-400 font-semibold mb-3">Tech Stack:</p>
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech, i) => (
+        <div className="p-6 flex flex-col flex-1 justify-between gap-5">
+          {/* Top block */}
+          <div>
+            {/* Badges row */}
+            <div className="flex items-center gap-2 flex-wrap mb-3">
               <span
-                key={i}
-                className="inline-block px-2 py-1 bg-cyan-500/10 border border-cyan-500/30 rounded text-xs text-cyan-300 hover:bg-cyan-500/20 transition-colors"
+                className="text-[11px] font-mono px-2.5 py-0.5 rounded-full font-semibold"
+                style={{
+                  background: project.accentGlow,
+                  border: `1px solid ${project.accentBorder}`,
+                  color: project.accentColor,
+                }}
               >
-                {tech}
+                {project.type}
               </span>
-            ))}
-          </div>
-        </div>
+              {project.badge && (
+                <span
+                  className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                  style={{
+                    background: project.badge.includes("⭐")
+                      ? "rgba(6,182,212,0.12)"
+                      : "rgba(245,158,11,0.12)",
+                    border: project.badge.includes("⭐")
+                      ? "1px solid rgba(6,182,212,0.35)"
+                      : "1px solid rgba(245,158,11,0.35)",
+                    color: project.badge.includes("⭐") ? "#22d3ee" : "#fbbf24",
+                  }}
+                >
+                  {project.badge}
+                </span>
+              )}
+            </div>
 
-        {/* Stats (if available) */}
-        {project.stats && (
-          <div className="mb-6 p-4 bg-cyan-500/5 border border-cyan-500/20 rounded-lg">
-            <p className="text-sm text-gray-400 font-semibold mb-3">Key Metrics:</p>
-            <div className="grid grid-cols-2 gap-3">
-              {project.stats.activeUsers && (
-                <div className="text-center">
-                  <div className="text-cyan-400 font-bold text-lg">{project.stats.activeUsers}</div>
-                  <div className="text-xs text-gray-500">Active Users</div>
-                </div>
+            {/* Title */}
+            <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-cyan-300 transition-colors flex items-center justify-between">
+              <span>{project.title}</span>
+              <ArrowUpRight
+                size={18}
+                className="text-slate-600 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
+              />
+            </h3>
+
+            {/* Description — line clamped so all cards maintain identical height */}
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed line-clamp-3 mb-4">
+              {project.description}
+            </p>
+
+            {/* Metrics highlight badge (compact pill if available) */}
+            {project.stats && (
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-2"
+                style={{
+                  background: project.accentGlow,
+                  border: `1px solid ${project.accentBorder}`,
+                  color: project.accentColor,
+                }}
+              >
+                <span>📊</span>
+                <span>
+                  {project.stats.activeUsers} Users · {project.stats.totalViews} Views
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Bottom block: Tech Stack + Actions */}
+          <div className="pt-4 border-t border-white/5 space-y-4">
+            {/* Tech Chips */}
+            <div className="flex flex-wrap gap-1.5">
+              {topTech.map((tech, i) => (
+                <span
+                  key={i}
+                  className="text-[11px] px-2 py-0.5 rounded-md font-medium text-slate-300"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+              {remainingTechCount > 0 && (
+                <span className="text-[11px] px-2 py-0.5 rounded-md font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20">
+                  +{remainingTechCount} more
+                </span>
               )}
-              {project.stats.totalViews && (
-                <div className="text-center">
-                  <div className="text-blue-400 font-bold text-lg">{project.stats.totalViews}</div>
-                  <div className="text-xs text-gray-500">Total Views</div>
-                </div>
-              )}
-              {project.stats.events && (
-                <div className="text-center">
-                  <div className="text-cyan-400 font-bold text-lg">{project.stats.events}</div>
-                  <div className="text-xs text-gray-500">Events</div>
-                </div>
-              )}
-              {project.stats.engagementTime && (
-                <div className="text-center">
-                  <div className="text-blue-400 font-bold text-lg">{project.stats.engagementTime}</div>
-                  <div className="text-xs text-gray-500">Avg Engagement</div>
-                </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div
+              className="flex items-center justify-between gap-2 pt-1"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => onOpenDetails(project)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <Info size={13} /> View Full Info
+              </button>
+
+              {project.deployment === "#" ? (
+                <span className="text-[11px] font-mono text-slate-500 px-3 py-1.5 rounded-xl bg-white/[0.02]">
+                  Private
+                </span>
+              ) : (
+                <a
+                  href={project.deployment}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white hover:shadow-lg transition-all"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
+                  }}
+                >
+                  Live Demo <ExternalLink size={12} />
+                </a>
               )}
             </div>
           </div>
-        )}
-
-        {/* Link Button */}
-        {project.deployment === "#" ? (
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-500/50 text-gray-300 rounded text-sm font-semibold opacity-60 cursor-not-allowed w-fit">
-            Coming Soon ⏳
-          </div>
-        ) : (
-          <motion.a
-            href={project.deployment}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded text-sm font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all relative z-10 cursor-pointer w-fit"
-          >
-            View Project <ExternalLink size={16} />
-          </motion.a>
-        )}
+        </div>
       </div>
     </motion.div>
   );

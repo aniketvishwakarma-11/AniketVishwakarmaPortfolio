@@ -1,57 +1,116 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
-import { projects } from "@/lib/projects";
+import ProjectModal from "./ProjectModal";
+import { projects, type Project } from "@/lib/projects";
+import SectionHeading from "./SectionHeading";
+
+const filters = [
+  { label: "All", value: "all" },
+  { label: "Full-Stack", value: "fullstack" },
+  { label: "AI / ML", value: "ai" },
+  { label: "Real-Time", value: "realtime" },
+  { label: "Civic Tech", value: "civic" },
+] as const;
+
+type FilterValue = (typeof filters)[number]["value"];
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState<FilterValue>("all");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const filtered =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
+
   return (
-    <section id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
+        <SectionHeading
+          number="04"
+          label="PROJECTS"
+          title="Featured"
+          subtitle="7 production-grade full-stack applications — shipped, deployed, and used by real people. Click any card for full details."
+        />
+
+        {/* Filter Tabs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="flex flex-wrap gap-2 justify-center mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold gradient-text mb-4">Featured Projects</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
-            6+ full-stack applications showcasing expertise in MERN stack, WebRTC, and real-time systems
-          </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto"></div>
+          {filters.map((filter) => (
+            <motion.button
+              key={filter.value}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setActiveFilter(filter.value)}
+              className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeFilter === filter.value
+                  ? "text-white"
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+              style={{
+                background:
+                  activeFilter === filter.value
+                    ? "linear-gradient(135deg, #06b6d4, #7c3aed)"
+                    : "rgba(255,255,255,0.04)",
+                border:
+                  activeFilter === filter.value
+                    ? "none"
+                    : "1px solid rgba(255,255,255,0.08)",
+                boxShadow:
+                  activeFilter === filter.value
+                    ? "0 0 20px rgba(6,182,212,0.3)"
+                    : "none",
+              }}
+            >
+              {filter.label}
+            </motion.button>
+          ))}
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-300 text-lg mb-6">Interested in working together?</p>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all cursor-pointer"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
           >
-            Get In Touch
-          </motion.a>
-        </motion.div>
+            {filtered.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onOpenDetails={(p) => setSelectedProject(p)}
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Project Detail Modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+
+        {/* Count */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center text-xs text-slate-500 font-mono mt-8"
+        >
+          Showing {filtered.length} of {projects.length} projects · Click any card to inspect full architecture
+        </motion.p>
       </div>
     </section>
   );

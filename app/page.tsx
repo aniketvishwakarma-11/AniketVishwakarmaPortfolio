@@ -6,36 +6,29 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingOrbs from "@/components/FloatingOrbs";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark to-[#0f0f1e]">
-      {/* Navigation */}
-      <Navigation />
+    <>
+      {/* Global Effects */}
+      <CustomCursor />
+      <FloatingOrbs />
 
-      {/* Main Content */}
-      <main className="relative">
-        {/* Hero Section */}
-        <Hero />
-
-        {/* About Section */}
-        <About />
-
-        {/* Experience Section */}
-        <Experience />
-
-        {/* Skills Section */}
-        <Skills />
-
-        {/* Projects Section */}
-        <Projects />
-
-        {/* Contact Section */}
-        <Contact />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+      {/* Main Layout */}
+      <div className="min-h-screen relative">
+        <Navigation />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
