@@ -55,6 +55,18 @@ export default function Navigation() {
     return () => observer.disconnect();
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     setTimeout(() => {
@@ -74,12 +86,29 @@ export default function Navigation() {
         }}
       />
 
+      {/* Mobile Backdrop Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 top-16 bg-black/80 backdrop-blur-md z-40 md:hidden"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isOpen
+            ? "bg-[#070b14] border-b border-white/10 shadow-2xl"
+            : scrolled
             ? "glass-card border-b border-white/5 shadow-[0_1px_40px_rgba(0,0,0,0.4)]"
             : "bg-transparent border-b border-transparent"
         }`}
@@ -92,8 +121,12 @@ export default function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="group relative flex items-center gap-2"
             >
-              <span className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white"
-                style={{ background: "linear-gradient(135deg, #06b6d4, #7c3aed)" }}>
+              <span
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white"
+                style={{
+                  background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
+                }}
+              >
                 AV
               </span>
               <span className="font-semibold text-slate-200 group-hover:text-white transition-colors hidden sm:block">
@@ -122,8 +155,15 @@ export default function Navigation() {
                       <motion.span
                         layoutId="active-nav"
                         className="absolute inset-0 rounded-lg"
-                        style={{ background: "rgba(6,182,212,0.08)", border: "1px solid rgba(6,182,212,0.2)" }}
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                        style={{
+                          background: "rgba(6,182,212,0.08)",
+                          border: "1px solid rgba(6,182,212,0.2)",
+                        }}
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.4,
+                        }}
                       />
                     )}
                     <span className="relative z-10">{item.name}</span>
@@ -152,11 +192,23 @@ export default function Navigation() {
             >
               <AnimatePresence mode="wait">
                 {isOpen ? (
-                  <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <motion.div
+                    key="x"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     <X size={22} />
                   </motion.div>
                 ) : (
-                  <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     <Menu size={22} />
                   </motion.div>
                 )}
@@ -165,42 +217,45 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu — Full Overlay */}
+        {/* Mobile Menu — Full Opaque Panel */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden glass-card border-t border-white/5 px-4 pb-6 pt-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="md:hidden bg-[#070b14] border-b border-white/10 px-5 pb-6 pt-3 shadow-[0_25px_60px_rgba(0,0,0,0.95)] overflow-hidden"
             >
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1.5">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.slice(1);
                   return (
                     <motion.button
                       key={item.name}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -15 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.04 }}
                       onClick={() => handleNavClick(item.href)}
-                      className={`text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                      className={`flex items-center justify-between w-full text-left px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                         isActive
-                          ? "text-cyan-400 bg-cyan-500/10 border border-cyan-500/20"
-                          : "text-slate-400 hover:text-white hover:bg-white/5"
+                          ? "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 font-semibold shadow-sm"
+                          : "text-slate-200 hover:text-white hover:bg-white/5 active:bg-white/10"
                       }`}
                     >
-                      {item.name}
+                      <span>{item.name}</span>
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
+                      )}
                     </motion.button>
                   );
                 })}
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.35 }}
+                  transition={{ delay: 0.28 }}
                   onClick={() => handleNavClick("#contact")}
-                  className="btn-primary mt-3 text-sm py-3 text-center"
+                  className="btn-primary mt-3 text-sm py-3.5 text-center w-full font-semibold shadow-lg shadow-cyan-500/20"
                 >
                   Hire Me
                 </motion.button>
