@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import { Sparkles, Layers, ArrowRight } from "lucide-react";
+import { Sparkles, Layers, X } from "lucide-react";
 
 interface SkillItem {
   name: string;
@@ -315,13 +315,56 @@ export default function Skills() {
     name: string;
     icon: string;
     categoryColor: string;
-  } | null>({
-    name: "React",
-    icon: "⚛️",
-    categoryColor: "#06b6d4",
-  });
+  } | null>(null);
 
   const currentUsage = activeSkill ? skillUsageMap[activeSkill.name] : null;
+
+  const handleSkillClick = (
+    skill: SkillItem,
+    categoryAccentHex: string,
+    event?: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const isTouch =
+      typeof window !== "undefined" &&
+      !window.matchMedia("(hover: hover)").matches;
+
+    if (isTouch && activeSkill?.name === skill.name) {
+      setActiveSkill(null);
+      return;
+    }
+
+    setActiveSkill({
+      name: skill.name,
+      icon: skill.icon,
+      categoryColor: categoryAccentHex,
+    });
+
+    if (isTouch && event?.currentTarget) {
+      const button = event.currentTarget;
+      setTimeout(() => {
+        const rect = button.getBoundingClientRect();
+        if (rect.top < 80 || rect.bottom > window.innerHeight - 140) {
+          button.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }, 100);
+    }
+  };
+
+  const handleSkillMouseEnter = (
+    skill: SkillItem,
+    categoryAccentHex: string
+  ) => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover)").matches
+    ) {
+      setActiveSkill({
+        name: skill.name,
+        icon: skill.icon,
+        categoryColor: categoryAccentHex,
+      });
+    }
+  };
 
   return (
     <section id="skills" className="relative py-24 px-4 sm:px-6 lg:px-8">
@@ -330,169 +373,297 @@ export default function Skills() {
           number="03"
           label="SKILLS"
           title="Technical"
-          subtitle="Hover or click on any technology to see where I applied it across production apps and internships."
+          subtitle="Tap any technology on mobile (or hover on desktop) to see where I applied it across production apps and internships."
         />
 
         {/* 6 Category Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {skillCategories.map((category, catIndex) => (
-            <motion.div
-              key={catIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: catIndex * 0.05 }}
-              viewport={{ once: true }}
-              className="glass-card rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-200 flex flex-col justify-between"
-              style={{ border: `1px solid ${category.borderColor}` }}
-            >
-              {/* Category Header */}
-              <div className="flex items-center gap-2 mb-4">
-                <div
-                  className="w-1 h-5 rounded-full"
-                  style={{ background: category.accentHex }}
-                />
-                <h3 className={`font-semibold text-sm ${category.color}`}>
-                  {category.title}
-                </h3>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8 items-start">
+          {skillCategories.map((category, catIndex) => {
+            const isSelectedCategory = category.skills.some(
+              (s) => s.name === activeSkill?.name
+            );
 
-              {/* Skills Chips */}
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => {
-                  const isSelected = activeSkill?.name === skill.name;
-                  return (
-                    <button
-                      key={skillIndex}
-                      onMouseEnter={() =>
-                        setActiveSkill({
-                          name: skill.name,
-                          icon: skill.icon,
-                          categoryColor: category.accentHex,
-                        })
-                      }
-                      onClick={() =>
-                        setActiveSkill({
-                          name: skill.name,
-                          icon: skill.icon,
-                          categoryColor: category.accentHex,
-                        })
-                      }
-                      className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 text-left ${
-                        isSelected
-                          ? "text-white scale-105 shadow-md"
-                          : "text-slate-300 hover:text-white hover:scale-105"
-                      }`}
-                      style={{
-                        background: isSelected
-                          ? `linear-gradient(135deg, ${category.accentHex}40, rgba(13,17,23,0.9))`
-                          : category.glowColor,
-                        border: `1px solid ${
-                          isSelected ? category.accentHex : category.borderColor
-                        }`,
-                        boxShadow: isSelected
-                          ? `0 0 15px ${category.accentHex}40`
-                          : "none",
-                      }}
-                      aria-label={`View where ${skill.name} is used`}
-                    >
-                      <span className="text-sm leading-none">{skill.icon}</span>
-                      <span>{skill.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* INTERACTIVE TECH INSPECTOR DOCK: Shows where active skill was used */}
-        <AnimatePresence mode="wait">
-          {activeSkill && currentUsage && (
-            <motion.div
-              key={activeSkill.name}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ duration: 0.25 }}
-              className="glass-card rounded-2xl p-6 sm:p-7 border relative overflow-hidden shadow-2xl"
-              style={{
-                borderColor: `${activeSkill.categoryColor}50`,
-                boxShadow: `0 0 35px ${activeSkill.categoryColor}15`,
-              }}
-            >
-              {/* Subtle top indicator bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-1"
+            return (
+              <motion.div
+                key={catIndex}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: catIndex * 0.05 }}
+                viewport={{ once: true }}
+                className={`glass-card rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between ${
+                  isSelectedCategory
+                    ? "border-cyan-500/40"
+                    : "hover:border-cyan-500/30"
+                }`}
                 style={{
-                  background: `linear-gradient(90deg, ${activeSkill.categoryColor}, transparent)`,
+                  border: `1px solid ${
+                    isSelectedCategory
+                      ? category.accentHex
+                      : category.borderColor
+                  }`,
                 }}
-              />
-
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                {/* Left info */}
-                <div className="space-y-2 max-w-xl">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{activeSkill.icon}</span>
-                    <div>
-                      <h4 className="text-lg sm:text-xl font-bold text-slate-100 flex items-center gap-2">
-                        <span>{activeSkill.name}</span>
-                        <span
-                          className="text-[11px] font-mono px-2 py-0.5 rounded-full uppercase"
-                          style={{
-                            color: activeSkill.categoryColor,
-                            background: `${activeSkill.categoryColor}15`,
-                            border: `1px solid ${activeSkill.categoryColor}35`,
-                          }}
-                        >
-                          Production Stack
-                        </span>
-                      </h4>
-                    </div>
+              >
+                <div>
+                  {/* Category Header */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <div
+                      className="w-1 h-5 rounded-full"
+                      style={{ background: category.accentHex }}
+                    />
+                    <h3 className={`font-semibold text-sm ${category.color}`}>
+                      {category.title}
+                    </h3>
                   </div>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                    {currentUsage.highlight}
-                  </p>
+
+                  {/* Skills Chips */}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, skillIndex) => {
+                      const isSelected = activeSkill?.name === skill.name;
+                      return (
+                        <button
+                          key={skillIndex}
+                          type="button"
+                          onMouseEnter={() =>
+                            handleSkillMouseEnter(skill, category.accentHex)
+                          }
+                          onClick={(e) =>
+                            handleSkillClick(skill, category.accentHex, e)
+                          }
+                          className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-200 text-left cursor-pointer select-none ${
+                            isSelected
+                              ? "text-white scale-105 shadow-md"
+                              : "text-slate-300 active:scale-95 md:hover:text-white md:hover:scale-105"
+                          }`}
+                          style={{
+                            background: isSelected
+                              ? `linear-gradient(135deg, ${category.accentHex}40, rgba(13,17,23,0.9))`
+                              : category.glowColor,
+                            border: `1px solid ${
+                              isSelected
+                                ? category.accentHex
+                                : category.borderColor
+                            }`,
+                            boxShadow: isSelected
+                              ? `0 0 15px ${category.accentHex}40`
+                              : "none",
+                          }}
+                          aria-label={`View where ${skill.name} is used`}
+                        >
+                          <span className="text-sm leading-none">{skill.icon}</span>
+                          <span>{skill.name}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
 
-                {/* Right: Where it is used */}
-                <div className="flex-1 md:max-w-md">
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <Layers size={14} style={{ color: activeSkill.categoryColor }} />
-                    <span className="text-xs font-mono text-slate-400 tracking-wider uppercase font-semibold">
-                      Applied In {currentUsage.usedIn.length} Project{currentUsage.usedIn.length > 1 ? "s" : ""}:
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {currentUsage.usedIn.map((item, i) => (
-                      <span
-                        key={i}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 border transition-all"
+                {/* Mobile / Tablet Inline Tech Inspector: Expands right inside the active category */}
+                <AnimatePresence>
+                  {isSelectedCategory && activeSkill && currentUsage && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="lg:hidden overflow-hidden w-full"
+                    >
+                      <div
+                        className="mt-4 pt-3.5 border-t rounded-xl p-3.5 sm:p-4 text-xs"
                         style={{
-                          background: item.includes("🏆")
-                            ? "rgba(245,158,11,0.12)"
-                            : item.includes("Internship")
-                            ? "rgba(6,182,212,0.12)"
-                            : "rgba(255,255,255,0.05)",
-                          borderColor: item.includes("🏆")
-                            ? "rgba(245,158,11,0.4)"
-                            : item.includes("Internship")
-                            ? "rgba(6,182,212,0.4)"
-                            : "rgba(255,255,255,0.1)",
+                          background: `linear-gradient(135deg, ${category.glowColor}, rgba(13,17,23,0.92))`,
+                          borderColor: `${activeSkill.categoryColor}40`,
                         }}
                       >
-                        <span
-                          className="w-1.5 h-1.5 rounded-full"
-                          style={{ background: activeSkill.categoryColor }}
-                        />
-                        {item}
+                        {/* Header with name, badge, and close button */}
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-xl leading-none">
+                              {activeSkill.icon}
+                            </span>
+                            <span className="font-bold text-slate-100 text-sm sm:text-base">
+                              {activeSkill.name}
+                            </span>
+                            <span
+                              className="text-[10px] font-mono px-2 py-0.5 rounded-full uppercase font-medium"
+                              style={{
+                                color: activeSkill.categoryColor,
+                                background: `${activeSkill.categoryColor}15`,
+                                border: `1px solid ${activeSkill.categoryColor}35`,
+                              }}
+                            >
+                              Applied Stack
+                            </span>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveSkill(null);
+                            }}
+                            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors"
+                            aria-label="Close details"
+                          >
+                            <X size={15} />
+                          </button>
+                        </div>
+
+                        {/* Highlight description */}
+                        <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                          {currentUsage.highlight}
+                        </p>
+
+                        {/* Applied in Projects list */}
+                        <div>
+                          <div className="flex items-center gap-1.5 mb-2 text-slate-400 font-mono text-[10px] uppercase font-semibold">
+                            <Layers
+                              size={12}
+                              style={{ color: activeSkill.categoryColor }}
+                            />
+                            <span>
+                              Applied In {currentUsage.usedIn.length} Project
+                              {currentUsage.usedIn.length > 1 ? "s" : ""}:
+                            </span>
+                          </div>
+                          <div className="flex flex-wrap gap-1.5">
+                            {currentUsage.usedIn.map((item, i) => (
+                              <span
+                                key={i}
+                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-200 border"
+                                style={{
+                                  background: item.includes("🏆")
+                                    ? "rgba(245,158,11,0.12)"
+                                    : item.includes("Internship")
+                                    ? "rgba(6,182,212,0.12)"
+                                    : "rgba(255,255,255,0.05)",
+                                  borderColor: item.includes("🏆")
+                                    ? "rgba(245,158,11,0.4)"
+                                    : item.includes("Internship")
+                                    ? "rgba(6,182,212,0.4)"
+                                    : "rgba(255,255,255,0.1)",
+                                }}
+                              >
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                                  style={{
+                                    background: activeSkill.categoryColor,
+                                  }}
+                                />
+                                <span className="leading-snug">{item}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* INTERACTIVE TECH INSPECTOR DOCK: Shows where active skill was used (Desktop only) */}
+        <div className="hidden lg:block">
+          <AnimatePresence mode="wait">
+            {activeSkill && currentUsage ? (
+              <motion.div
+                key={activeSkill.name}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 15 }}
+                transition={{ duration: 0.25 }}
+                className="glass-card rounded-2xl p-6 sm:p-7 border relative overflow-hidden shadow-2xl"
+                style={{
+                  borderColor: `${activeSkill.categoryColor}50`,
+                  boxShadow: `0 0 35px ${activeSkill.categoryColor}15`,
+                }}
+              >
+                {/* Subtle top indicator bar */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-1"
+                  style={{
+                    background: `linear-gradient(90deg, ${activeSkill.categoryColor}, transparent)`,
+                  }}
+                />
+
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  {/* Left info */}
+                  <div className="space-y-2 max-w-xl">
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{activeSkill.icon}</span>
+                      <div>
+                        <h4 className="text-lg sm:text-xl font-bold text-slate-100 flex items-center gap-2">
+                          <span>{activeSkill.name}</span>
+                          <span
+                            className="text-[11px] font-mono px-2 py-0.5 rounded-full uppercase"
+                            style={{
+                              color: activeSkill.categoryColor,
+                              background: `${activeSkill.categoryColor}15`,
+                              border: `1px solid ${activeSkill.categoryColor}35`,
+                            }}
+                          >
+                            Production Stack
+                          </span>
+                        </h4>
+                      </div>
+                    </div>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                      {currentUsage.highlight}
+                    </p>
+                  </div>
+
+                  {/* Right: Where it is used */}
+                  <div className="flex-1 md:max-w-md">
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <Layers
+                        size={14}
+                        style={{ color: activeSkill.categoryColor }}
+                      />
+                      <span className="text-xs font-mono text-slate-400 tracking-wider uppercase font-semibold">
+                        Applied In {currentUsage.usedIn.length} Project
+                        {currentUsage.usedIn.length > 1 ? "s" : ""}:
                       </span>
-                    ))}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {currentUsage.usedIn.map((item, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 border transition-all"
+                          style={{
+                            background: item.includes("🏆")
+                              ? "rgba(245,158,11,0.12)"
+                              : item.includes("Internship")
+                              ? "rgba(6,182,212,0.12)"
+                              : "rgba(255,255,255,0.05)",
+                            borderColor: item.includes("🏆")
+                              ? "rgba(245,158,11,0.4)"
+                              : item.includes("Internship")
+                              ? "rgba(6,182,212,0.4)"
+                              : "rgba(255,255,255,0.1)",
+                          }}
+                        >
+                          <span
+                            className="w-1.5 h-1.5 rounded-full"
+                            style={{ background: activeSkill.categoryColor }}
+                          />
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
+              </motion.div>
+            ) : (
+              <div className="glass-card rounded-2xl p-5 border border-white/5 text-center text-slate-400 text-sm flex items-center justify-center gap-2.5">
+                <Sparkles size={16} className="text-cyan-400 shrink-0" />
+                <span>
+                  Hover over any technology above to explore architectural highlights and production project usage.
+                </span>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* Currently Exploring / Continuous Learning */}
         <div
