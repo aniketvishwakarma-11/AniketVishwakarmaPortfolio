@@ -17,43 +17,215 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
+  metadataBase: new URL("https://aniketvishwakarma.me"),
+  title: {
+    default: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
+    template: "%s | Aniket Vishwakarma",
+  },
   description:
-    "Full-stack developer & ML engineer with 2+ years of experience building secure, scalable, real-time web applications. MERN Stack, WebRTC, AI/ML specialist.",
+    "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in React, Next.js, Node.js, WebRTC, and Python AI/ML pipelines. GNA Hackathon 4.0 Domain Winner.",
   keywords: [
-    "Full-Stack Developer",
-    "MERN Stack",
-    "Next.js",
-    "React",
-    "WebRTC",
-    "Machine Learning",
-    "AI",
-    "Portfolio",
     "Aniket Vishwakarma",
+    "Aniket Vishwakarma Portfolio",
+    "Aniket Vishwakarma Developer",
+    "Aniket Vishwakarma LPU",
+    "Full-Stack Developer",
+    "Machine Learning Engineer",
+    "AI Engineer",
+    "Next.js Developer",
+    "React Developer",
+    "MERN Stack",
+    "WebRTC Specialist",
+    "YOLOv8 Computer Vision",
     "Node.js",
     "TypeScript",
+    "GNA Hackathon 4.0 Winner",
+    "Clean and Green Technology",
+    "Lovely Professional University",
   ],
   authors: [
     {
       name: "Aniket Vishwakarma",
-      url: "https://github.com/aniketvishwakarma-11",
+      url: "https://aniketvishwakarma.me",
     },
   ],
+  creator: "Aniket Vishwakarma",
+  publisher: "Aniket Vishwakarma",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "https://aniketvishwakarma.me",
+    languages: {
+      "en-US": "https://aniketvishwakarma.me",
+    },
+  },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: "Aniket",
+    lastName: "Vishwakarma",
+    username: "aniketvishwakarma-11",
+    gender: "male",
     locale: "en_US",
-    url: "https://aniketvishwakarmaportfolio.vercel.app",
-    siteName: "Aniket Vishwakarma",
+    url: "https://aniketvishwakarma.me",
+    siteName: "Aniket Vishwakarma Portfolio",
     title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
     description:
-      "Full-stack developer & ML engineer. Building real-time, AI-powered apps that scale.",
+      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in React, Next.js, WebRTC, and Python AI/ML pipelines. GNA Hackathon 4.0 Domain Winner.",
+    images: [
+      {
+        url: "/aniket.png",
+        width: 1200,
+        height: 630,
+        alt: "Aniket Vishwakarma — Full-Stack Developer & ML Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
     description:
-      "Full-stack developer & ML engineer. Building real-time, AI-powered apps that scale.",
+      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in Next.js, WebRTC, and AI/ML.",
+    images: ["/aniket.png"],
+    creator: "@aniketvishwakarma",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://aniketvishwakarma.me/#person",
+      name: "Aniket Vishwakarma",
+      alternateName: [
+        "Aniket",
+        "Aniket Vishwakarma Developer",
+        "aniketvishwakarma-11",
+      ],
+      jobTitle: "Full-Stack Developer & Machine Learning Engineer",
+      description:
+        "Full-stack developer & ML engineer specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology.",
+      url: "https://aniketvishwakarma.me",
+      image: "https://aniketvishwakarma.me/aniket.png",
+      sameAs: [
+        "https://github.com/aniketvishwakarma-11",
+        "https://www.linkedin.com/in/aniket-vishwakarma-bb1b922b5",
+        "https://aniket-vishwakarma-portfolio.vercel.app",
+      ],
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "Python",
+        "FastAPI",
+        "Machine Learning",
+        "Scikit-learn",
+        "YOLOv8",
+        "Computer Vision",
+        "WebRTC",
+        "Socket.IO",
+        "MongoDB",
+        "PostgreSQL",
+        "Supabase",
+        "Firebase",
+        "Tailwind CSS",
+        "REST APIs",
+        "Cloudinary",
+        "AWS S3",
+      ],
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Lovely Professional University",
+      },
+      award: [
+        "Domain Winner — Clean & Green Technology (GNA Hackathon 4.0)",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aniketvishwakarma.me/#website",
+      url: "https://aniketvishwakarma.me",
+      name: "Aniket Vishwakarma Portfolio",
+      description:
+        "Official portfolio and engineering profile of Aniket Vishwakarma.",
+      publisher: {
+        "@id": "https://aniketvishwakarma.me/#person",
+      },
+      sameAs: ["https://aniket-vishwakarma-portfolio.vercel.app"],
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://aniketvishwakarma.me/#profilepage",
+      url: "https://aniketvishwakarma.me",
+      name: "Aniket Vishwakarma — Portfolio & Engineering Showcase",
+      mainEntity: {
+        "@id": "https://aniketvishwakarma.me/#person",
+      },
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://aniketvishwakarma.me/#projects",
+      name: "Projects by Aniket Vishwakarma",
+      itemListElement: [
+        {
+          "@type": "SoftwareSourceCode",
+          position: 1,
+          name: "Student Placement Prediction",
+          description:
+            "Full-Stack ML & AI application combining Scikit-learn machine learning and Google Gemini AI for predictive placement readiness and ATS scoring.",
+          programmingLanguage: ["TypeScript", "Python", "JavaScript"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 2,
+          name: "EcoVision Bharat",
+          description:
+            "AI-powered civic technology platform with YOLOv8 computer vision for waste severity detection. Domain Winner at GNA Hackathon 4.0.",
+          programmingLanguage: ["React", "FastAPI", "Python", "SQL"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 3,
+          name: "Vishwakarma Video Call",
+          description:
+            "Peer-to-peer WebRTC video conferencing application with Socket.IO signaling, room management, and screen sharing.",
+          programmingLanguage: ["JavaScript", "Node.js", "React"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 4,
+          name: "Karma Connect",
+          description:
+            "Full-stack social engagement network built on Next.js 14, Redux Toolkit, MongoDB, and Cloudinary.",
+          programmingLanguage: ["TypeScript", "Next.js", "Node.js"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -66,6 +238,14 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#06b6d4" />
+        <meta
+          name="google-site-verification"
+          content="SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
