@@ -139,13 +139,17 @@ export default function Navigation() {
               {navItems.map((item, index) => {
                 const isActive = activeSection === item.href.slice(1);
                 return (
-                  <motion.button
+                  <motion.a
                     key={item.name}
+                    href={item.href}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 + 0.3 }}
-                    onClick={() => handleNavClick(item.href)}
-                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 inline-block ${
                       isActive
                         ? "text-cyan-400"
                         : "text-slate-400 hover:text-slate-100"
@@ -167,21 +171,25 @@ export default function Navigation() {
                       />
                     )}
                     <span className="relative z-10">{item.name}</span>
-                  </motion.button>
+                  </motion.a>
                 );
               })}
             </div>
 
             {/* CTA */}
-            <motion.button
+            <motion.a
+              href="#contact"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
-              onClick={() => handleNavClick("#contact")}
-              className="hidden md:block btn-primary text-sm py-2 px-5"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#contact");
+              }}
+              className="hidden md:block btn-primary text-sm py-2 px-5 text-center"
             >
               Hire Me
-            </motion.button>
+            </motion.a>
 
             {/* Mobile Toggle */}
             <motion.button
@@ -231,12 +239,16 @@ export default function Navigation() {
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.slice(1);
                   return (
-                    <motion.button
+                    <motion.a
                       key={item.name}
+                      href={item.href}
                       initial={{ opacity: 0, x: -15 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.04 }}
-                      onClick={() => handleNavClick(item.href)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.href);
+                      }}
                       className={`flex items-center justify-between w-full text-left px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
                         isActive
                           ? "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 font-semibold shadow-sm"
@@ -247,18 +259,22 @@ export default function Navigation() {
                       {isActive && (
                         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#06b6d4]" />
                       )}
-                    </motion.button>
+                    </motion.a>
                   );
                 })}
-                <motion.button
+                <motion.a
+                  href="#contact"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.28 }}
-                  onClick={() => handleNavClick("#contact")}
-                  className="btn-primary mt-3 text-sm py-3.5 text-center w-full font-semibold shadow-lg shadow-cyan-500/20"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick("#contact");
+                  }}
+                  className="btn-primary mt-3 text-sm py-3.5 text-center w-full font-semibold shadow-lg shadow-cyan-500/20 block"
                 >
                   Hire Me
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}

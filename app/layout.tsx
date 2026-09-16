@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Aniket Vishwakarma",
   },
   description:
-    "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in React, Next.js, Node.js, WebRTC, and Python AI/ML pipelines. GNA Hackathon 4.0 Domain Winner.",
+    "Portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer. Building scalable WebRTC, MERN, and AI-powered apps. GNA Hackathon 4.0 Domain Winner.",
   keywords: [
     "Aniket Vishwakarma",
     "Aniket Vishwakarma Portfolio",
@@ -156,12 +156,66 @@ const jsonLd = {
         "Cloudinary",
         "AWS S3",
       ],
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Lovely Professional University",
-      },
+      alumniOf: [
+        {
+          "@type": "EducationalOrganization",
+          name: "PVPPCOE, Mumbai University",
+        },
+        {
+          "@type": "EducationalOrganization",
+          name: "D.G. Ruparel College of Arts, Science and Commerce",
+        },
+      ],
       award: [
         "Domain Winner — Clean & Green Technology (GNA Hackathon 4.0)",
+      ],
+      seeks: [
+        "Full-Stack Developer",
+        "Frontend Developer",
+        "Backend Developer",
+        "Machine Learning Engineer",
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://aniketvishwakarma.me/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://aniketvishwakarma.me",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About",
+          item: "https://aniketvishwakarma.me/#about",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Experience",
+          item: "https://aniketvishwakarma.me/#experience",
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Skills",
+          item: "https://aniketvishwakarma.me/#skills",
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "Projects",
+          item: "https://aniketvishwakarma.me/#projects",
+        },
+        {
+          "@type": "ListItem",
+          position: 6,
+          name: "Contact",
+          item: "https://aniketvishwakarma.me/#contact",
+        },
       ],
     },
     {
@@ -241,6 +295,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#06b6d4" />
+        <link rel="canonical" href="https://aniketvishwakarma.me" />
         <meta
           name="google-site-verification"
           content="SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg"

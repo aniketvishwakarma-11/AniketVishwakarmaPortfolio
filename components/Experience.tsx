@@ -1,42 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Briefcase, GraduationCap, Trophy, Rocket } from "lucide-react";
+import { CheckCircle2, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const timeline = [
   {
-    year: "2024",
-    period: "Year 1",
-    title: "Started the Development Journey",
-    org: "Self-taught",
-    icon: <Rocket size={16} />,
+    year: "2021 – 2023",
+    period: "HSC / Junior College",
+    title: "Higher Secondary (11th & 12th) — Science & Computer Science",
+    org: "D.G. Ruparel College · Mumbai",
+    icon: <GraduationCap size={16} />,
     iconColor: "text-cyan-400",
     borderColor: "border-cyan-500/30",
     badgeStyle: { background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.3)", color: "#22d3ee" },
     description:
-      "Dove into full-stack development with a focus on building real, working products. Mastered the MERN stack and explored WebRTC for real-time communication.",
+      "Completed Higher Secondary Certificate (HSC) in Science with Bifocal Computer Science at D.G. Ruparel College. Cultivated strong algorithmic thinking, microprocessor fundamentals, and advanced computational problem solving.",
     achievements: [
-      "Built first full-stack project",
-      "Mastered MERN stack from scratch",
-      "Explored WebRTC & real-time systems",
+      "Bifocal Computer Science (C++, Data Structures, OOP)",
+      "8085 Microprocessor architecture & digital electronics",
+      "Rigorous foundations in Physics, Chemistry & Mathematics",
+      "Premier junior college known for academic excellence in Mumbai",
     ],
   },
   {
-    year: "2024–2025",
-    period: "Year 2",
-    title: "PVPPCOE Engineering — 3rd Year",
-    org: "Mumbai University",
+    year: "2023 – 2027",
+    period: "Undergraduate",
+    title: "Bachelor of Engineering (B.E.) — Final Year",
+    org: "PVPPCOE · Mumbai University",
     icon: <GraduationCap size={16} />,
     iconColor: "text-violet-400",
     borderColor: "border-violet-500/30",
     badgeStyle: { background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.3)", color: "#a78bfa" },
     description:
-      "Pursuing B.E. while actively shipping production-grade projects and competing in hackathons. Built 7+ full-stack apps used by real users.",
+      "Pursuing Bachelor of Engineering while architecting scalable full-stack applications, production AI pipelines, and competing in national-level hackathons.",
     achievements: [
-      "7+ full-stack projects shipped",
-      "187+ active users across deployments",
-      "Active hackathon competitor",
+      "Final-year engineering student building production-grade software",
+      "7+ full-stack & AI projects shipped to live production",
+      "187+ active users across deployed platforms",
+      "Active hackathon competitor & technical project lead",
     ],
   },
   {
@@ -86,7 +88,7 @@ export default function Experience() {
           number="02"
           label="EXPERIENCE"
           title="My Journey &"
-          subtitle="From self-taught developer to hackathon winner and production engineer."
+          subtitle="From foundations in computer science to hackathon triumphs and production engineering."
         />
 
         {/* Timeline */}

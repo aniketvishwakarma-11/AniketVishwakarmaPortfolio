@@ -29,7 +29,7 @@ export default function About() {
           number="01"
           label="ABOUT ME"
           title="The Developer Behind the"
-          subtitle="3rd-year engineering student at PVPPCOE, Mumbai — building scalable, production-grade applications."
+          subtitle="Final-year engineering student at PVPPCOE, Mumbai — building scalable, production-grade applications."
         />
 
         {/* BENTO GRID — Perfectly balanced, no empty cells */}
@@ -81,17 +81,22 @@ export default function About() {
                     Full-Stack & ML
                   </span>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400/80 mb-1">
+                  What drives my engineering approach?
+                </h4>
+                <p className="text-slate-400 text-sm leading-relaxed mb-3">
                   Engineering student at{" "}
                   <span className="text-cyan-400 font-medium">PVPPCOE, Mumbai University</span>.
-                  Since starting my journey in 2024, I&apos;ve engineered and deployed{" "}
-                  <span className="text-slate-200 font-semibold">7+ full-stack platforms</span>{" "}
-                  incorporating real-time communication (WebRTC, Socket.IO) and machine learning.
+                  I design production-grade web systems and applied machine learning pipelines that solve tangible operational problems.
+                  With 7+ deployed platforms, I specialize in combining real-time communication (WebRTC, Socket.IO) with scalable MERN architectures.
                 </p>
+
+                <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400/80 mb-1">
+                  Who do I build for?
+                </h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  Currently interning as an{" "}
-                  <span className="text-cyan-400 font-medium">SDE at Chitralai</span>, where I build
-                  customer-facing features and hardened production APIs by eliminating 10+ critical security vulnerabilities.
+                  I engineer high-performance web applications for startups, technical recruiters, and enterprise teams requiring secure, high-concurrency cloud infrastructure. Currently interning as an{" "}
+                  <span className="text-cyan-400 font-medium">SDE at Chitralai</span>, where I eliminated 10+ critical security vulnerabilities (IDOR, XSS) across production APIs.
                 </p>
 
                 {/* Key Highlights row */}
@@ -269,10 +274,10 @@ export default function About() {
                   Architecture
                 </span>
               </div>
-              <h4 className="text-slate-100 font-bold text-base mb-1">Real-Time & AI Systems</h4>
-              <p className="text-xs text-violet-400/90 font-medium mb-3">Low-Latency & Clean Code</p>
+              <h4 className="text-slate-100 font-bold text-base mb-1">How do I implement Real-Time & AI?</h4>
+              <p className="text-xs text-violet-400/90 font-medium mb-2">Low-Latency & Clean Code</p>
               <p className="text-slate-400 text-xs leading-relaxed">
-                Specialized in <span className="text-slate-200 font-medium">WebRTC peer connections</span>, Socket.IO signaling, and orchestrating fallback AI models (Gemini + Cloudflare Workers).
+                WebRTC enables direct browser-to-browser peer communication without third-party plugins. I integrate Socket.IO signaling with dual-pipeline AI orchestration (Google Gemini API with Cloudflare Workers fallback) for sub-second inference.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-slate-500 font-mono">
