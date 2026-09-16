@@ -103,7 +103,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg",
+    google: [
+      "SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg",
+      "uy1sq5WoTzGlX2PSa44Z4t-bUjmx2TiEWpePq4jRbaM",
+    ],
   },
 };
 
@@ -241,6 +244,10 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg"
+        />
+        <meta
+          name="google-site-verification"
+          content="uy1sq5WoTzGlX2PSa44Z4t-bUjmx2TiEWpePq4jRbaM"
         />
         <script
           type="application/ld+json"

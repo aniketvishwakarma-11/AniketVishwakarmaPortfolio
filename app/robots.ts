@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -26,7 +26,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://aniketvishwakarma.me/sitemap.xml",
+    sitemap: [
+      "https://aniketvishwakarma.me/sitemap.xml",
+      "https://aniket-vishwakarma-portfolio.vercel.app/sitemap.xml",
+    ],
     host: "https://aniketvishwakarma.me",
   };
 }
