@@ -14,9 +14,9 @@ const stats = [
 
 const expertise = [
   "React", "Next.js", "TypeScript", "Node.js", "Express.js",
-  "MongoDB", "WebRTC", "Socket.IO", "Python", "FastAPI",
-  "YOLOv8", "Scikit-learn", "Tailwind CSS", "Redux Toolkit",
-  "Supabase", "Cloudinary", "Firebase", "REST APIs"
+  "PostgreSQL", "Supabase", "MinIO S3", "MongoDB", "WebRTC", "Socket.IO", "Python", "FastAPI",
+  "NVIDIA NIM", "PyTorch", "YOLOv8", "Gemini AI", "Polygon Web3", "Docker", "Tailwind CSS",
+  "Redux Toolkit", "Cloudinary", "Firebase", "REST APIs"
 ];
 
 const marqueeItems = [...expertise, ...expertise];
@@ -166,7 +166,7 @@ export default function About() {
 
             <div className="mt-4 pt-3 border-t border-white/5">
               <span className="text-xs font-mono text-slate-500 block mb-1">CORE STACK</span>
-              <p className="text-xs text-cyan-300 font-mono">MERN · WebRTC · FastAPI · YOLOv8</p>
+              <p className="text-xs text-cyan-300 font-mono">MERN · WebRTC · FastAPI · YOLOv8 · Web3</p>
             </div>
           </motion.div>
 

@@ -155,6 +155,12 @@ const jsonLd = {
         "REST APIs",
         "Cloudinary",
         "AWS S3",
+        "MinIO S3",
+        "NVIDIA NIM",
+        "PyTorch",
+        "Polygon / Web3",
+        "Docker",
+        "Google Gemini AI",
       ],
       alumniOf: [
         {

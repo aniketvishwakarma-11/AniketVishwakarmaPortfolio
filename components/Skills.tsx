@@ -26,6 +26,7 @@ const skillUsageMap: Record<
 > = {
   React: {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "Vishwakarma Video Call",
       "EcoVision Bharat",
@@ -36,6 +37,7 @@ const skillUsageMap: Record<
   },
   "Next.js": {
     usedIn: [
+      "MediVault (Next.js 15)",
       "Student Placement Prediction",
       "Karma Connect",
       "Personal Portfolio",
@@ -45,6 +47,7 @@ const skillUsageMap: Record<
   },
   TypeScript: {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "Personal Portfolio",
       "Chitralai SDE Internship",
@@ -53,6 +56,7 @@ const skillUsageMap: Record<
   },
   "Tailwind CSS": {
     usedIn: [
+      "MediVault (Tailwind v4)",
       "Student Placement Prediction",
       "EcoVision Bharat",
       "Personal Portfolio",
@@ -60,7 +64,7 @@ const skillUsageMap: Record<
     highlight: "Modern glassmorphic styling, design token systems & responsive UIs",
   },
   "Framer Motion": {
-    usedIn: ["Personal Portfolio", "Student Placement Prediction"],
+    usedIn: ["Personal Portfolio", "Student Placement Prediction", "MediVault"],
     highlight: "Physics-based gestures, smooth scroll transitions & modal popovers",
   },
   "Redux Toolkit": {
@@ -68,11 +72,16 @@ const skillUsageMap: Record<
     highlight: "Predictable centralized state for social feeds & real-time messaging",
   },
   Recharts: {
-    usedIn: ["Student Placement Prediction", "Stock Monitoring Dashboard"],
-    highlight: "Dynamic analytics charts & placement probability trends",
+    usedIn: [
+      "MediVault",
+      "Student Placement Prediction",
+      "Stock Monitoring Dashboard",
+    ],
+    highlight: "Longitudinal biomarker trend curves, placement stats & financial charts",
   },
   "Node.js": {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "Vishwakarma Video Call",
       "HomeFix",
@@ -84,6 +93,7 @@ const skillUsageMap: Record<
   },
   "Express.js": {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "EcoVision Bharat",
       "HomeFix",
@@ -93,12 +103,16 @@ const skillUsageMap: Record<
     highlight: "REST API microservices with security middleware & RBAC",
   },
   Python: {
-    usedIn: ["Student Placement Prediction", "EcoVision Bharat"],
+    usedIn: [
+      "Student Placement Prediction",
+      "EcoVision Bharat",
+      "MediVault (TrOCR API)",
+    ],
     highlight: "Machine learning workflows, data preprocessing & model serving",
   },
   FastAPI: {
-    usedIn: ["EcoVision Bharat"],
-    highlight: "High-throughput asynchronous Python microservice for YOLOv8 inference",
+    usedIn: ["EcoVision Bharat", "MediVault (TrOCR Service)"],
+    highlight: "High-throughput asynchronous Python microservice for AI model inference",
   },
   "Passport.js": {
     usedIn: ["HomeFix"],
@@ -106,6 +120,7 @@ const skillUsageMap: Record<
   },
   "JWT Auth": {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "Stock Monitoring Dashboard",
       "Chitralai SDE Internship",
@@ -124,12 +139,16 @@ const skillUsageMap: Record<
     highlight: "Document database modeling with Mongoose schemas & aggregation pipelines",
   },
   PostgreSQL: {
-    usedIn: ["EcoVision Bharat"],
-    highlight: "Relational schema for municipal reports, severity tags & worker assignments",
+    usedIn: ["MediVault", "EcoVision Bharat"],
+    highlight: "Relational schema design, JSONB clinical events, RLS policies & GIN indexing",
   },
   Supabase: {
-    usedIn: ["EcoVision Bharat"],
-    highlight: "Real-time subscriptions & cloud database sync for civic reports",
+    usedIn: ["MediVault", "EcoVision Bharat"],
+    highlight: "Managed PostgreSQL, real-time subscriptions & JWT authentication integration",
+  },
+  "MinIO S3": {
+    usedIn: ["MediVault"],
+    highlight: "S3-compatible object storage for encrypted medical documents & pre-signed URLs",
   },
   Firebase: {
     usedIn: ["Student Placement Prediction"],
@@ -152,7 +171,7 @@ const skillUsageMap: Record<
     highlight: "Bi-directional WebSocket messaging and WebRTC signaling server",
   },
   "REST APIs": {
-    usedIn: ["All 7 Production Projects", "Chitralai SDE Internship"],
+    usedIn: ["All 8 Production Projects", "Chitralai SDE Internship"],
     highlight: "RESTful architecture, status conventions & comprehensive error handling",
   },
   "Video Conf.": {
@@ -164,7 +183,11 @@ const skillUsageMap: Record<
     highlight: "Instant messaging with online presence & read confirmations",
   },
   "Python ML": {
-    usedIn: ["Student Placement Prediction", "EcoVision Bharat"],
+    usedIn: [
+      "Student Placement Prediction",
+      "EcoVision Bharat",
+      "MediVault",
+    ],
     highlight: "Applied machine learning pipelines from dataset to deployment",
   },
   "Scikit-learn": {
@@ -184,11 +207,28 @@ const skillUsageMap: Record<
     highlight: "Vectorized numerical transformations for ML feature arrays",
   },
   "Gemini AI": {
-    usedIn: ["Student Placement Prediction"],
-    highlight: "Conversational career counselor chatbot & automated ATS resume scoring",
+    usedIn: ["MediVault", "Student Placement Prediction"],
+    highlight: "Multimodal medical analysis, clinical copilot RAG & ATS resume parsing",
+  },
+  "NVIDIA NIM": {
+    usedIn: ["MediVault"],
+    highlight: "High-throughput fallback clinical LLM vision inference with Llama 3.2 11B Vision",
+  },
+  "PyTorch / TrOCR": {
+    usedIn: ["MediVault"],
+    highlight: "Vision transformer microservice transcribing cursive prescription handwriting",
+  },
+  Docker: {
+    usedIn: ["MediVault"],
+    highlight: "Containerized microservices orchestration for backend, MinIO & FastAPI TrOCR",
+  },
+  "Polygon / Web3": {
+    usedIn: ["MediVault"],
+    highlight: "Solidity smart contracts on Polygon Amoy for SHA-256 document notarization & consent ledger",
   },
   Vercel: {
     usedIn: [
+      "MediVault",
       "Student Placement Prediction",
       "Karma Connect",
       "Personal Portfolio",
@@ -196,11 +236,16 @@ const skillUsageMap: Record<
     highlight: "Continuous integration, edge network caching & instant deployments",
   },
   Render: {
-    usedIn: ["Vishwakarma Video Call", "HomeFix", "HomeVista"],
+    usedIn: [
+      "MediVault API",
+      "Vishwakarma Video Call",
+      "HomeFix",
+      "HomeVista",
+    ],
     highlight: "Cloud web services hosting for persistent Node.js servers",
   },
   "Git / GitHub": {
-    usedIn: ["All 7 Production Projects", "Chitralai Production Repos"],
+    usedIn: ["All 8 Production Projects", "Chitralai Production Repos"],
     highlight: "Git branching, PR reviews, CI/CD and release versioning",
   },
   ESLint: {
@@ -256,12 +301,13 @@ const skillCategories: SkillCategory[] = [
     borderColor: "rgba(59,130,246,0.2)",
     glowColor: "rgba(59,130,246,0.08)",
     skills: [
-      { name: "MongoDB", icon: "🍃" },
       { name: "PostgreSQL", icon: "🐘" },
+      { name: "MongoDB", icon: "🍃" },
       { name: "Supabase", icon: "⚡" },
+      { name: "MinIO S3", icon: "🪣" },
+      { name: "AWS S3", icon: "☁️" },
+      { name: "Cloudinary", icon: "🖼️" },
       { name: "Firebase", icon: "🔥" },
-      { name: "Cloudinary", icon: "☁️" },
-      { name: "AWS S3", icon: "🪣" },
     ],
   },
   {
@@ -285,12 +331,14 @@ const skillCategories: SkillCategory[] = [
     borderColor: "rgba(245,158,11,0.2)",
     glowColor: "rgba(245,158,11,0.08)",
     skills: [
-      { name: "Python ML", icon: "🤖" },
-      { name: "Scikit-learn", icon: "🧠" },
+      { name: "Gemini AI", icon: "✨" },
+      { name: "NVIDIA NIM", icon: "🟢" },
+      { name: "PyTorch / TrOCR", icon: "🔥" },
       { name: "YOLOv8", icon: "👁️" },
+      { name: "Scikit-learn", icon: "🧠" },
+      { name: "Python ML", icon: "🤖" },
       { name: "Pandas", icon: "🐼" },
       { name: "NumPy", icon: "🔢" },
-      { name: "Gemini AI", icon: "✨" },
     ],
   },
   {
@@ -300,12 +348,14 @@ const skillCategories: SkillCategory[] = [
     borderColor: "rgba(244,63,94,0.2)",
     glowColor: "rgba(244,63,94,0.08)",
     skills: [
+      { name: "Docker", icon: "🐳" },
+      { name: "Polygon / Web3", icon: "⬡" },
       { name: "Vercel", icon: "▲" },
       { name: "Render", icon: "🚀" },
       { name: "Git / GitHub", icon: "🐙" },
-      { name: "ESLint", icon: "🔍" },
       { name: "Turbopack", icon: "⚡" },
       { name: "Vite", icon: "⚡" },
+      { name: "ESLint", icon: "🔍" },
     ],
   },
 ];
