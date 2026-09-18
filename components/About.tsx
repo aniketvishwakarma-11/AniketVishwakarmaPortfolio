@@ -6,7 +6,7 @@ import SectionHeading from "./SectionHeading";
 import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
-  { value: "7+", label: "Projects Built", icon: "🚀", color: "#06b6d4" },
+  { value: "8+", label: "Projects Built", icon: "🚀", color: "#06b6d4" },
   { value: "187+", label: "Active Users", icon: "👥", color: "#7c3aed" },
   { value: "4.4k+", label: "Total Views", icon: "👁️", color: "#3b82f6" },
   { value: "6.7k+", label: "User Events", icon: "⚡", color: "#10b981" },
@@ -88,7 +88,7 @@ export default function About() {
                   Engineering student at{" "}
                   <span className="text-cyan-400 font-medium">PVPPCOE, Mumbai University</span>.
                   I design production-grade web systems and applied machine learning pipelines that solve tangible operational problems.
-                  With 7+ deployed platforms, I specialize in combining real-time communication (WebRTC, Socket.IO) with scalable MERN architectures.
+                  With 8+ deployed platforms, I specialize in combining real-time communication (WebRTC, Socket.IO) with scalable MERN architectures.
                 </p>
 
                 <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400/80 mb-1">
@@ -102,7 +102,7 @@ export default function About() {
                 {/* Key Highlights row */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-white/5">
                   <div className="text-xs text-slate-400">
-                    <span className="text-cyan-400 font-semibold block text-sm">7+</span>
+                    <span className="text-cyan-400 font-semibold block text-sm">8+</span>
                     Production Apps
                   </div>
                   <div className="text-xs text-slate-400">

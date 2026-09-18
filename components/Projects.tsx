@@ -33,7 +33,7 @@ export default function Projects() {
           number="04"
           label="PROJECTS"
           title="Featured"
-          subtitle="7 production-grade full-stack applications — shipped, deployed, and used by real people. Click any card for full details."
+          subtitle="8 production-grade full-stack applications — shipped, deployed, and used by real people. Click any card for full details."
         />
 
         {/* Filter Tabs */}

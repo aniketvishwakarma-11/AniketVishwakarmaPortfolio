@@ -30,6 +30,47 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    title: "MediVault",
+    type: "Decentralized Healthcare & Clinical AI",
+    category: "ai",
+    role: "Lead Full-Stack & Systems Architect",
+    architecture: "Next.js 15 · Express & TypeScript · Supabase PostgreSQL · MinIO S3 · Polygon Amoy · Gemini & NVIDIA AI",
+    problemSolved:
+      "Eliminated fragmented healthcare data silos and clinical delays by building an encrypted, patient-owned health records vault with automated doctor handwriting OCR, dual-AI diagnostics, and instant break-glass paramedic access.",
+    featured: true,
+    badge: "⭐ Featured",
+    accentColor: "#14b8a6",
+    accentBorder: "rgba(20,184,166,0.3)",
+    accentGlow: "rgba(20,184,166,0.08)",
+    description:
+      "Enterprise-grade decentralized Personal Health Records (PHR) vault, diagnostic AI copilot, and blockchain-notarized prescription platform. Converts complex medical records and cursive doctor handwriting into longitudinal timelines, biomarker trends, and instant emergency break-glass QR credentials.",
+    highlights: [
+      "Dual-AI Diagnostic Engine: High-resilience clinical pipeline pairing Google Gemini 3.1-flash-lite with NVIDIA NIM (Llama 3.2 11B Vision) fallback",
+      "TrOCR Handwriting Microservice: Custom vision transformer pipeline transcribing physician cursive handwriting with OpenCV perspective deskewing",
+      "Emergency Break-Glass QR Pass: Sub-500ms paramedic access to blood group, severe allergies, and vitals with privacy shielding and audit logging",
+      "Web3 Polygon Notarization: Smart contracts on Polygon Amoy notarizing document SHA-256 hashes and consent grants for tamper-proof verification",
+      "Longitudinal Clinical Timeline: Automated synthesis of consultations, lab results, and imaging into chronic care tracks with Recharts biomarker graphs",
+      "End-to-End Digital Prescriptions: 10,000+ formulary catalog with PM Jan Aushadhi generic savings calculator and QR-verified pharmacy dispensing",
+      "ABDM / ABHA & DigiLocker Ready: Aligned with national digital health standards with 14-digit ABHA ID integration and GDPR Article 17 erasure",
+    ],
+    features: [
+      "Patient & Doctor portals with time-bounded, granular cryptographic consent grants",
+      "Multi-provider clinical AI copilot for report explanations, differential diagnosis & SOAP notes",
+      "Automated document ingestion pipeline with MinIO S3 deduplicated object storage",
+      "Offline-first PWA emergency pass accessible without cellular network in disaster zones",
+      "Biomarker trajectory graphs tracking longitudinal HbA1c, glucose, and lipid profiles",
+      "Drug-drug interaction checker and allergy conflict guardrails in prescription studio",
+      "FIDO2 / WebAuthn biometric passkey authentication & GDPR Article 17 vault erasure",
+    ],
+    techStack: [
+      "Next.js 15", "React 19", "TypeScript", "Node.js", "Express.js",
+      "Supabase", "PostgreSQL", "MinIO S3", "Google Gemini AI",
+      "NVIDIA NIM", "PyTorch / TrOCR", "Polygon / Web3", "Tailwind CSS",
+    ],
+    deployment: "https://medi-vault-seven-lyart.vercel.app/",
+  },
+  {
+    id: 2,
     title: "Student Placement Prediction",
     type: "Full-Stack ML & AI Application",
     category: "ai",
@@ -78,7 +119,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: "EcoVision Bharat",
     type: "Full-Stack Civic Tech Platform",
     category: "civic",
@@ -117,7 +158,7 @@ export const projects: Project[] = [
     deployment: "#",
   },
   {
-    id: 3,
+    id: 4,
     title: "Karma Connect",
     type: "Full-Stack Social Networking Platform",
     category: "fullstack",
@@ -149,7 +190,7 @@ export const projects: Project[] = [
     deployment: "https://karmaconnect-five.vercel.app/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Vishwakarma Video Call",
     type: "Real-Time Video Conferencing App",
     category: "realtime",
@@ -181,7 +222,7 @@ export const projects: Project[] = [
     deployment: "https://vishwakarma-video-call.onrender.com/",
   },
   {
-    id: 5,
+    id: 6,
     title: "HomeFix",
     type: "Service Booking Platform",
     category: "fullstack",
@@ -212,7 +253,7 @@ export const projects: Project[] = [
     deployment: "https://home-eaze.onrender.com/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Stock Monitoring Dashboard",
     type: "Financial Analytics Dashboard",
     category: "fullstack",
@@ -243,7 +284,7 @@ export const projects: Project[] = [
     deployment: "#",
   },
   {
-    id: 7,
+    id: 8,
     title: "HomeVista",
     type: "Accommodation Listing Platform",
     category: "fullstack",

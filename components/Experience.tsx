@@ -36,7 +36,7 @@ const timeline = [
       "Pursuing Bachelor of Engineering while architecting scalable full-stack applications, production AI pipelines, and competing in national-level hackathons.",
     achievements: [
       "Final-year engineering student building production-grade software",
-      "7+ full-stack & AI projects shipped to live production",
+      "8+ full-stack & AI projects shipped to live production",
       "187+ active users across deployed platforms",
       "Active hackathon competitor & technical project lead",
     ],

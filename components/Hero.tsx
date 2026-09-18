@@ -41,7 +41,7 @@ const codeLines = [
 ];
 
 const stats = [
-  { value: "7+", label: "Projects" },
+  { value: "8+", label: "Projects" },
   { value: "187+", label: "Active Users" },
   { value: "2+", label: "Years" },
 ];
