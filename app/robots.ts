@@ -36,10 +36,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: [
-      "https://aniketvishwakarma.me/sitemap.xml",
-      "https://aniket-vishwakarma-portfolio.vercel.app/sitemap.xml",
-    ],
+    sitemap: ["https://aniketvishwakarma.me/sitemap.xml"],
     host: "https://aniketvishwakarma.me",
   };
 }
