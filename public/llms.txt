@@ -1,0 +1,77 @@
+# Aniket Vishwakarma
+
+> Full-Stack Developer & Machine Learning Engineer based in Mumbai, India.
+> Available for freelance, collaborations, and full-time SDE roles.
+
+Aniket Vishwakarma is a B.E. Computer Engineering student at PVPPCOE, Mumbai University (graduating 2027), currently working as a Software Development Engineer Intern at Chitralai, Mumbai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has shipped 8+ production-grade web and AI applications.
+
+## Contact
+
+- Email: aniketvis675@gmail.com
+- GitHub: https://github.com/aniketvishwakarma-11
+- LinkedIn: https://www.linkedin.com/in/aniket-vishwakarma-bb1b922b5
+- Portfolio: https://aniketvishwakarma.me
+
+## Core Skills
+
+Full-Stack: React, Next.js, TypeScript, Node.js, Express.js, MongoDB, PostgreSQL, Supabase, Firebase, Redux Toolkit, Tailwind CSS
+AI/ML: Python, FastAPI, YOLOv8, PyTorch, TrOCR, NVIDIA NIM, Google Gemini AI, Scikit-learn
+Real-Time: WebRTC, Socket.IO
+Cloud & DevOps: MinIO S3, AWS S3, Cloudinary, Docker, Vercel
+Web3: Polygon, Solidity
+
+## Education
+
+- B.E. Computer Engineering — PVPPCOE, Mumbai University (2023–2027)
+- HSC Science + Bifocal Computer Science — D.G. Ruparel College, Mumbai (2021–2023)
+
+## Experience
+
+- SDE Intern, Chitralai, Mumbai (2024–Present): Eliminated 10+ IDOR and XSS vulnerabilities across production APIs; built real-time dashboard features.
+- Domain Winner, GNA Hackathon 4.0 (2024): Clean & Green Technology — EcoVision Bharat project.
+
+## Projects
+
+### MediVault (2024)
+AI-powered medical records platform. Features: NVIDIA NIM OCR for document digitisation, PyTorch/TrOCR for handwritten prescription parsing, WebRTC telemedicine video calls, blockchain-verified record integrity (Polygon), emergency paramedic QR access, ABHA ID integration, PostgreSQL + MinIO S3.
+Live: https://medi-vault-seven-lyart.vercel.app/
+Stack: Next.js, Node.js, FastAPI, PostgreSQL, MinIO S3, NVIDIA NIM, PyTorch, WebRTC, Polygon/Web3
+
+### EcoVision Bharat (2024)
+AI civic technology platform — YOLOv8 waste severity detection, citizen reporting, and government dashboard. GNA Hackathon 4.0 Domain Winner — Clean & Green Technology.
+Stack: React, FastAPI, Python, PostgreSQL, YOLOv8
+
+### Student Placement Prediction (2024)
+Full-Stack ML application — Scikit-learn placement readiness prediction + Google Gemini AI for ATS resume scoring.
+Stack: Next.js, TypeScript, Python, FastAPI, Gemini AI, Scikit-learn
+
+### Vishwakarma Video Call (2023)
+Peer-to-peer WebRTC video conferencing — Socket.IO signaling, multi-room management, screen sharing.
+Stack: React, Node.js, Socket.IO, WebRTC
+
+### Karma Connect (2023)
+Full-stack social network — Next.js 14, Redux Toolkit, MongoDB, Cloudinary, JWT auth, infinite scroll feed.
+Stack: Next.js, TypeScript, MongoDB, Redux, Cloudinary
+
+### FitTrack Pro (2024)
+AI-powered fitness tracking — personalised workout plans, nutrition analysis, real-time progress charts.
+Stack: React, Node.js, MongoDB
+
+### DevCollab (2023)
+Real-time collaborative code editor — Socket.IO, syntax highlighting, live cursor tracking, room sessions.
+Stack: JavaScript, Node.js, Socket.IO
+
+### AgroSmart (2024)
+Smart agriculture platform — IoT sensor integration, crop disease detection (computer vision), predictive yield analytics.
+Stack: Python, FastAPI, React
+
+## Frequently Asked Questions
+
+Q: Who is Aniket Vishwakarma?
+A: Aniket Vishwakarma is a Full-Stack Developer and ML Engineer from Mumbai, India. He is a B.E. student at PVPPCOE (2023–2027), SDE Intern at Chitralai, and GNA Hackathon 4.0 Domain Winner.
+
+Q: What tech does Aniket Vishwakarma use?
+A: His core stack is React, Next.js, TypeScript, Node.js, Python, FastAPI, MongoDB, PostgreSQL, WebRTC, Socket.IO, YOLOv8, PyTorch, NVIDIA NIM, Gemini AI, Docker, Polygon/Web3.
+
+Q: Is Aniket Vishwakarma available for work?
+A: Yes. He is available for freelance projects, collaborations, and full-time SDE roles. Email: aniketvis675@gmail.com

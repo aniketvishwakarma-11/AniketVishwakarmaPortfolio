@@ -113,7 +113,7 @@ export default function Contact() {
             </div>
 
             {/* Social links */}
-            <div className="flex flex-col gap-3">
+            <address className="flex flex-col gap-3 not-italic">
               {socialLinks.map((link, i) => (
                 <motion.a
                   key={i}
@@ -136,7 +136,7 @@ export default function Contact() {
                   <span className="ml-auto text-slate-600 text-xs">→</span>
                 </motion.a>
               ))}
-            </div>
+            </address>
           </motion.div>
 
           {/* Right — Form */}

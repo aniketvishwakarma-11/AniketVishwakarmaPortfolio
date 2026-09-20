@@ -23,25 +23,33 @@ export const metadata: Metadata = {
     template: "%s | Aniket Vishwakarma",
   },
   description:
-    "Portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer. Building scalable WebRTC, MERN, and AI-powered apps. GNA Hackathon 4.0 Domain Winner.",
+    "Portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer from Mumbai. Building scalable WebRTC, MERN, and AI-powered apps. GNA Hackathon 4.0 Domain Winner. SDE Intern at Chitralai.",
   keywords: [
     "Aniket Vishwakarma",
     "Aniket Vishwakarma Portfolio",
     "Aniket Vishwakarma Developer",
-    "Aniket Vishwakarma LPU",
-    "Full-Stack Developer",
+    "Aniket Vishwakarma PVPPCOE",
+    "Aniket Vishwakarma Mumbai",
+    "Aniket Vishwakarma MediVault",
+    "Aniket Vishwakarma Chitralai",
+    "Full-Stack Developer Mumbai",
+    "SDE Intern Mumbai",
     "Machine Learning Engineer",
     "AI Engineer",
     "Next.js Developer",
     "React Developer",
     "MERN Stack",
     "WebRTC Specialist",
+    "WebRTC Video Call App",
     "YOLOv8 Computer Vision",
     "Node.js",
     "TypeScript",
+    "FastAPI Developer",
+    "MediVault AI Healthcare",
     "GNA Hackathon 4.0 Winner",
     "Clean and Green Technology",
-    "Lovely Professional University",
+    "Mumbai Developer",
+    "PVPPCOE Mumbai University",
   ],
   authors: [
     {
@@ -73,10 +81,10 @@ export const metadata: Metadata = {
     siteName: "Aniket Vishwakarma Portfolio",
     title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
     description:
-      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in React, Next.js, WebRTC, and Python AI/ML pipelines. GNA Hackathon 4.0 Domain Winner.",
+      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer from Mumbai. Specializing in React, Next.js, WebRTC, and Python AI/ML pipelines. GNA Hackathon 4.0 Domain Winner.",
     images: [
       {
-        url: "/aniket.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Aniket Vishwakarma — Full-Stack Developer & ML Engineer",
@@ -87,8 +95,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aniket Vishwakarma | Full-Stack Developer & ML Engineer",
     description:
-      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer specializing in Next.js, WebRTC, and AI/ML.",
-    images: ["/aniket.png"],
+      "Official portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer from Mumbai. Next.js, WebRTC, AI/ML. GNA Hackathon 4.0 Winner.",
+    images: ["/og-image.png"],
     creator: "@aniketvishwakarma",
   },
   robots: {
@@ -121,12 +129,27 @@ const jsonLd = {
         "Aniket",
         "Aniket Vishwakarma Developer",
         "aniketvishwakarma-11",
+        "Aniket Vishwakarma PVPPCOE",
+        "Aniket Vishwakarma Mumbai",
       ],
       jobTitle: "Full-Stack Developer & Machine Learning Engineer",
       description:
-        "Full-stack developer & ML engineer specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology.",
+        "Full-stack developer & ML engineer from Mumbai specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. SDE Intern at Chitralai. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology. B.E. student at PVPPCOE, Mumbai University (2023–2027).",
       url: "https://aniketvishwakarma.me",
       image: "https://aniketvishwakarma.me/aniket.png",
+      email: "aniketvis675@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "aniketvis675@gmail.com",
+        contactType: "professional",
+        availableLanguage: ["English", "Hindi"],
+      },
       sameAs: [
         "https://github.com/aniketvishwakarma-11",
         "https://www.linkedin.com/in/aniket-vishwakarma-bb1b922b5",
@@ -161,15 +184,20 @@ const jsonLd = {
         "Polygon / Web3",
         "Docker",
         "Google Gemini AI",
+        "Redux Toolkit",
+        "Full-Stack Development",
+        "ML Engineering",
       ],
       alumniOf: [
         {
           "@type": "EducationalOrganization",
           name: "PVPPCOE, Mumbai University",
+          url: "https://pvppcoe.ac.in",
         },
         {
           "@type": "EducationalOrganization",
           name: "D.G. Ruparel College of Arts, Science and Commerce",
+          url: "https://ruparel.edu.in",
         },
       ],
       award: [
@@ -180,7 +208,19 @@ const jsonLd = {
         "Frontend Developer",
         "Backend Developer",
         "Machine Learning Engineer",
+        "AI/ML Engineer",
+        "React Developer",
+        "Next.js Developer",
+        "WebRTC Engineer",
+        "SDE Internship",
+        "Software Engineer Mumbai",
+        "Full-Time SDE Role",
       ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Chitralai",
+        description: "Software company, Mumbai",
+      },
     },
     {
       "@type": "BreadcrumbList",
@@ -230,7 +270,7 @@ const jsonLd = {
       url: "https://aniketvishwakarma.me",
       name: "Aniket Vishwakarma Portfolio",
       description:
-        "Official portfolio and engineering profile of Aniket Vishwakarma.",
+        "Official portfolio and engineering profile of Aniket Vishwakarma — Full-Stack Developer & ML Engineer, Mumbai.",
       publisher: {
         "@id": "https://aniketvishwakarma.me/#person",
       },
@@ -251,8 +291,19 @@ const jsonLd = {
       name: "Projects by Aniket Vishwakarma",
       itemListElement: [
         {
-          "@type": "SoftwareSourceCode",
+          "@type": "SoftwareApplication",
           position: 1,
+          name: "MediVault",
+          description:
+            "AI-powered medical records platform with NVIDIA NIM OCR, WebRTC telemedicine, PyTorch/TrOCR handwritten prescription parsing, blockchain-verified record integrity, and emergency paramedic QR access.",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "Web",
+          url: "https://medi-vault-seven-lyart.vercel.app/",
+          programmingLanguage: ["TypeScript", "Python", "Solidity"],
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 2,
           name: "Student Placement Prediction",
           description:
             "Full-Stack ML & AI application combining Scikit-learn machine learning and Google Gemini AI for predictive placement readiness and ATS scoring.",
@@ -261,16 +312,16 @@ const jsonLd = {
         },
         {
           "@type": "SoftwareSourceCode",
-          position: 2,
+          position: 3,
           name: "EcoVision Bharat",
           description:
-            "AI-powered civic technology platform with YOLOv8 computer vision for waste severity detection. Domain Winner at GNA Hackathon 4.0.",
+            "AI-powered civic technology platform with YOLOv8 computer vision for waste severity detection. Domain Winner at GNA Hackathon 4.0 — Clean & Green Technology.",
           programmingLanguage: ["React", "FastAPI", "Python", "SQL"],
           codeRepository: "https://github.com/aniketvishwakarma-11",
         },
         {
           "@type": "SoftwareSourceCode",
-          position: 3,
+          position: 4,
           name: "Vishwakarma Video Call",
           description:
             "Peer-to-peer WebRTC video conferencing application with Socket.IO signaling, room management, and screen sharing.",
@@ -279,12 +330,109 @@ const jsonLd = {
         },
         {
           "@type": "SoftwareSourceCode",
-          position: 4,
+          position: 5,
           name: "Karma Connect",
           description:
             "Full-stack social engagement network built on Next.js 14, Redux Toolkit, MongoDB, and Cloudinary.",
           programmingLanguage: ["TypeScript", "Next.js", "Node.js"],
           codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 6,
+          name: "FitTrack Pro",
+          description:
+            "AI-powered fitness tracking platform with personalized workout plans, nutrition analysis, and real-time progress monitoring.",
+          programmingLanguage: ["React", "Node.js", "MongoDB"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 7,
+          name: "DevCollab",
+          description:
+            "Real-time collaborative code editor with Socket.IO, syntax highlighting, room-based sessions, and live cursor tracking.",
+          programmingLanguage: ["JavaScript", "Node.js", "Socket.IO"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 8,
+          name: "AgroSmart",
+          description:
+            "Smart agriculture platform with IoT sensor integration, crop disease detection using computer vision, and predictive yield analytics.",
+          programmingLanguage: ["Python", "FastAPI", "React"],
+          codeRepository: "https://github.com/aniketvishwakarma-11",
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aniketvishwakarma.me/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Who is Aniket Vishwakarma?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma is a Full-Stack Developer and Machine Learning Engineer based in Mumbai, India. He is a B.E. student at PVPPCOE, Mumbai University (2023–2027), currently interning as a Software Development Engineer at Chitralai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has built 8+ production-grade web and AI applications.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What does Aniket Vishwakarma specialize in?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma specializes in Full-Stack Development (MERN, Next.js, TypeScript), real-time communication (WebRTC, Socket.IO), and AI/ML engineering (YOLOv8, PyTorch, NVIDIA NIM, Google Gemini AI, Scikit-learn, FastAPI). He also works with Web3/Polygon and Docker for containerized deployments.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What projects has Aniket Vishwakarma built?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma has built 8+ production applications including: MediVault (AI healthcare platform with NVIDIA NIM OCR and WebRTC telemedicine), EcoVision Bharat (YOLOv8 waste detection, GNA Hackathon Domain Winner), Student Placement Prediction (ML + Gemini AI), Vishwakarma Video Call (WebRTC conferencing), Karma Connect (Next.js social network), FitTrack Pro, DevCollab (real-time code editor), and AgroSmart.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Where does Aniket Vishwakarma study?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma is pursuing a B.E. in Computer Engineering at PVPPCOE (Pirojshanagar Vidya Bhavan's Polytechnic and College of Engineering), Mumbai University, graduating in 2027. He previously completed his HSC (11th–12th) in Science with Bifocal Computer Science from D.G. Ruparel College, Mumbai (2021–2023).",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How can I contact Aniket Vishwakarma?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "You can contact Aniket Vishwakarma via email at aniketvis675@gmail.com, through his LinkedIn profile at linkedin.com/in/aniket-vishwakarma-bb1b922b5, or via his GitHub at github.com/aniketvishwakarma-11. He is available for freelance projects, collaborations, and full-time opportunities.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What tech stack does Aniket Vishwakarma use?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma's core tech stack includes: React, Next.js, TypeScript, Node.js, Express.js, Python, FastAPI, MongoDB, PostgreSQL, WebRTC, Socket.IO, YOLOv8, PyTorch, NVIDIA NIM, Google Gemini AI, Supabase, Firebase, Tailwind CSS, Redux Toolkit, Docker, Polygon/Web3, MinIO S3, and Cloudinary.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is Aniket Vishwakarma available for freelance work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, Aniket Vishwakarma is available for freelance projects, technical collaborations, and full-time SDE opportunities. He responds within 24 hours. Contact him at aniketvis675@gmail.com or through his portfolio at aniketvishwakarma.me.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What hackathons has Aniket Vishwakarma won?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Aniket Vishwakarma won the Domain Winner award in Clean & Green Technology at GNA Hackathon 4.0. His winning project, EcoVision Bharat, used YOLOv8 computer vision for automated waste severity detection and civic reporting.",
+          },
         },
       ],
     },
@@ -301,7 +449,10 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#06b6d4" />
+        <meta name="author" content="Aniket Vishwakarma" />
         <link rel="canonical" href="https://aniketvishwakarma.me" />
+        <link rel="me" href="https://github.com/aniketvishwakarma-11" />
+        <link rel="me" href="https://www.linkedin.com/in/aniket-vishwakarma-bb1b922b5" />
         <meta
           name="google-site-verification"
           content="SBqjBBgJY6yzBBvDjNxTUG5x50V1E1W0H__OSGH_Pgg"

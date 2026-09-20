@@ -64,13 +64,14 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <button
-                    onClick={() => handleNavClick(item.href)}
+                  <a
+                    href={item.href}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
                     className="text-sm text-slate-500 hover:text-cyan-400 transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-cyan-400 transition-colors" />
                     {item.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
