@@ -71,6 +71,47 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: "SwasthyaSetu",
+    type: "Offline-First Healthcare Referral & Clinical Continuity Platform",
+    category: "ai",
+    role: "Lead Full-Stack Architect (Monorepo)",
+    architecture: "React 18 · Vite · Dexie.js (IndexedDB) · Node.js · Express · Prisma ORM · PostgreSQL (Supabase) · FastAPI · TrOCR · Gemini Flash · RapidFuzz",
+    problemSolved:
+      "In India's tiered public health network (Sub-Centre → PHC → CHC → District Hospital), patients are routinely lost in transit due to paper referral chits, identity mismatches across facilities, unreadable handwritten discharge summaries, and EHR systems that crash without internet — causing preventable deaths and 30-day re-admissions.",
+    featured: true,
+    badge: "🏥 Healthcare AI",
+    accentColor: "#0d9488",
+    accentBorder: "rgba(13,148,136,0.3)",
+    accentGlow: "rgba(13,148,136,0.08)",
+    description:
+      "Closed-loop healthcare referral and clinical continuity platform built for India's Ayushman Bharat / NHM tiered network. Ensures no referred patient is lost in transit, no discharge summary is unread, and rural frontline clinicians can deliver verified care even with zero internet. Six architectural pillars covering offline sync, digital referrals, AI document intelligence, fuzzy patient identity reconciliation, real-time vitals scoring, and post-discharge follow-up tracking.",
+    highlights: [
+      "Offline-First Sync Engine: Dexie.js IndexedDB writes all clinical intake locally first; idempotent EVT- sync queue pushes to backend when connectivity returns — zero data loss",
+      "Closed-Loop Digital Referral Network: Replaces paper chits with structured ROUTINE / URGENT / EMERGENCY referrals tracking a 9-step lifecycle from DRAFT → FOLLOW_UP_COMPLETED with live bed availability (General, Oxygen, ICU, Ventilator)",
+      "AI Clinical OCR: Gemini Flash + Hugging Face TrOCR extract Diagnosis, Medications, Dosages, and Follow-Up Dates from handwritten discharge summaries; <90% confidence extractions flagged NEEDS_REVIEW — never auto-saved",
+      "Deterministic Fuzzy Identity Reconciliation: Multi-vector scoring (Phone 40pts · Name RapidFuzz 35pts · Village 15pts · Age/Gender 10pts) surfaces IdentityMatch candidates — no silent patient record merges",
+      "Frontline EWS Engine: Dynamic Early Warning Score computation with hard clinical safety triggers (BP ≥160 → Hypertensive Crisis, SpO₂ <92% → Hypoxemic Distress, Glucose <60 or >250 → Glycemic Emergency)",
+      "Post-Discharge Follow-Up Tracker: Auto-schedules Day-7/Day-14 PHC returns; logs medication adherence; 1-click ASHA health worker dispatch for overdue community home visits",
+    ],
+    features: [
+      "4-Role RBAC: PHC Medical Officer, District Hospital Clinician, Referral Coordinator (Triage), System Admin",
+      "Offline banner + emergency 153-char SMS fallback generator for feature-phone-only areas",
+      "Interactive side-by-side document image comparison drawer for AI extraction review",
+      "Real-time bed availability dashboard queried before ambulance dispatch",
+      "Immutable AuditEvent trail on every state transition for clinical accountability",
+      "npm workspaces monorepo: packages/shared canonical types, apps/web (Vite PWA), apps/api (Express + Prisma), services/ai (FastAPI)",
+      "Docker Compose self-hosted production stack + Vercel (frontend) + Render (API) cloud targets",
+    ],
+    techStack: [
+      "React 18", "Vite 5", "TypeScript", "Tailwind CSS", "Dexie.js",
+      "Node.js", "Express.js", "Prisma ORM", "PostgreSQL", "Supabase",
+      "Python", "FastAPI", "TrOCR", "Gemini Flash", "RapidFuzz",
+      "Docker", "JWT Auth", "Zod",
+    ],
+    deployment: "https://swastyasetu-three.vercel.app/",
+  },
+  {
+    id: 3,
     title: "Student Placement Prediction",
     type: "Full-Stack ML & AI Application",
     category: "ai",
@@ -119,7 +160,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: "EcoVision Bharat",
     type: "Full-Stack Civic Tech Platform",
     category: "civic",
@@ -158,7 +199,7 @@ export const projects: Project[] = [
     deployment: "#",
   },
   {
-    id: 4,
+    id: 5,
     title: "Karma Connect",
     type: "Full-Stack Social Networking Platform",
     category: "fullstack",
@@ -190,7 +231,7 @@ export const projects: Project[] = [
     deployment: "https://karmaconnect-five.vercel.app/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Vishwakarma Video Call",
     type: "Real-Time Video Conferencing App",
     category: "realtime",
@@ -222,7 +263,7 @@ export const projects: Project[] = [
     deployment: "https://vishwakarma-video-call.onrender.com/",
   },
   {
-    id: 6,
+    id: 7,
     title: "HomeFix",
     type: "Service Booking Platform",
     category: "fullstack",
@@ -253,7 +294,7 @@ export const projects: Project[] = [
     deployment: "https://home-eaze.onrender.com/",
   },
   {
-    id: 7,
+    id: 8,
     title: "Stock Monitoring Dashboard",
     type: "Financial Analytics Dashboard",
     category: "fullstack",
@@ -284,7 +325,7 @@ export const projects: Project[] = [
     deployment: "#",
   },
   {
-    id: 8,
+    id: 9,
     title: "HomeVista",
     type: "Accommodation Listing Platform",
     category: "fullstack",

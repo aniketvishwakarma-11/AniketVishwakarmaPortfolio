@@ -30,6 +30,7 @@ const skillUsageMap: Record<
       "Student Placement Prediction",
       "Vishwakarma Video Call",
       "EcoVision Bharat",
+      "SwasthyaSetu (React 18 PWA)",
       "Stock Monitoring Dashboard",
       "Chitralai SDE Internship",
     ],
@@ -48,6 +49,7 @@ const skillUsageMap: Record<
   TypeScript: {
     usedIn: [
       "MediVault",
+      "SwasthyaSetu (monorepo type safety)",
       "Student Placement Prediction",
       "Personal Portfolio",
       "Chitralai SDE Internship",
@@ -82,6 +84,7 @@ const skillUsageMap: Record<
   "Node.js": {
     usedIn: [
       "MediVault",
+      "SwasthyaSetu (Express API gateway)",
       "Student Placement Prediction",
       "Vishwakarma Video Call",
       "HomeFix",
@@ -94,6 +97,7 @@ const skillUsageMap: Record<
   "Express.js": {
     usedIn: [
       "MediVault",
+      "SwasthyaSetu (REST API)",
       "Student Placement Prediction",
       "EcoVision Bharat",
       "HomeFix",
@@ -106,12 +110,13 @@ const skillUsageMap: Record<
     usedIn: [
       "Student Placement Prediction",
       "EcoVision Bharat",
+      "SwasthyaSetu (FastAPI AI service)",
       "MediVault (TrOCR API)",
     ],
     highlight: "Machine learning workflows, data preprocessing & model serving",
   },
   FastAPI: {
-    usedIn: ["EcoVision Bharat", "MediVault (TrOCR Service)"],
+    usedIn: ["EcoVision Bharat", "SwasthyaSetu (TrOCR + Gemini microservice)", "MediVault (TrOCR Service)"],
     highlight: "High-throughput asynchronous Python microservice for AI model inference",
   },
   "Passport.js": {
@@ -139,12 +144,24 @@ const skillUsageMap: Record<
     highlight: "Document database modeling with Mongoose schemas & aggregation pipelines",
   },
   PostgreSQL: {
-    usedIn: ["MediVault", "EcoVision Bharat"],
+    usedIn: ["MediVault", "SwasthyaSetu (Supabase hosted)", "EcoVision Bharat"],
     highlight: "Relational schema design, JSONB clinical events, RLS policies & GIN indexing",
   },
   Supabase: {
-    usedIn: ["MediVault", "EcoVision Bharat"],
+    usedIn: ["MediVault", "SwasthyaSetu (Prisma + PgBouncer)", "EcoVision Bharat"],
     highlight: "Managed PostgreSQL, real-time subscriptions & JWT authentication integration",
+  },
+  "Prisma ORM": {
+    usedIn: ["SwasthyaSetu (type-safe DB client + migrations)"],
+    highlight: "Type-safe database access with auto-generated migrations and Zod schema validation",
+  },
+  "Dexie.js": {
+    usedIn: ["SwasthyaSetu (offline-first IndexedDB sync engine)"],
+    highlight: "Offline-first IndexedDB client enabling zero-latency clinical intake with zero internet",
+  },
+  RapidFuzz: {
+    usedIn: ["SwasthyaSetu (patient identity reconciliation)"],
+    highlight: "Fuzzy Levenshtein string matching for phonetic patient name deduplication across facilities",
   },
   "MinIO S3": {
     usedIn: ["MediVault"],
@@ -171,7 +188,7 @@ const skillUsageMap: Record<
     highlight: "Bi-directional WebSocket messaging and WebRTC signaling server",
   },
   "REST APIs": {
-    usedIn: ["All 8 Production Projects", "Chitralai SDE Internship"],
+    usedIn: ["All 9 Production Projects", "Chitralai SDE Internship"],
     highlight: "RESTful architecture, status conventions & comprehensive error handling",
   },
   "Video Conf.": {
@@ -219,7 +236,7 @@ const skillUsageMap: Record<
     highlight: "Vision transformer microservice transcribing cursive prescription handwriting",
   },
   Docker: {
-    usedIn: ["MediVault"],
+    usedIn: ["MediVault", "SwasthyaSetu (Docker Compose self-hosted stack)"],
     highlight: "Containerized microservices orchestration for backend, MinIO & FastAPI TrOCR",
   },
   "Polygon / Web3": {
@@ -245,7 +262,7 @@ const skillUsageMap: Record<
     highlight: "Cloud web services hosting for persistent Node.js servers",
   },
   "Git / GitHub": {
-    usedIn: ["All 8 Production Projects", "Chitralai Production Repos"],
+    usedIn: ["All 9 Production Projects", "Chitralai Production Repos"],
     highlight: "Git branching, PR reviews, CI/CD and release versioning",
   },
   ESLint: {
@@ -257,8 +274,12 @@ const skillUsageMap: Record<
     highlight: "Ultra-fast incremental Rust compilation for modern React apps",
   },
   Vite: {
-    usedIn: ["EcoVision Bharat"],
+    usedIn: ["EcoVision Bharat", "SwasthyaSetu (Vite 5 PWA)"],
     highlight: "Lightning-fast HMR and build bundling for client React apps",
+  },
+  Zod: {
+    usedIn: ["SwasthyaSetu (API request validation)"],
+    highlight: "Runtime schema validation and type-safe API contract enforcement",
   },
 };
 
@@ -290,8 +311,11 @@ const skillCategories: SkillCategory[] = [
       { name: "Express.js", icon: "⚡" },
       { name: "Python", icon: "🐍" },
       { name: "FastAPI", icon: "🚀" },
+      { name: "Prisma ORM", icon: "🔷" },
+      { name: "Dexie.js", icon: "💾" },
       { name: "Passport.js", icon: "🔐" },
       { name: "JWT Auth", icon: "🔑" },
+      { name: "Zod", icon: "✅" },
     ],
   },
   {
@@ -350,6 +374,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Docker", icon: "🐳" },
       { name: "Polygon / Web3", icon: "⬡" },
+      { name: "RapidFuzz", icon: "🔍" },
       { name: "Vercel", icon: "▲" },
       { name: "Render", icon: "🚀" },
       { name: "Git / GitHub", icon: "🐙" },

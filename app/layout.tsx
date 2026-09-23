@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     "Aniket Vishwakarma PVPPCOE",
     "Aniket Vishwakarma Mumbai",
     "Aniket Vishwakarma MediVault",
+    "Aniket Vishwakarma SwasthyaSetu",
     "Aniket Vishwakarma Chitralai",
     "Full-Stack Developer Mumbai",
     "SDE Intern Mumbai",
@@ -302,8 +303,19 @@ const jsonLd = {
           programmingLanguage: ["TypeScript", "Python", "Solidity"],
         },
         {
-          "@type": "SoftwareSourceCode",
+          "@type": "SoftwareApplication",
           position: 2,
+          name: "SwasthyaSetu",
+          description:
+            "Offline-first, closed-loop healthcare referral and clinical continuity platform for India's public health network. Features Dexie.js offline sync, ROUTINE/URGENT/EMERGENCY digital referrals, AI OCR (Gemini Flash + TrOCR), fuzzy patient identity reconciliation (RapidFuzz), EWS vitals scoring, and post-discharge follow-up tracking.",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "Web",
+          url: "https://swastyasetu-three.vercel.app/",
+          programmingLanguage: ["TypeScript", "React", "Python", "Node.js"],
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          position: 3,
           name: "Student Placement Prediction",
           description:
             "Full-Stack ML & AI application combining Scikit-learn machine learning and Google Gemini AI for predictive placement readiness and ATS scoring.",
@@ -312,7 +324,7 @@ const jsonLd = {
         },
         {
           "@type": "SoftwareSourceCode",
-          position: 3,
+          position: 4,
           name: "EcoVision Bharat",
           description:
             "AI-powered civic technology platform with YOLOv8 computer vision for waste severity detection. Domain Winner at GNA Hackathon 4.0 — Clean & Green Technology.",
@@ -375,7 +387,7 @@ const jsonLd = {
           name: "Who is Aniket Vishwakarma?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Aniket Vishwakarma is a Full-Stack Developer and Machine Learning Engineer based in Mumbai, India. He is a B.E. student at PVPPCOE, Mumbai University (2023–2027), currently interning as a Software Development Engineer at Chitralai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has built 8+ production-grade web and AI applications.",
+            text: "Aniket Vishwakarma is a Full-Stack Developer and Machine Learning Engineer based in Mumbai, India. He is a B.E. student at PVPPCOE, Mumbai University (2023–2027), currently interning as a Software Development Engineer at Chitralai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has built 9+ production-grade web and AI applications.",
           },
         },
         {
@@ -391,7 +403,7 @@ const jsonLd = {
           name: "What projects has Aniket Vishwakarma built?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Aniket Vishwakarma has built 8+ production applications including: MediVault (AI healthcare platform with NVIDIA NIM OCR and WebRTC telemedicine), EcoVision Bharat (YOLOv8 waste detection, GNA Hackathon Domain Winner), Student Placement Prediction (ML + Gemini AI), Vishwakarma Video Call (WebRTC conferencing), Karma Connect (Next.js social network), FitTrack Pro, DevCollab (real-time code editor), and AgroSmart.",
+            text: "Aniket Vishwakarma has built 9+ production applications including: MediVault (AI healthcare PHR vault with NVIDIA NIM OCR and WebRTC telemedicine), SwasthyaSetu (offline-first healthcare referral platform with Dexie.js sync, AI OCR, and fuzzy identity reconciliation for India's public health network), EcoVision Bharat (YOLOv8 waste detection, GNA Hackathon Domain Winner), Student Placement Prediction (ML + Gemini AI), Vishwakarma Video Call (WebRTC conferencing), and Karma Connect (Next.js social network).",
           },
         },
         {
