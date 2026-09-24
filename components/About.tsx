@@ -171,7 +171,7 @@ export default function About() {
           </motion.div>
 
           {/* ROW 2: FULL-WIDTH STATS BAR (Spans all 3 cols, 4 items) */}
-          <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-3.5">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -179,13 +179,13 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 viewport={{ once: true }}
-                className="glass-card rounded-2xl p-5 text-center hover:scale-[1.02] transition-transform duration-200"
+                className="glass-card rounded-xl py-3 px-3 sm:py-3.5 sm:px-4 text-center hover:scale-[1.02] transition-transform duration-200"
               >
-                <div className="text-2xl mb-2">{stat.icon}</div>
-                <div className="text-3xl font-bold gradient-text-static mb-1">
+                <div className="text-xl mb-1">{stat.icon}</div>
+                <div className="text-xl sm:text-2xl font-bold gradient-text-static mb-0.5">
                   <AnimatedCounter value={stat.value} />
                 </div>
-                <p className="text-slate-400 text-xs font-mono">{stat.label}</p>
+                <p className="text-slate-400 text-[11px] sm:text-xs font-mono">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -198,7 +198,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between"
+            className="glass-card rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between"
             style={{ border: "1px solid rgba(251,191,36,0.25)" }}
           >
             <div
@@ -206,19 +206,19 @@ export default function About() {
               style={{ background: "radial-gradient(circle, #f59e0b 0%, transparent 70%)" }}
             />
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">🏆</span>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xl">🏆</span>
                 <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-amber-400 bg-amber-500/10 border border-amber-500/30 font-semibold">
                   Domain Winner
                 </span>
               </div>
               <h4 className="text-slate-100 font-bold text-base mb-1">GNA 4.0 Hackathon</h4>
-              <p className="text-xs text-amber-400/90 font-medium mb-3">Domain Winner · Clean & Green Technology</p>
+              <p className="text-xs text-amber-400/90 font-medium mb-2.5">Domain Winner · Clean & Green Technology</p>
               <p className="text-slate-400 text-xs leading-relaxed">
                 Built <span className="text-slate-200 font-medium">EcoVision Bharat</span> — an AI civic platform with YOLOv8 severity analysis, GPS geolocation, and worker allocation.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
               GNA University, Punjab · Apr 2026
             </div>
           </motion.div>
@@ -229,7 +229,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between"
+            className="glass-card rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between"
             style={{ border: "1px solid rgba(6,182,212,0.25)" }}
           >
             <div
@@ -237,19 +237,19 @@ export default function About() {
               style={{ background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)" }}
             />
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">🛡️</span>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xl">🛡️</span>
                 <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 font-semibold">
                   Production
                 </span>
               </div>
               <h4 className="text-slate-100 font-bold text-base mb-1">Production Security & SDE</h4>
-              <p className="text-xs text-cyan-400/90 font-medium mb-3">Chitralai SDE Internship</p>
+              <p className="text-xs text-cyan-400/90 font-medium mb-2.5">Chitralai SDE Internship</p>
               <p className="text-slate-400 text-xs leading-relaxed">
                 Fixed <span className="text-slate-200 font-medium">10+ critical vulnerabilities</span> including IDOR, XSS, and broken auth. Enforced JWT role-based access control across core APIs.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
               Serving thousands of users across India
             </div>
           </motion.div>
@@ -260,7 +260,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="glass-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between"
+            className="glass-card rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between"
             style={{ border: "1px solid rgba(124,58,237,0.25)" }}
           >
             <div
@@ -268,8 +268,8 @@ export default function About() {
               style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
             />
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">⚡</span>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xl">⚡</span>
                 <span className="text-xs font-mono px-2.5 py-0.5 rounded-full text-violet-400 bg-violet-500/10 border border-violet-500/30 font-semibold">
                   Architecture
                 </span>
@@ -280,7 +280,7 @@ export default function About() {
                 WebRTC enables direct browser-to-browser peer communication without third-party plugins. I integrate Socket.IO signaling with dual-pipeline AI orchestration (Google Gemini API with Cloudflare Workers fallback) for sub-second inference.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
               Clean Architecture · Modular REST APIs
             </div>
           </motion.div>
