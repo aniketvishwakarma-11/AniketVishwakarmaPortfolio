@@ -11,7 +11,7 @@ export interface Project {
   features: string[];
   techStack: string[];
   deployment: string;
-  githubUrl?: string;
+  githubUrl: string;
   featured?: boolean;
   badge?: string;
   accentColor: string;
@@ -25,6 +25,8 @@ export interface Project {
     bounceRate?: string;
     events?: string;
   };
+  yourRole?: string;
+  measurableOutcome?: string;
 }
 
 export const projects: Project[] = [
@@ -68,6 +70,9 @@ export const projects: Project[] = [
       "NVIDIA NIM", "PyTorch / TrOCR", "Polygon / Web3", "Tailwind CSS",
     ],
     deployment: "https://medi-vault-seven-lyart.vercel.app/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/MediVault",
+    yourRole: "Architected full system: Next.js 15 frontend, Express/Node.js backend, FastAPI microservices for AI, PostgreSQL schema with RLS, Polygon smart contracts, MinIO S3 storage",
+    measurableOutcome: "Sub-500ms emergency QR access; dual-AI fallback with <2s inference; production-ready on Vercel + Render",
   },
   {
     id: 2,
@@ -109,6 +114,9 @@ export const projects: Project[] = [
       "Docker", "JWT Auth", "Zod",
     ],
     deployment: "https://swastyasetu-three.vercel.app/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Swastyasetu",
+    yourRole: "Designed monorepo architecture; built offline-first sync engine with Dexie.js; implemented fuzzy patient matching with RapidFuzz; integrated Gemini Flash + TrOCR for clinical OCR; deployed Docker Compose stack",
+    measurableOutcome: "Zero data loss offline sync; 9-step referral lifecycle; production deployment on Vercel + Render",
   },
   {
     id: 3,
@@ -152,6 +160,9 @@ export const projects: Project[] = [
       "Google Gemini AI", "Firebase Auth", "Cloudflare Workers AI",
     ],
     deployment: "https://student-placement-prediction-ten.vercel.app/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Student-Placement-Prediction",
+    yourRole: "Built end-to-end: Next.js frontend, Scikit-learn ML pipeline, Gemini AI integration, Firebase Auth with HTTP-only cookies, RBAC dashboards, PDF report generation",
+    measurableOutcome: "187+ active students; 6,700+ events tracked; ATS scoring 0-100; dual ML + AI prediction modes",
     stats: {
       activeUsers: "187+",
       totalViews: "4.4k",
@@ -197,6 +208,9 @@ export const projects: Project[] = [
       "PostgreSQL", "Cloudinary", "TailwindCSS",
     ],
     deployment: "#",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Gna-Hackthon-4.0",
+    yourRole: "Built YOLOv8 computer vision pipeline on FastAPI; designed 4-tier RBAC workflow; integrated Cloudinary for image storage; implemented gamified leaderboard with Supabase real-time subscriptions",
+    measurableOutcome: "GNA 4.0 Domain Winner 🏆; <200ms CV inference; production-ready civic platform",
   },
   {
     id: 5,
@@ -229,6 +243,9 @@ export const projects: Project[] = [
     ],
     techStack: ["Next.js", "Redux Toolkit", "Socket.IO", "MongoDB", "Cloudinary", "Node.js", "Express.js"],
     deployment: "https://karmaconnect-five.vercel.app/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Social-Media-Platform",
+    yourRole: "Built full-stack: Next.js frontend with Redux Toolkit, Socket.IO real-time messaging, Express/Node.js backend, MongoDB with optimized indexes, Cloudinary image pipeline",
+    measurableOutcome: "Real-time bi-directional messaging; scalable feed architecture; production deployed on Vercel",
   },
   {
     id: 6,
@@ -261,6 +278,9 @@ export const projects: Project[] = [
     ],
     techStack: ["React", "WebRTC", "Socket.IO", "Node.js", "MongoDB", "Tailwind CSS"],
     deployment: "https://vishwakarma-video-call.onrender.com/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Vishwakarma-Video-Call",
+    yourRole: "Implemented WebRTC peer-to-peer connections; built Socket.IO signaling server for SDP/ICE negotiation; added screen sharing via getDisplayMedia; designed meeting history persistence",
+    measurableOutcome: "Zero-dependency P2P video conferencing; screen sharing + in-call chat; deployed on Render",
   },
   {
     id: 7,
@@ -292,6 +312,9 @@ export const projects: Project[] = [
     ],
     techStack: ["Node.js", "Express", "MongoDB", "Passport.js", "Tailwind CSS"],
     deployment: "https://home-eaze.onrender.com/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Home-Eaze",
+    yourRole: "Built full-stack service marketplace: Express.js REST API, Passport.js authentication, MongoDB schemas for services/providers/bookings, dual-role dashboards, review system",
+    measurableOutcome: "End-to-end booking lifecycle; verified provider network; dual-role portals; deployed on Render",
   },
   {
     id: 8,
@@ -323,6 +346,9 @@ export const projects: Project[] = [
     ],
     techStack: ["React", "Node.js", "MongoDB", "Chart.js", "JWT", "REST APIs"],
     deployment: "#",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Stock-Trading-Platform",
+    yourRole: "Built financial dashboard: React frontend with Chart.js visualizations, Node.js/Express backend, JWT authentication, external financial API integration for real-time market data",
+    measurableOutcome: "Zerodha-inspired UI; real-time portfolio analytics; multi-timeframe Chart.js charts; JWT-secured",
   },
   {
     id: 9,
@@ -354,5 +380,8 @@ export const projects: Project[] = [
     ],
     techStack: ["Node.js", "Express", "MongoDB", "Cloudinary", "OpenCage API", "Tailwind CSS"],
     deployment: "https://homevista-qvj8.onrender.com/",
+    githubUrl: "https://github.com/aniketvishwakarma-11/Home-Eaze",
+    yourRole: "Built Airbnb-style platform: Express.js backend, MongoDB with spatial queries, Cloudinary multi-image uploads, OpenCage geocoding for location search, host dashboards, review system",
+    measurableOutcome: "Geolocation-based property search; Cloudinary image pipeline; host management dashboard; deployed on Render",
   },
 ];

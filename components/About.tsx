@@ -6,7 +6,7 @@ import SectionHeading from "./SectionHeading";
 import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
-  { value: "9+", label: "Projects Built", icon: "🚀", color: "#06b6d4" },
+  { value: "9+", label: "Projects Shipped", icon: "🚀", color: "#06b6d4" },
   { value: "187+", label: "Active Users", icon: "👥", color: "#7c3aed" },
   { value: "4.4k+", label: "Total Views", icon: "👁️", color: "#3b82f6" },
   { value: "6.7k+", label: "User Events", icon: "⚡", color: "#10b981" },

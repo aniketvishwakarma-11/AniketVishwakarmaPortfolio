@@ -11,6 +11,7 @@ import {
   Cpu,
   Zap,
   Target,
+  Github,
 } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
@@ -159,6 +160,50 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.problemSolved}
               </p>
             </div>
+
+            {/* Your Role & Measurable Outcome */}
+            {(project.yourRole || project.measurableOutcome) && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {project.yourRole && (
+                  <div
+                    className="p-4 rounded-xl border"
+                    style={{
+                      background: "rgba(6,182,212,0.05)",
+                      borderColor: "rgba(6,182,212,0.15)",
+                    }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <Cpu size={14} className="text-cyan-400" />
+                      <h4 className="text-xs font-mono text-cyan-400 tracking-wider uppercase font-semibold">
+                        Your Role & Contribution
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {project.yourRole}
+                    </p>
+                  </div>
+                )}
+                {project.measurableOutcome && (
+                  <div
+                    className="p-4 rounded-xl border"
+                    style={{
+                      background: "rgba(16,185,129,0.05)",
+                      borderColor: "rgba(16,185,129,0.15)",
+                    }}
+                  >
+                    <div className="flex items-center gap-1.5 mb-1.5">
+                      <BarChart3 size={14} className="text-emerald-400" />
+                      <h4 className="text-xs font-mono text-emerald-400 tracking-wider uppercase font-semibold">
+                        Measurable Outcome
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {project.measurableOutcome}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Live Analytics & Impact (if available) */}
             {project.stats && (
@@ -309,23 +354,35 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               Close
             </button>
 
-            {project.deployment !== "#" ? (
+            <div className="flex items-center gap-3">
               <a
-                href={project.deployment}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary flex items-center gap-2 text-xs py-2.5 px-6"
-                style={{
-                  background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
-                }}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                style={{ border: "1px solid rgba(255,255,255,0.1)" }}
               >
-                Open Live Demo <ExternalLink size={14} />
+                <Github size={14} /> View Code
               </a>
-            ) : (
-              <span className="text-xs text-slate-500 font-mono px-4 py-2 rounded-xl bg-white/5">
-                Deployment: Private / Staging
-              </span>
-            )}
+
+              {project.deployment !== "#" ? (
+                <a
+                  href={project.deployment}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary flex items-center gap-2 text-xs py-2.5 px-6"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
+                  }}
+                >
+                  Open Live Demo <ExternalLink size={14} />
+                </a>
+              ) : (
+                <span className="text-xs text-slate-500 font-mono px-4 py-2 rounded-xl bg-white/5">
+                  Deployment: Private / Staging
+                </span>
+              )}
+            </div>
           </div>
         </motion.div>
       </div>

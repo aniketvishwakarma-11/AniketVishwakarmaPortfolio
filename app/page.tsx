@@ -7,13 +7,11 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
-import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
     <>
       {/* Global Effects */}
-      <CustomCursor />
       <FloatingOrbs />
 
       {/* Main Layout */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Info, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Info, ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
@@ -148,23 +148,35 @@ export default function ProjectCard({
                 <Info size={13} /> View Full Info
               </button>
 
-              {project.deployment === "#" ? (
-                <span className="text-[11px] font-mono text-slate-500 px-3 py-1.5 rounded-xl bg-white/[0.02]">
-                  Private
-                </span>
-              ) : (
+              <div className="flex items-center gap-2">
                 <a
-                  href={project.deployment}
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white hover:shadow-lg transition-all"
-                  style={{
-                    background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
-                  }}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                  style={{ border: "1px solid rgba(255,255,255,0.1)" }}
                 >
-                  Live Demo <ExternalLink size={12} />
+                  <Github size={12} /> View Code
                 </a>
-              )}
+
+                {project.deployment === "#" ? (
+                  <span className="text-[11px] font-mono text-slate-500 px-3 py-1.5 rounded-xl bg-white/[0.02]">
+                    Private
+                  </span>
+                ) : (
+                  <a
+                    href={project.deployment}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white hover:shadow-lg transition-all"
+                    style={{
+                      background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
+                    }}
+                  >
+                    Live Demo <ExternalLink size={12} />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -33,17 +33,17 @@ const socialLinks = [
 
 const codeLines = [
   { indent: 0, text: "const aniket = {", color: "text-slate-300" },
-  { indent: 1, text: 'role: "Full-Stack Dev",', color: "text-cyan-300" },
-  { indent: 1, text: 'stack: ["MERN", "WebRTC", "AI"],', color: "text-violet-300" },
-  { indent: 1, text: 'hackathon: "Domain Winner 🏆",', color: "text-amber-300" },
-  { indent: 1, text: 'open: true,', color: "text-emerald-300" },
+  { indent: 1, text: 'role: "Full-Stack & ML Engineer",', color: "text-cyan-300" },
+  { indent: 1, text: 'hackathon: "GNA 4.0 Domain Winner 🏆",', color: "text-amber-300" },
+  { indent: 1, text: 'internship: "SDE @ Chitralai",', color: "text-emerald-300" },
+  { indent: 1, text: 'projects: "9+ Shipped to Production",', color: "text-violet-300" },
   { indent: 0, text: "}", color: "text-slate-300" },
 ];
 
 const stats = [
-  { value: "9+", label: "Projects" },
+  { value: "9+", label: "Projects Shipped" },
   { value: "187+", label: "Active Users" },
-  { value: "2+", label: "Years" },
+  { value: "6.7k+", label: "Events Tracked" },
 ];
 
 export default function Hero() {
@@ -106,10 +106,12 @@ export default function Hero() {
                 <span className="text-slate-100">Hi, I'm </span>
                 <span className="gradient-text">Aniket Vishwakarma</span>
                 <span className="block text-lg sm:text-xl lg:text-2xl font-semibold text-slate-300 mt-2 font-mono">
-                  Full-Stack Developer & AI/ML Engineer
+                  Full-Stack & ML Engineer | GNA Hackathon 4.0 Domain Winner 🏆
                 </span>
               </h1>
             </motion.div>
+
+            
 
             {/* Type animation role */}
             <motion.div
@@ -157,7 +159,7 @@ export default function Hero() {
               </p>
               <p className="text-xs text-slate-500 font-mono flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-                Engineering scalable solutions for startups, recruiters & enterprise teams
+                SDE Intern @ Chitralai · Secured 10+ production APIs · 9 shipped products · 187+ users
               </p>
             </motion.div>
 

@@ -53,21 +53,30 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    // Build mailto URL
-    const subject = encodeURIComponent(form.subject || "Portfolio Contact");
-    const body = encodeURIComponent(
-      `Hi Aniket,\n\nName: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-    );
-    const mailtoUrl = `mailto:aniketvis675@gmail.com?subject=${subject}&body=${body}`;
-
     try {
-      window.location.href = mailtoUrl;
-      setStatus("success");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      const response = await fetch("https://formspree.io/f/xaenbbwd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject || "Portfolio Contact",
+          message: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -241,8 +250,8 @@ export default function Contact() {
                 )}
               </motion.button>
 
-              <p className="text-xs text-slate-600 text-center">
-                This will open your email client with the message pre-filled.
+              <p className="text-xs text-slate-600 text-center" role="status" aria-live="polite">
+                Powered by Formspree — no email client needed.
               </p>
             </form>
           </motion.div>
