@@ -138,46 +138,44 @@ export default function ProjectCard({
 
             {/* Action Buttons */}
             <div
-              className="flex items-center justify-between gap-2 pt-1"
+              className="grid grid-cols-2 gap-2 pt-1"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => onOpenDetails(project)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
                 style={{ border: "1px solid rgba(255,255,255,0.1)" }}
               >
-                <Info size={13} /> View Full Info
+                <Info size={13} /> Full Info
               </button>
 
-              <div className="flex items-center gap-2">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+                style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                <GithubIcon size={13} /> View Code
+              </a>
+
+              {project.deployment === "#" ? (
+                <span className="col-span-2 text-[11px] font-mono text-slate-500 py-2 rounded-xl bg-white/[0.02] text-center border border-white/5">
+                  Private / In Development
+                </span>
+              ) : (
                 <a
-                  href={project.githubUrl}
+                  href={project.deployment}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
-                  style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+                  className="col-span-2 inline-flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-semibold text-white hover:shadow-lg transition-all whitespace-nowrap"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
+                  }}
                 >
-                  <GithubIcon size={12} /> View Code
+                  Live Demo <ExternalLink size={13} />
                 </a>
-
-                {project.deployment === "#" ? (
-                  <span className="text-[11px] font-mono text-slate-500 px-3 py-1.5 rounded-xl bg-white/[0.02]">
-                    Private
-                  </span>
-                ) : (
-                  <a
-                    href={project.deployment}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white hover:shadow-lg transition-all"
-                    style={{
-                      background: `linear-gradient(135deg, ${project.accentColor}, #7c3aed)`,
-                    }}
-                  >
-                    Live Demo <ExternalLink size={12} />
-                  </a>
-                )}
-              </div>
+              )}
             </div>
           </div>
         </div>

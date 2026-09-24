@@ -325,23 +325,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll indicator — CSS animation, no JS */}
-        <div
-          className="absolute bottom-2 lg:bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 pointer-events-none"
-          style={{ animation: "float 2s ease-in-out infinite" }}
-        >
-          <span className="text-xs text-slate-600 font-mono">scroll</span>
-          <div
-            className="w-5 h-7 rounded-full flex items-start justify-center pt-1"
-            style={{ border: "1px solid rgba(255,255,255,0.1)" }}
-          >
-            <div
-              className="w-1 h-1.5 rounded-full bg-cyan-500"
-              style={{ animation: "float 1.5s ease-in-out infinite" }}
-            />
-          </div>
-        </div>
       </div>
     </section>
   );
