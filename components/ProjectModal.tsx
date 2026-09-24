@@ -11,8 +11,8 @@ import {
   Cpu,
   Zap,
   Target,
-  Github,
 } from "lucide-react";
+import GithubIcon from "./icons/GithubIcon";
 import type { Project } from "@/lib/projects";
 
 interface ProjectModalProps {
@@ -362,7 +362,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
                 style={{ border: "1px solid rgba(255,255,255,0.1)" }}
               >
-                <Github size={14} /> View Code
+                <GithubIcon size={14} /> View Code
               </a>
 
               {project.deployment !== "#" ? (

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Info, ArrowUpRight, Github } from "lucide-react";
+import { ExternalLink, Info, ArrowUpRight } from "lucide-react";
+import GithubIcon from "./icons/GithubIcon";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
@@ -156,7 +157,7 @@ export default function ProjectCard({
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
                   style={{ border: "1px solid rgba(255,255,255,0.1)" }}
                 >
-                  <Github size={12} /> View Code
+                  <GithubIcon size={12} /> View Code
                 </a>
 
                 {project.deployment === "#" ? (
