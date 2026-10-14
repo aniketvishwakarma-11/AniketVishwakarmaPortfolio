@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, MotionConfig, useScroll, useSpring, type Variants } from "framer-motion";
 import { ChevronDown, CheckCircle2, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import AnimatedCounter from "./AnimatedCounter";
 
 const timeline = [
   {
@@ -41,6 +42,7 @@ const timeline = [
       "187+ active users across deployed platforms",
       "Active hackathon competitor & technical project lead",
     ],
+    metrics: [{ value: "187+", label: "active users" }],
   },
   {
     year: "April 2026",
@@ -81,6 +83,10 @@ const timeline = [
       "Enforced JWT-based role-based access control (RBAC) across all core APIs, so users can only reach the data and actions their role allows",
       "Hardened login flows against OTP brute-force attacks, reducing the account-takeover attack surface",
     ],
+    metrics: [
+      { value: "40%", label: "faster image loads" },
+      { value: "10+", label: "vulnerabilities fixed" },
+    ],
   },
   {
     year: "Sept 2026 – Present",
@@ -100,12 +106,31 @@ const timeline = [
 
 const MOBILE_VISIBLE = 3;
 
+const listVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.25 } },
+};
+
+const bulletVariants: Variants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } },
+};
+
 export default function Experience() {
   const [openItems, setOpenItems] = useState<number[]>([]);
   const toggle = (i: number) =>
     setOpenItems((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
 
+  // The timeline line draws itself as the section scrolls into view
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 75%", "end 60%"],
+  });
+  const lineScale = useSpring(scrollYProgress, { stiffness: 90, damping: 28, mass: 0.4 });
+
   return (
+    <MotionConfig reducedMotion="user">
     <section id="experience" className="relative py-14 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <SectionHeading
@@ -116,32 +141,48 @@ export default function Experience() {
         />
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px"
-            style={{ background: "linear-gradient(to bottom, #06b6d4, #7c3aed, rgba(124,58,237,0.1))" }} />
+        <div className="relative" ref={timelineRef}>
+          {/* Vertical line: faint track + gradient that fills with scroll */}
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+          <motion.div
+            className="absolute left-6 sm:left-8 top-0 bottom-0 w-px origin-top"
+            style={{
+              scaleY: lineScale,
+              background: "linear-gradient(to bottom, #06b6d4, #7c3aed)",
+              boxShadow: "0 0 8px rgba(6,182,212,0.6)",
+            }}
+          />
 
           <div className="space-y-8">
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, x: -40, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative flex gap-6 sm:gap-8"
               >
                 {/* Timeline dot */}
                 <div className="relative flex-shrink-0 flex flex-col items-center">
                   <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 + 0.2, type: "spring" }}
-                    viewport={{ once: true }}
-                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center glass-card ${item.iconColor} flex-shrink-0`}
+                    initial={{ scale: 0, rotate: -90 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.5, delay: 0.15, type: "spring", stiffness: 220, damping: 14 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    className={`relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center glass-card ${item.iconColor} flex-shrink-0`}
                     style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.3)")}` }}
                   >
                     <span className={item.iconColor}>{item.icon}</span>
+                    {item.isCurrent && (
+                      <motion.span
+                        aria-hidden
+                        className="absolute inset-0 rounded-xl border border-cyan-400/60"
+                        animate={{ scale: [1, 1.35], opacity: [0.7, 0] }}
+                        transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+                      />
+                    )}
                   </motion.div>
                 </div>
 
@@ -164,24 +205,54 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  <div className="glass-card rounded-xl p-5 sm:p-6" style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.15)")}` }}>
+                  <div className="glass-card rounded-xl p-5 sm:p-6 transition-transform duration-300 md:hover:-translate-y-1" style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.15)")}` }}>
                     <h3 className="text-lg font-bold text-slate-100 mb-1">{item.title}</h3>
                     <p className="text-sm text-slate-500 font-mono mb-3">{item.org}</p>
                     <p className="text-sm text-slate-400 leading-relaxed mb-4">{item.description}</p>
 
-                    <ul className="space-y-2">
+                    {item.metrics && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {item.metrics.map((m) => (
+                          <div
+                            key={m.label}
+                            className="flex items-baseline gap-1.5 px-3 py-1.5 rounded-lg"
+                            style={item.badgeStyle}
+                          >
+                            <span className="text-lg font-bold font-mono">
+                              <AnimatedCounter value={m.value} />
+                            </span>
+                            <span className="text-xs opacity-80">{m.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <motion.ul
+                      className="space-y-2"
+                      variants={listVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       {item.achievements.map((achievement, i) => (
-                        <li
+                        <motion.li
                           key={i}
+                          variants={bulletVariants}
                           className={`items-start gap-2 text-sm text-slate-400 ${
                             i >= MOBILE_VISIBLE && !openItems.includes(index) ? "hidden md:flex" : "flex"
                           }`}
                         >
-                          <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${item.iconColor}`} />
+                          <motion.span
+                            variants={{ hidden: { scale: 0 }, visible: { scale: 1 } }}
+                            transition={{ type: "spring", stiffness: 400, damping: 12 }}
+                            className="flex-shrink-0 mt-0.5"
+                          >
+                            <CheckCircle2 size={14} className={item.iconColor} />
+                          </motion.span>
                           <span>{achievement}</span>
-                        </li>
+                        </motion.li>
                       ))}
-                    </ul>
+                    </motion.ul>
                     {item.achievements.length > MOBILE_VISIBLE && (
                       <button
                         onClick={() => toggle(index)}
@@ -205,5 +276,6 @@ export default function Experience() {
         </div>
       </div>
     </section>
+    </MotionConfig>
   );
 }
