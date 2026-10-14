@@ -82,6 +82,20 @@ const timeline = [
       "Hardened login flows against OTP brute-force attacks, reducing the account-takeover attack surface",
     ],
   },
+  {
+    year: "Sept 2026 – Present",
+    period: "Current",
+    title: "Platform & Backend Engineer Intern",
+    org: "Allkane",
+    icon: <Briefcase size={16} />,
+    iconColor: "text-cyan-400",
+    borderColor: "border-cyan-500/30",
+    badgeStyle: { background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.4)", color: "#22d3ee" },
+    isCurrent: true,
+    description:
+      "Working as a Platform and Backend Engineer Intern at Allkane, building and maintaining the backend services and platform infrastructure that power the product.",
+    achievements: [],
+  },
 ];
 
 const MOBILE_VISIBLE = 3;

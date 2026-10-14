@@ -3,7 +3,7 @@
 > Full-Stack Developer & Machine Learning Engineer based in Mumbai, India.
 > Available for freelance, collaborations, and full-time SDE roles.
 
-Aniket Vishwakarma is a B.E. Computer Engineering student at PVPPCOE, Mumbai University (graduating 2027), currently working as a Software Development Engineer Intern at Chitralai, Mumbai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has shipped 8+ production-grade web and AI applications.
+Aniket Vishwakarma is a B.E. Computer Engineering student at PVPPCOE, Mumbai University (graduating 2027), currently working as a Platform and Backend Engineer Intern at Allkane (since September 2026), previously a Software Development Engineer Intern at Chitralai, Mumbai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has shipped 8+ production-grade web and AI applications.
 
 ## Contact
 
@@ -27,7 +27,8 @@ Web3: Polygon, Solidity
 
 ## Experience
 
-- SDE Intern, Chitralai, Mumbai (2024–Present): Eliminated 10+ IDOR and XSS vulnerabilities across production APIs; built real-time dashboard features.
+- Platform & Backend Engineer Intern, Allkane (Sept 2026–Present)
+- SDE Intern, Chitralai, Mumbai (May 2026–Sept 2026): Eliminated 10+ IDOR and XSS vulnerabilities across production APIs; built real-time dashboard features.
 - Domain Winner, GNA Hackathon 4.0 (2024): Clean & Green Technology — EcoVision Bharat project.
 
 ## Projects
@@ -68,7 +69,7 @@ Stack: Python, FastAPI, React
 ## Frequently Asked Questions
 
 Q: Who is Aniket Vishwakarma?
-A: Aniket Vishwakarma is a Full-Stack Developer and ML Engineer from Mumbai, India. He is a B.E. student at PVPPCOE (2023–2027), SDE Intern at Chitralai, and GNA Hackathon 4.0 Domain Winner.
+A: Aniket Vishwakarma is a Full-Stack Developer and ML Engineer from Mumbai, India. He is a B.E. student at PVPPCOE (2023–2027), Platform & Backend Engineer Intern at Allkane (ex-SDE Intern at Chitralai), and GNA Hackathon 4.0 Domain Winner.
 
 Q: What tech does Aniket Vishwakarma use?
 A: His core stack is React, Next.js, TypeScript, Node.js, Python, FastAPI, MongoDB, PostgreSQL, WebRTC, Socket.IO, YOLOv8, PyTorch, NVIDIA NIM, Gemini AI, Docker, Polygon/Web3.

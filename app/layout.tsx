@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Aniket Vishwakarma",
   },
   description:
-    "Portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer from Mumbai. Building scalable WebRTC, MERN, and AI-powered apps. GNA Hackathon 4.0 Domain Winner. SDE Intern at Chitralai.",
+    "Portfolio of Aniket Vishwakarma — Full-Stack Developer & ML Engineer from Mumbai. Building scalable WebRTC, MERN, and AI-powered apps. GNA Hackathon 4.0 Domain Winner. Platform & Backend Engineer Intern at Allkane, previously SDE Intern at Chitralai.",
   keywords: [
     "Aniket Vishwakarma",
     "Aniket Vishwakarma Portfolio",
@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "Aniket Vishwakarma MediVault",
     "Aniket Vishwakarma SwasthyaSetu",
     "Aniket Vishwakarma Chitralai",
+    "Aniket Vishwakarma Allkane",
     "Full-Stack Developer Mumbai",
     "SDE Intern Mumbai",
     "Machine Learning Engineer",
@@ -135,7 +136,7 @@ const jsonLd = {
       ],
       jobTitle: "Full-Stack Developer & Machine Learning Engineer",
       description:
-        "Full-stack developer & ML engineer from Mumbai specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. SDE Intern at Chitralai. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology. B.E. student at PVPPCOE, Mumbai University (2023–2027).",
+        "Full-stack developer & ML engineer from Mumbai specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. Platform & Backend Engineer Intern at Allkane, ex-SDE Intern at Chitralai. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology. B.E. student at PVPPCOE, Mumbai University (2023–2027).",
       url: "https://aniketvishwakarma.me",
       image: "https://aniketvishwakarma.me/aniket.png",
       email: "aniketvis675@gmail.com",
@@ -219,8 +220,8 @@ const jsonLd = {
       ],
       worksFor: {
         "@type": "Organization",
-        name: "Chitralai",
-        description: "Software company, Mumbai",
+        name: "Allkane",
+        description: "Platform and backend engineering internship",
       },
     },
     {
@@ -408,7 +409,7 @@ const jsonLd = {
           name: "Who is Aniket Vishwakarma?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Aniket Vishwakarma is a Full-Stack Developer and Machine Learning Engineer based in Mumbai, India. He is a B.E. student at PVPPCOE, Mumbai University (2023–2027), currently interning as a Software Development Engineer at Chitralai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has built 9+ production-grade web and AI applications.",
+            text: "Aniket Vishwakarma is a Full-Stack Developer and Machine Learning Engineer based in Mumbai, India. He is a B.E. student at PVPPCOE, Mumbai University (2023–2027), currently a Platform and Backend Engineer Intern at Allkane (since September 2026), previously a Software Development Engineer Intern at Chitralai. He is a GNA Hackathon 4.0 Domain Winner in Clean & Green Technology and has built 9+ production-grade web and AI applications.",
           },
         },
         {

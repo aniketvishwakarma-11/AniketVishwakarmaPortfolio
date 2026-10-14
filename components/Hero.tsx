@@ -35,7 +35,7 @@ const codeLines = [
   { indent: 0, text: "const aniket = {", color: "text-slate-300" },
   { indent: 1, text: 'role: "Full-Stack & ML Engineer",', color: "text-cyan-300" },
   { indent: 1, text: 'hackathon: "GNA 4.0 Domain Winner 🏆",', color: "text-amber-300" },
-  { indent: 1, text: 'internship: "SDE @ Chitralai",', color: "text-emerald-300" },
+  { indent: 1, text: 'internship: "Platform & Backend @ Allkane",', color: "text-emerald-300" },
   { indent: 1, text: 'projects: "9+ Shipped to Production",', color: "text-violet-300" },
   { indent: 0, text: "}", color: "text-slate-300" },
 ];
@@ -159,7 +159,7 @@ export default function Hero() {
               </p>
               <p className="text-xs text-slate-500 font-mono flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
-                SDE Intern @ Chitralai · Secured 10+ production APIs · 9 shipped products · 187+ users
+                Platform & Backend Engineer @ Allkane · Ex-SDE Intern @ Chitralai · Secured 10+ production APIs · 9 shipped products · 187+ users
               </p>
             </motion.div>
 
