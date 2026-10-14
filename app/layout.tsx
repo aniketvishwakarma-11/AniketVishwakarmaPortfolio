@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Aniket Vishwakarma Chitralai",
     "Aniket Vishwakarma Allkane",
     "Full-Stack Developer Mumbai",
-    "SDE Intern Mumbai",
+    "Backend Engineer Intern Mumbai",
     "Machine Learning Engineer",
     "AI Engineer",
     "Next.js Developer",

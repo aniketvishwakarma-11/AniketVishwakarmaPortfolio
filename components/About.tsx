@@ -95,8 +95,8 @@ export default function About() {
                   Who do I build for?
                 </h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  I engineer high-performance web applications for startups, technical recruiters, and enterprise teams requiring secure, high-concurrency cloud infrastructure. Currently interning as an{" "}
-                  <span className="text-cyan-400 font-medium">SDE at Chitralai</span>, where I eliminated 10+ critical security vulnerabilities (IDOR, XSS) across production APIs.
+                  I engineer high-performance web applications for startups, technical recruiters, and enterprise teams requiring secure, high-concurrency cloud infrastructure. Currently a{" "}
+                  <span className="text-cyan-400 font-medium">Platform &amp; Backend Engineer Intern at Allkane</span>. Previously, as an SDE Intern at Chitralai, I eliminated 10+ critical security vulnerabilities (IDOR, XSS) across production APIs.
                 </p>
 
                 {/* Key Highlights row */}

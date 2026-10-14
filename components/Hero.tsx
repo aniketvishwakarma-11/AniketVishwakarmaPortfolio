@@ -289,7 +289,7 @@ export default function Hero() {
                   animation: "float 3s ease-in-out infinite 1.5s",
                 }}
               >
-                💼 <span className="text-cyan-400">SDE Intern</span>
+                💼 <span className="text-cyan-400">Backend Intern @ Allkane</span>
               </div>
             </div>
 
