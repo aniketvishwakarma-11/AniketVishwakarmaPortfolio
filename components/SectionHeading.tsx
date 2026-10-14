@@ -23,7 +23,7 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className={`mb-16 ${center ? "text-center" : ""}`}
+      className={`mb-8 md:mb-16 ${center ? "text-center" : ""}`}
     >
       {/* Number + Label */}
       <div className={`flex items-center gap-3 mb-4 ${center ? "justify-center" : ""}`}>
@@ -53,7 +53,7 @@ export default function SectionHeading({
 
       {/* Subtitle */}
       {subtitle && (
-        <p className="mt-5 text-slate-400 text-lg max-w-2xl mx-auto">{subtitle}</p>
+        <p className="mt-5 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );

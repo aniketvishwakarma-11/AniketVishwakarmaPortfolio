@@ -39,7 +39,7 @@ export default function Projects() {
   const hasOtherProjects = filteredOther.length > 0;
 
   return (
-    <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-14 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           number="04"
@@ -54,7 +54,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="flex flex-wrap gap-2 justify-center mb-10"
+          className="flex md:flex-wrap gap-2 md:justify-center mb-8 md:mb-10 overflow-x-auto md:overflow-visible no-scrollbar -mx-4 px-4 md:mx-0 md:px-0"
         >
           {filters.map((filter) => (
             <motion.button
@@ -65,7 +65,7 @@ export default function Projects() {
                 setActiveFilter(filter.value);
                 setShowAllProjects(false);
               }}
-              className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`relative shrink-0 whitespace-nowrap px-5 py-2.5 md:py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeFilter === filter.value
                   ? "text-white"
                   : "text-slate-400 hover:text-slate-200"
@@ -117,17 +117,29 @@ export default function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+              className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-3 md:pb-0"
             >
               {filteredFeatured.map((project, index) => (
-                <ProjectCard
+                <div
                   key={project.id}
-                  project={project}
-                  index={index}
-                  onOpenDetails={(p) => setSelectedProject(p)}
-                />
+                  className="snap-center shrink-0 w-[86%] sm:w-[60%] md:w-auto md:shrink"
+                >
+                  <ProjectCard
+                    project={project}
+                    index={index}
+                    onOpenDetails={(p) => setSelectedProject(p)}
+                  />
+                </div>
               ))}
             </motion.div>
+            {filteredFeatured.length > 1 && (
+              <div className="md:hidden flex items-center justify-center gap-1 text-xs text-cyan-400/80 mt-1">
+                <span>Swipe for more</span>
+                <motion.span animate={{ x: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
+                  →
+                </motion.span>
+              </div>
+            )}
           </AnimatePresence>
         </motion.div>
 
@@ -140,7 +152,7 @@ export default function Projects() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-16"
+            className="mt-10 md:mt-16"
           >
             {/* Expand Trigger */}
             <button

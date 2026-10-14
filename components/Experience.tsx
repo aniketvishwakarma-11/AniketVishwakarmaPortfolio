@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { ChevronDown, CheckCircle2, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const timeline = [
@@ -83,9 +84,15 @@ const timeline = [
   },
 ];
 
+const MOBILE_VISIBLE = 3;
+
 export default function Experience() {
+  const [openItems, setOpenItems] = useState<number[]>([]);
+  const toggle = (i: number) =>
+    setOpenItems((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
+
   return (
-    <section id="experience" className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="relative py-14 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <SectionHeading
           number="02"
@@ -152,13 +159,30 @@ export default function Experience() {
                       {item.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2 text-sm text-slate-400"
+                          className={`items-start gap-2 text-sm text-slate-400 ${
+                            i >= MOBILE_VISIBLE && !openItems.includes(index) ? "hidden md:flex" : "flex"
+                          }`}
                         >
                           <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${item.iconColor}`} />
                           <span>{achievement}</span>
                         </li>
                       ))}
                     </ul>
+                    {item.achievements.length > MOBILE_VISIBLE && (
+                      <button
+                        onClick={() => toggle(index)}
+                        aria-expanded={openItems.includes(index)}
+                        className="md:hidden mt-3 inline-flex items-center gap-1 text-sm font-semibold text-cyan-400 py-1 cursor-pointer"
+                      >
+                        {openItems.includes(index)
+                          ? "Show less"
+                          : `Show ${item.achievements.length - MOBILE_VISIBLE} more`}
+                        <ChevronDown
+                          size={16}
+                          className={`transition-transform ${openItems.includes(index) ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                    )}
                   </div>
                 </div>
               </motion.div>

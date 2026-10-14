@@ -23,14 +23,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    <footer className="relative border-t py-10 md:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(7,11,20,0.8)" }}>
       {/* Subtle gradient top */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px"
         style={{ background: "linear-gradient(90deg, transparent, #06b6d4, #7c3aed, transparent)" }} />
 
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-8 md:mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

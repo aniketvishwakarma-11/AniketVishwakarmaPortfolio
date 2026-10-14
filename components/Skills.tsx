@@ -442,7 +442,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="relative py-14 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           number="03"

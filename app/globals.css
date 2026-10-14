@@ -249,3 +249,13 @@
   background-color: rgba(6, 182, 212, 0.25);
   color: #f1f5f9;
 }
+
+/* Mobile helper: hide scrollbars on horizontal scrollers */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

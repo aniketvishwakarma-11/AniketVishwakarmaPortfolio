@@ -23,7 +23,7 @@ const marqueeItems = [...expertise, ...expertise];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-14 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           number="01"

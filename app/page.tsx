@@ -7,6 +7,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingOrbs from "@/components/FloatingOrbs";
+import MobileBackToTop from "@/components/MobileBackToTop";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           <Contact />
         </main>
         <Footer />
+        <MobileBackToTop />
       </div>
     </>
   );
