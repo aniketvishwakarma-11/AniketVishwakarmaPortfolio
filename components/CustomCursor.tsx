@@ -20,8 +20,6 @@ export default function CustomCursor() {
       mouse.current.y = e.clientY;
     };
 
-    const onMouseEnter = () => { isHovering.current = true; };
-    const onMouseLeave = () => { isHovering.current = false; };
 
     // Single RAF loop — lerp ring toward cursor
     const animate = () => {

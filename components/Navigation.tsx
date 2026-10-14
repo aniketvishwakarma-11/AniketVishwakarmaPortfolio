@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -45,6 +45,11 @@ export default function Navigation() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            // Keep the URL shareable without jumping the page (don't clobber an open project link)
+            if (!window.location.hash.startsWith("#project-")) {
+              const hash = entry.target.id === "home" ? "" : `#${entry.target.id}`;
+              window.history.replaceState(null, "", window.location.pathname + hash);
+            }
           }
         });
       },
@@ -175,6 +180,16 @@ export default function Navigation() {
                 );
               })}
             </div>
+
+            {/* Command palette hint (desktop) */}
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-slate-400 hover:text-white transition-colors"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+              aria-label="Open command palette"
+            >
+              <kbd className="font-mono">Ctrl K</kbd>
+            </button>
 
             {/* CTA */}
             <motion.a

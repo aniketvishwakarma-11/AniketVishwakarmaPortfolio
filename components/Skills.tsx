@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { projects } from "@/lib/projects";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { Sparkles, Layers, X } from "lucide-react";
@@ -385,6 +386,31 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+// Chips that name a project become links that open its detail modal
+function chipLinkProps(label: string) {
+  const id = findProjectId(label);
+  if (id === null) return {};
+  return {
+    role: "button" as const,
+    tabIndex: 0,
+    title: "Open project details",
+    onClick: () => {
+      window.location.hash = `project-${id}`;
+    },
+    onKeyDown: (e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.location.hash = `project-${id}`;
+      }
+    },
+  };
+}
+
+function findProjectId(label: string): number | null {
+  const match = projects.find((p) => label.includes(p.title));
+  return match ? match.id : null;
+}
+
 export default function Skills() {
   const [activeSkill, setActiveSkill] = useState<{
     name: string;
@@ -453,7 +479,7 @@ export default function Skills() {
 
         {/* Subtle, understated hint */}
         <div className="text-center -mt-8 mb-8">
-          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-500">
+          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/60" />
             click or hover any technology to see where it was applied
           </span>
@@ -612,6 +638,7 @@ export default function Skills() {
                             {currentUsage.usedIn.map((item, i) => (
                               <span
                                 key={i}
+                                {...chipLinkProps(item)}
                                 className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-200 border"
                                 style={{
                                   background: item.includes("🏆")
@@ -712,6 +739,7 @@ export default function Skills() {
                       {currentUsage.usedIn.map((item, i) => (
                         <span
                           key={i}
+                          {...chipLinkProps(item)}
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-slate-200 border transition-all"
                           style={{
                             background: item.includes("🏆")
@@ -754,7 +782,7 @@ export default function Skills() {
           style={{ border: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-xs font-mono text-slate-500 flex items-center gap-1.5">
+            <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
               <Sparkles size={12} className="text-cyan-400" />
               CURRENTLY RESEARCHING →
             </span>

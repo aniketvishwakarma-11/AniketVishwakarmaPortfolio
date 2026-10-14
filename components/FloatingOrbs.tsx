@@ -9,6 +9,7 @@ export default function FloatingOrbs() {
     >
       {/* Orb 1 — cyan top-left */}
       <div
+        className="orb orb-1"
         style={{
           position: "absolute",
           width: 600,
@@ -25,6 +26,7 @@ export default function FloatingOrbs() {
       />
       {/* Orb 2 — violet bottom-right */}
       <div
+        className="orb orb-2"
         style={{
           position: "absolute",
           width: 500,
@@ -41,6 +43,7 @@ export default function FloatingOrbs() {
       />
       {/* Orb 3 — indigo center */}
       <div
+        className="orb orb-3"
         style={{
           position: "absolute",
           width: 400,

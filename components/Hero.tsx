@@ -103,7 +103,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-3">
-                <span className="text-slate-100">Hi, I'm </span>
+                <span className="text-slate-100">Hi, I&apos;m </span>
                 <span className="gradient-text">Aniket Vishwakarma</span>
                 <span className="block text-lg sm:text-xl lg:text-2xl font-semibold text-slate-300 mt-2 font-mono">
                   Full-Stack & ML Engineer | GNA Hackathon 4.0 Domain Winner 🏆
@@ -157,7 +157,7 @@ export default function Hero() {
                 </span>{" "}
                 that scale. Specializing in MERN stack, WebRTC real-time systems, and computer vision pipelines from architecture to production.
               </p>
-              <p className="text-xs text-slate-500 font-mono flex items-center gap-1.5">
+              <p className="text-xs text-slate-400 font-mono flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
                 Platform & Backend Engineer @ Allkane · Ex-SDE Intern @ Chitralai · Secured 10+ production APIs · 9 shipped products · 187+ users
               </p>
@@ -190,6 +190,14 @@ export default function Hero() {
               >
                 Get In Touch
               </a>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event("open-quick-view"))}
+                className="flex items-center justify-center gap-2 py-3 px-6 text-sm font-medium rounded-xl text-center text-slate-300 hover:text-white transition-colors"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)" }}
+              >
+                ⚡ 30-sec summary
+              </button>
             </motion.div>
 
             {/* Social Links */}
@@ -216,7 +224,7 @@ export default function Hero() {
                 </a>
               ))}
               <div className="h-px flex-1 max-w-[60px]" style={{ background: "rgba(255,255,255,0.08)" }} />
-              <span className="text-xs text-slate-600 font-mono">@aniketvishwakarma-11</span>
+              <span className="text-xs text-slate-500 font-mono">@aniketvishwakarma-11</span>
             </motion.div>
           </div>
 
@@ -244,7 +252,7 @@ export default function Hero() {
               >
                 <div className="relative overflow-hidden rounded-2xl w-52 h-52 sm:w-60 sm:h-60 lg:w-72 lg:h-72">
                   <Image
-                    src="/aniket.png"
+                    src="/aniket.webp"
                     alt="Aniket Vishwakarma"
                     fill
                     sizes="(max-width: 768px) 240px, 288px"
@@ -298,7 +306,7 @@ export default function Hero() {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                <span className="ml-2 text-slate-600 text-[10px]">aniket.js</span>
+                <span className="ml-2 text-slate-500 text-[10px]">aniket.js</span>
               </div>
               {codeLines.map((line, i) => (
                 <div

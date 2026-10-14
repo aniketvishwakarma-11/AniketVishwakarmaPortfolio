@@ -138,7 +138,7 @@ const jsonLd = {
       description:
         "Full-stack developer & ML engineer from Mumbai specializing in MERN Stack, Next.js, WebRTC, and Python AI/ML pipelines. Platform & Backend Engineer Intern at Allkane, ex-SDE Intern at Chitralai. Domain Winner at GNA Hackathon 4.0 in Clean & Green Technology. B.E. student at PVPPCOE, Mumbai University (2023–2027).",
       url: "https://aniketvishwakarma.me",
-      image: "https://aniketvishwakarma.me/aniket.png",
+      image: "https://aniketvishwakarma.me/aniket.webp",
       email: "aniketvis675@gmail.com",
       address: {
         "@type": "PostalAddress",
@@ -504,6 +504,9 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         {/* Noise overlay for texture */}
         <div className="noise-overlay" aria-hidden="true" />
         {children}

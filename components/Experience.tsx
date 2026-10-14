@@ -207,7 +207,7 @@ export default function Experience() {
 
                   <div className="glass-card rounded-xl p-5 sm:p-6 transition-transform duration-300 md:hover:-translate-y-1" style={{ border: `1px solid ${item.borderColor.replace("border-", "rgba(").replace("/30", ", 0.15)")}` }}>
                     <h3 className="text-lg font-bold text-slate-100 mb-1">{item.title}</h3>
-                    <p className="text-sm text-slate-500 font-mono mb-3">{item.org}</p>
+                    <p className="text-sm text-slate-400 font-mono mb-3">{item.org}</p>
                     <p className="text-sm text-slate-400 leading-relaxed mb-4">{item.description}</p>
 
                     {item.metrics && (

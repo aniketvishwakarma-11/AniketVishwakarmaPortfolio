@@ -52,7 +52,7 @@ export default function About() {
                 >
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-900">
                     <Image
-                      src="/aniket.png"
+                      src="/aniket.webp"
                       alt="Aniket Vishwakarma"
                       fill
                       sizes="112px"
@@ -132,7 +132,7 @@ export default function About() {
                   📍
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-mono">LOCATION</p>
+                  <p className="text-xs text-slate-400 font-mono">LOCATION</p>
                   <p className="text-slate-200 font-semibold text-sm">Mumbai, India</p>
                 </div>
               </div>
@@ -144,9 +144,9 @@ export default function About() {
                   🎓
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-mono">EDUCATION</p>
+                  <p className="text-xs text-slate-400 font-mono">EDUCATION</p>
                   <p className="text-slate-200 font-semibold text-sm">B.E. — PVPPCOE</p>
-                  <p className="text-slate-500 text-xs">Graduating 2027</p>
+                  <p className="text-slate-400 text-xs">Graduating 2027</p>
                 </div>
               </div>
 
@@ -157,15 +157,15 @@ export default function About() {
                   💼
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-mono">CURRENT ROLE</p>
-                  <p className="text-slate-200 font-semibold text-sm">SDE Intern</p>
-                  <p className="text-slate-500 text-xs">@ Chitralai, Mumbai</p>
+                  <p className="text-xs text-slate-400 font-mono">CURRENT ROLE</p>
+                  <p className="text-slate-200 font-semibold text-sm">Platform & Backend Intern</p>
+                  <p className="text-slate-400 text-xs">@ Allkane &middot; ex-SDE Intern, Chitralai</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-4 pt-3 border-t border-white/5">
-              <span className="text-xs font-mono text-slate-500 block mb-1">CORE STACK</span>
+              <span className="text-xs font-mono text-slate-400 block mb-1">CORE STACK</span>
               <p className="text-xs text-cyan-300 font-mono">MERN · WebRTC · FastAPI · YOLOv8 · Web3</p>
             </div>
           </motion.div>
@@ -218,7 +218,7 @@ export default function About() {
                 Built <span className="text-slate-200 font-medium">EcoVision Bharat</span> — an AI civic platform with YOLOv8 severity analysis, GPS geolocation, and worker allocation.
               </p>
             </div>
-            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-400 font-mono">
               GNA University, Punjab · Apr 2026
             </div>
           </motion.div>
@@ -249,7 +249,7 @@ export default function About() {
                 Fixed <span className="text-slate-200 font-medium">10+ critical vulnerabilities</span> including IDOR, XSS, and broken auth. Enforced JWT role-based access control across core APIs.
               </p>
             </div>
-            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-400 font-mono">
               Serving thousands of users across India
             </div>
           </motion.div>
@@ -280,7 +280,7 @@ export default function About() {
                 WebRTC enables direct browser-to-browser peer communication without third-party plugins. I integrate Socket.IO signaling with dual-pipeline AI orchestration (Google Gemini API with Cloudflare Workers fallback) for sub-second inference.
               </p>
             </div>
-            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-500 font-mono">
+            <div className="mt-3.5 pt-2.5 border-t border-white/5 text-[11px] text-slate-400 font-mono">
               Clean Architecture · Modular REST APIs
             </div>
           </motion.div>

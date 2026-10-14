@@ -110,10 +110,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Role & Architecture Bar */}
               <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-slate-400 pt-1">
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500 font-mono">Role:</span>
+                  <span className="text-slate-400 font-mono">Role:</span>
                   <span className="text-slate-200 font-medium">{project.role}</span>
                 </span>
-                <span className="text-slate-600">·</span>
+                <span className="text-slate-500">·</span>
                 <span className="flex items-center gap-1 font-mono text-cyan-400/90">
                   <Cpu size={12} /> {project.architecture}
                 </span>
@@ -378,7 +378,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   Open Live Demo <ExternalLink size={14} />
                 </a>
               ) : (
-                <span className="text-xs text-slate-500 font-mono px-4 py-2 rounded-xl bg-white/5">
+                <span className="text-xs text-slate-400 font-mono px-4 py-2 rounded-xl bg-white/5">
                   Deployment: Private / Staging
                 </span>
               )}

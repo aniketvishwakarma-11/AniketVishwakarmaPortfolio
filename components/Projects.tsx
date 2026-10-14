@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Search, X } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projects, type Project } from "@/lib/projects";
@@ -22,19 +22,57 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<FilterValue>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [query, setQuery] = useState("");
+  const [slide, setSlide] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const onCarouselScroll = () => {
+    const el = carouselRef.current;
+    if (!el || el.children.length === 0) return;
+    const card = el.children[0] as HTMLElement;
+    const step = card.offsetWidth + 16;
+    setSlide(Math.round(el.scrollLeft / step));
+    if (el.scrollLeft > 10) setHasScrolled(true);
+  };
+
+  // Open a project from the URL (#project-<id>), on load and when the hash changes
+  useEffect(() => {
+    const syncFromHash = () => {
+      const match = window.location.hash.match(/^#project-(\d+)$/);
+      if (!match) return;
+      const found = projects.find((p) => p.id === Number(match[1]));
+      if (found) setSelectedProject(found);
+    };
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  const openProject = (p: Project) => {
+    setSelectedProject(p);
+    window.history.replaceState(null, "", `#project-${p.id}`);
+  };
+
+  const closeProject = () => {
+    setSelectedProject(null);
+    if (window.location.hash.startsWith("#project-")) {
+      window.history.replaceState(null, "", "#projects");
+    }
+  };
 
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
 
-  const filteredFeatured =
-    activeFilter === "all"
-      ? featuredProjects
-      : featuredProjects.filter((p) => p.category === activeFilter);
+  const q = query.trim().toLowerCase();
+  const matchesQuery = (p: Project) =>
+    !q ||
+    p.title.toLowerCase().includes(q) ||
+    p.techStack.some((t) => t.toLowerCase().includes(q));
+  const matchesFilter = (p: Project) => activeFilter === "all" || p.category === activeFilter;
 
-  const filteredOther =
-    activeFilter === "all"
-      ? otherProjects
-      : otherProjects.filter((p) => p.category === activeFilter);
+  const filteredFeatured = featuredProjects.filter((p) => matchesFilter(p) && matchesQuery(p));
+  const filteredOther = otherProjects.filter((p) => matchesFilter(p) && matchesQuery(p));
 
   const hasOtherProjects = filteredOther.length > 0;
 
@@ -90,6 +128,30 @@ export default function Projects() {
           ))}
         </motion.div>
 
+        {/* Tech search */}
+        <div className="relative max-w-md mx-auto mb-10 -mt-4">
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+          <input
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              if (e.target.value) setShowAllProjects(true);
+            }}
+            placeholder="Search by tech, e.g. AWS, WebRTC, React"
+            aria-label="Search projects by technology"
+            className="w-full rounded-full pl-10 pr-10 py-2.5 text-sm text-slate-100 placeholder-slate-500 bg-white/[0.04] border border-white/10 outline-none focus:border-cyan-500/50 transition-colors"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              aria-label="Clear search"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white"
+            >
+              <X size={14} />
+            </button>
+          )}
+        </div>
+
         {/* ============================================================
              FEATURED PROJECTS — Always Visible (Top 3)
         ============================================================ */}
@@ -105,7 +167,7 @@ export default function Projects() {
             <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
               Flagship Projects
             </span>
-            <span className="text-xs text-slate-600 font-mono">
+            <span className="text-xs text-slate-500 font-mono">
               {filteredFeatured.length} of {featuredProjects.length} featured
             </span>
           </div>
@@ -117,6 +179,8 @@ export default function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
+              ref={carouselRef}
+              onScroll={onCarouselScroll}
               className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-3 md:pb-0"
             >
               {filteredFeatured.map((project, index) => (
@@ -127,18 +191,37 @@ export default function Projects() {
                   <ProjectCard
                     project={project}
                     index={index}
-                    onOpenDetails={(p) => setSelectedProject(p)}
+                    onOpenDetails={openProject}
                   />
                 </div>
               ))}
             </motion.div>
             {filteredFeatured.length > 1 && (
-              <div className="md:hidden flex items-center justify-center gap-1 text-xs text-cyan-400/80 mt-1">
-                <span>Swipe for more</span>
-                <motion.span animate={{ x: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
-                  →
-                </motion.span>
+              <div className="md:hidden flex flex-col items-center gap-2 mt-1">
+                <div className="flex items-center gap-1.5" aria-hidden="true">
+                  {filteredFeatured.map((p, i) => (
+                    <span
+                      key={p.id}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === slide ? "w-5 bg-cyan-400" : "w-1.5 bg-white/20"
+                      }`}
+                    />
+                  ))}
+                </div>
+                {!hasScrolled && (
+                  <div className="flex items-center gap-1 text-xs text-cyan-400/80">
+                    <span>Swipe for more</span>
+                    <motion.span animate={{ x: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
+                      →
+                    </motion.span>
+                  </div>
+                )}
               </div>
+            )}
+            {filteredFeatured.length === 0 && filteredOther.length === 0 && (
+              <p className="text-center text-sm text-slate-400 py-10">
+                No projects match your search. Try another technology.
+              </p>
             )}
           </AnimatePresence>
         </motion.div>
@@ -198,7 +281,7 @@ export default function Projects() {
                     <div className="absolute inset-0 flex items-center">
                       <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                     </div>
-                    <div className="relative flex justify-center text-xs font-mono uppercase tracking-wider text-slate-500">
+                    <div className="relative flex justify-center text-xs font-mono uppercase tracking-wider text-slate-400">
                       <span className="bg-[#070b14] px-4">
                         Additional Projects
                       </span>
@@ -216,7 +299,7 @@ export default function Projects() {
                         key={project.id}
                         project={project}
                         index={index}
-                        onOpenDetails={(p) => setSelectedProject(p)}
+                        onOpenDetails={openProject}
                       />
                     ))}
                   </motion.div>
@@ -226,7 +309,7 @@ export default function Projects() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
-                    className="text-center text-xs text-slate-500 font-mono mt-8 pt-4"
+                    className="text-center text-xs text-slate-400 font-mono mt-8 pt-4"
                     style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
                   >
                     {projects.length} total projects •{" "}
@@ -242,7 +325,7 @@ export default function Projects() {
         {/* Project Detail Modal */}
         <ProjectModal
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={closeProject}
         />
       </div>
     </section>

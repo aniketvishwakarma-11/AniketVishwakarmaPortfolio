@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, Info, ArrowUpRight } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
@@ -48,6 +49,18 @@ export default function ProjectCard({
           }}
         />
 
+        {project.previewImage && (
+          <div className="relative w-full aspect-[16/9] flex-shrink-0 bg-black/30">
+            <Image
+              src={project.previewImage}
+              alt={`${project.title} preview`}
+              fill
+              sizes="(max-width: 768px) 86vw, 400px"
+              className="object-cover"
+            />
+          </div>
+        )}
+
         <div className="p-6 flex flex-col flex-1 justify-between gap-5">
           {/* Top block */}
           <div>
@@ -81,12 +94,18 @@ export default function ProjectCard({
               )}
             </div>
 
+            {project.deployment.includes("onrender.com") && (
+              <p className="text-[11px] text-amber-300/80 mb-2">
+                ⏱ Free-tier demo: the first load may take ~30s to wake up
+              </p>
+            )}
+
             {/* Title */}
             <h3 className="text-xl font-bold text-slate-100 mb-2 group-hover:text-cyan-300 transition-colors flex items-center justify-between">
               <span>{project.title}</span>
               <ArrowUpRight
                 size={18}
-                className="text-slate-600 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
+                className="text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0"
               />
             </h3>
 
@@ -160,7 +179,7 @@ export default function ProjectCard({
               </a>
 
               {project.deployment === "#" ? (
-                <span className="col-span-2 text-[11px] font-mono text-slate-500 py-2 rounded-xl bg-white/[0.02] text-center border border-white/5">
+                <span className="col-span-2 text-[11px] font-mono text-slate-400 py-2 rounded-xl bg-white/[0.02] text-center border border-white/5">
                   Private / In Development
                 </span>
               ) : (

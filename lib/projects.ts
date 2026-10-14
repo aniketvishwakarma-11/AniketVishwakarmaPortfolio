@@ -13,6 +13,8 @@ export interface Project {
   deployment: string;
   githubUrl: string;
   featured?: boolean;
+  /** Optional screenshot/GIF shown at the top of the card (path under /public) */
+  previewImage?: string;
   badge?: string;
   accentColor: string;
   accentBorder: string;

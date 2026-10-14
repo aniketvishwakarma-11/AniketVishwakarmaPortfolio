@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import { showToast } from "./Toast";
 
 const socialLinks = [
   {
@@ -73,12 +74,15 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus("success");
+        showToast("Message sent. I'll reply within 24 hours.");
         setForm({ name: "", email: "", subject: "", message: "" });
       } else {
         setStatus("error");
+        showToast("Couldn't send your message. Please email me directly.", "error");
       }
     } catch {
       setStatus("error");
+        showToast("Couldn't send your message. Please email me directly.", "error");
     }
 
     setTimeout(() => setStatus("idle"), 4000);
@@ -113,11 +117,11 @@ export default function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-slate-100 mb-4 leading-snug">
                 Have a project in mind?{" "}
-                <span className="gradient-text">Let's talk.</span>
+                <span className="gradient-text">Let&apos;s talk.</span>
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Whether it's a new product idea, a bug to squash, or a full-scale platform to build — I'm all ears.
-                Drop me a message and I'll get back to you within 24 hours.
+                Whether it&apos;s a new product idea, a bug to squash, or a full-scale platform to build — I&apos;m all ears.
+                Drop me a message and I&apos;ll get back to you within 24 hours.
               </p>
             </div>
 
@@ -139,10 +143,10 @@ export default function Contact() {
                 >
                   <span>{link.icon}</span>
                   <div>
-                    <p className="text-xs text-slate-600 font-mono">{link.name}</p>
+                    <p className="text-xs text-slate-500 font-mono">{link.name}</p>
                     <p className="text-sm font-medium text-slate-300">{link.handle}</p>
                   </div>
-                  <span className="ml-auto text-slate-600 text-xs">→</span>
+                  <span className="ml-auto text-slate-500 text-xs">→</span>
                 </motion.a>
               ))}
             </address>
@@ -163,7 +167,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {(["name", "email"] as const).map((field) => (
                   <div key={field}>
-                    <label className="block text-xs font-mono text-slate-500 mb-1.5 uppercase tracking-wider">
+                    <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
                       {field}
                     </label>
                     <input
@@ -187,7 +191,7 @@ export default function Contact() {
 
               {/* Subject */}
               <div>
-                <label className="block text-xs font-mono text-slate-500 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
                   Subject
                 </label>
                 <input
@@ -208,7 +212,7 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className="block text-xs font-mono text-slate-500 mb-1.5 uppercase tracking-wider">
+                <label className="block text-xs font-mono text-slate-400 mb-1.5 uppercase tracking-wider">
                   Message
                 </label>
                 <textarea
@@ -250,7 +254,7 @@ export default function Contact() {
                 )}
               </motion.button>
 
-              <p className="text-xs text-slate-600 text-center" role="status" aria-live="polite">
+              <p className="text-xs text-slate-500 text-center" role="status" aria-live="polite">
                 Powered by Formspree — no email client needed.
               </p>
             </form>
