@@ -21,6 +21,7 @@ export default function AnimatedCounter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [display, setDisplay] = useState("0");
+  const [done, setDone] = useState(false);
   const { num, suffix } = parseValue(value);
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function AnimatedCounter({
         rafId = requestAnimationFrame(step);
       } else {
         setDisplay(num >= 1000 ? (num / 1000).toFixed(1) + "k" : num.toString());
+        setDone(true);
       }
     };
 
@@ -56,7 +58,7 @@ export default function AnimatedCounter({
   }, [isInView, num, duration]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className={`inline-block ${done ? "counter-pop" : ""}`}>
       {display}
       {suffix}
     </span>

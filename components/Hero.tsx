@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
+import TypedCode from "./TypedCode";
+import Magnetic from "./Magnetic";
+import { useTilt } from "./useTilt";
 
 const socialLinks = [
   {
@@ -47,6 +50,7 @@ const stats = [
 ];
 
 export default function Hero() {
+  const tilt = useTilt(10);
   const handleScroll = (id: string) => {
     setTimeout(() => {
       const el = document.querySelector(id);
@@ -170,6 +174,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 mb-10"
             >
+              <Magnetic>
               <a
                 href="#projects"
                 onClick={(e) => {
@@ -180,6 +185,8 @@ export default function Hero() {
               >
                 View My Work <ArrowRight size={16} />
               </a>
+              </Magnetic>
+              <Magnetic>
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -190,6 +197,7 @@ export default function Hero() {
               >
                 Get In Touch
               </a>
+              </Magnetic>
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new Event("open-quick-view"))}
@@ -236,7 +244,16 @@ export default function Hero() {
             className="flex flex-col items-center gap-3 lg:items-end"
           >
             {/* Profile Image */}
-            <div className="relative">
+            <motion.div
+              className="relative hero-photo"
+              style={{
+                rotateX: tilt.rotateX,
+                rotateY: tilt.rotateY,
+                transformPerspective: 900,
+              }}
+              onPointerMove={tilt.onPointerMove}
+              onPointerLeave={tilt.onPointerLeave}
+            >
               {/* Outer glow ring — static, no animation (blur+animate = very expensive) */}
               <div
                 className="absolute -inset-3 rounded-2xl opacity-40"
@@ -291,7 +308,7 @@ export default function Hero() {
               >
                 💼 <span className="text-cyan-400">Backend Intern @ Allkane</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Code card */}
             <motion.div
@@ -308,15 +325,7 @@ export default function Hero() {
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                 <span className="ml-2 text-slate-500 text-[10px]">aniket.js</span>
               </div>
-              {codeLines.map((line, i) => (
-                <div
-                  key={i}
-                  className={`${line.color} leading-5`}
-                  style={{ paddingLeft: line.indent ? `${line.indent * 16}px` : undefined }}
-                >
-                  {line.text}
-                </div>
-              ))}
+              <TypedCode lines={codeLines} />
             </motion.div>
 
             {/* Stats row — Increased width with full visibility */}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, Info, ArrowUpRight } from "lucide-react";
 import GithubIcon from "./icons/GithubIcon";
+import { useTilt } from "./useTilt";
 import type { Project } from "@/lib/projects";
 
 interface ProjectCardProps {
@@ -17,6 +18,7 @@ export default function ProjectCard({
   index,
   onOpenDetails,
 }: ProjectCardProps) {
+  const tilt = useTilt(6);
   const topTech = project.techStack.slice(0, 4);
   const remainingTechCount = project.techStack.length - 4;
 
@@ -36,11 +38,25 @@ export default function ProjectCard({
         }}
       />
 
-      <div
+      <motion.div
         onClick={() => onOpenDetails(project)}
-        className="relative glass-card rounded-2xl flex flex-col justify-between h-full overflow-hidden transition-all duration-200 group-hover:translate-y-[-2px] cursor-pointer"
-        style={{ border: `1px solid ${project.accentBorder}` }}
+        onPointerMove={tilt.onPointerMove}
+        onPointerLeave={tilt.onPointerLeave}
+        whileTap={{ scale: 0.98 }}
+        className="relative glass-card rounded-2xl flex flex-col justify-between h-full overflow-hidden cursor-pointer"
+        style={{
+          border: `1px solid ${project.accentBorder}`,
+          rotateX: tilt.rotateX,
+          rotateY: tilt.rotateY,
+          transformPerspective: 900,
+        }}
       >
+        {/* Light that follows the pointer (desktop) */}
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style={{ background: tilt.shine }}
+        />
         {/* Top accent bar */}
         <div
           className="h-1 w-full flex-shrink-0"
@@ -198,7 +214,7 @@ export default function ProjectCard({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

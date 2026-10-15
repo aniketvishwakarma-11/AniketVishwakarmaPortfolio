@@ -1,12 +1,22 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+
 // Pure CSS-animated orbs — no JS animation engine, no GPU layer overload
 // CSS animations are handled by the browser's compositor thread, not JS heap
 
 export default function FloatingOrbs() {
+  // Orbs drift as you scroll, so each section feels like a different "room"
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -140]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, 60]);
+
   return (
     <div
       className="fixed inset-0 pointer-events-none overflow-hidden -z-10"
       aria-hidden="true"
     >
+      <motion.div style={{ x, y }} className="absolute inset-0">
       {/* Orb 1 — cyan top-left */}
       <div
         className="orb orb-1"
@@ -58,6 +68,7 @@ export default function FloatingOrbs() {
           willChange: "transform",
         }}
       />
+      </motion.div>
     </div>
   );
 }

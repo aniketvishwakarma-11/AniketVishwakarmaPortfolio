@@ -309,3 +309,60 @@ main:focus {
 [role="button"] {
   cursor: pointer;
 }
+
+/* ============================================================
+   MOTION POLISH
+   ============================================================ */
+
+/* Intro splash: CSS fallback so it never sticks if JS fails */
+@keyframes splash-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.intro-splash {
+  animation: splash-out 0.3s ease 2.4s forwards;
+}
+
+/* Shimmer placeholder for lazy sections */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* Counter "pop" when it finishes counting */
+@keyframes counter-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.counter-pop {
+  animation: counter-pop 0.45s ease-out;
+}
+
+/* Touch screens have no hover/tilt, so give the profile photo a gentle idle float */
+@media (hover: none) {
+  .hero-photo {
+    animation: float 5s ease-in-out infinite;
+  }
+}
+
+/* Respect "reduce motion" for every CSS animation and transition */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .intro-splash {
+    display: none;
+  }
+}

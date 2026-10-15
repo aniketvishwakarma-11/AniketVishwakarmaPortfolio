@@ -529,9 +529,13 @@ export default function Skills() {
                     {category.skills.map((skill, skillIndex) => {
                       const isSelected = activeSkill?.name === skill.name;
                       return (
-                        <button
+                        <motion.button
                           key={skillIndex}
                           type="button"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.35, delay: catIndex * 0.05 + skillIndex * 0.04 }}
                           onMouseEnter={() =>
                             handleSkillMouseEnter(skill, category.accentHex)
                           }
@@ -560,7 +564,7 @@ export default function Skills() {
                         >
                           <span className="text-sm leading-none">{skill.icon}</span>
                           <span>{skill.name}</span>
-                        </button>
+                        </motion.button>
                       );
                     })}
                   </div>

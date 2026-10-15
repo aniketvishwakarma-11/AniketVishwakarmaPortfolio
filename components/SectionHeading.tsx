@@ -39,7 +39,18 @@ export default function SectionHeading({
           const words = title.split(" ");
           const isLast = i === words.length - 1;
           return isLast ? (
-            <span key={i} className="gradient-text"> {word}</span>
+            <motion.span
+              key={i}
+              className="gradient-text"
+              style={{ backgroundSize: "200% auto" }}
+              initial={{ backgroundPosition: "0% center" }}
+              whileInView={{ backgroundPosition: "100% center" }}
+              transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {" "}
+              {word}
+            </motion.span>
           ) : (
             <span key={i}>{word} </span>
           );
@@ -47,8 +58,12 @@ export default function SectionHeading({
       </h2>
 
       {/* Gradient accent line */}
-      <div
-        className={`w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-full ${center ? "mx-auto" : ""}`}
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: 64 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className={`h-0.5 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-full ${center ? "mx-auto" : ""}`}
       />
 
       {/* Subtitle */}

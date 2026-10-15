@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { showToast } from "./Toast";
+import Confetti from "./Confetti";
 
 const socialLinks = [
   {
@@ -238,15 +239,26 @@ export default function Contact() {
                 disabled={status === "sending"}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-primary flex items-center justify-center gap-2 py-3 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="btn-primary relative flex items-center justify-center gap-2 py-3 disabled:opacity-60 disabled:cursor-not-allowed"
               >
+                {status === "success" && <Confetti />}
                 {status === "sending" ? (
                   <>
                     <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     Sending...
                   </>
                 ) : status === "success" ? (
-                  <><CheckCircle size={16} /> Message Sent!</>
+                  <>
+                    <motion.span
+                      initial={{ scale: 0, rotate: -90 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 14 }}
+                      className="inline-flex"
+                    >
+                      <CheckCircle size={16} />
+                    </motion.span>
+                    Message Sent!
+                  </>
                 ) : status === "error" ? (
                   <><AlertCircle size={16} /> Try again</>
                 ) : (

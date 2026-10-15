@@ -172,20 +172,20 @@ export default function Projects() {
             </span>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeFilter}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              ref={carouselRef}
-              onScroll={onCarouselScroll}
-              className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-3 md:pb-0"
-            >
+          <div
+            ref={carouselRef}
+            onScroll={onCarouselScroll}
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 items-stretch overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 pb-3 md:pb-0"
+          >
+            <AnimatePresence mode="popLayout" initial={false}>
               {filteredFeatured.map((project, index) => (
-                <div
+                <motion.div
+                  layout
                   key={project.id}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.3 }}
                   className="snap-center shrink-0 w-[86%] sm:w-[60%] md:w-auto md:shrink"
                 >
                   <ProjectCard
@@ -193,9 +193,10 @@ export default function Projects() {
                     index={index}
                     onOpenDetails={openProject}
                   />
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </AnimatePresence>
+          </div>
             {filteredFeatured.length > 1 && (
               <div className="md:hidden flex flex-col items-center gap-2 mt-1">
                 <div className="flex items-center gap-1.5" aria-hidden="true">
@@ -223,7 +224,6 @@ export default function Projects() {
                 No projects match your search. Try another technology.
               </p>
             )}
-          </AnimatePresence>
         </motion.div>
 
         {/* ============================================================
